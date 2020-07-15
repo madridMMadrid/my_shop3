@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="l-container catalog">
 		<h1>Product</h1>
 		<router-link :to="{name: 'products'}">Вернуться</router-link>
 		<div class="alert alert-success">

@@ -10,6 +10,15 @@ import Checkout from './components/Checkout';
 
 
 import About from './components/MidleContent/TopMenu/About'
+import Reviews from './components/MidleContent/TopMenu/Reviews'
+import Jobs from './components/MidleContent/TopMenu/Jobs'
+import Contact from './components/MidleContent/TopMenu/Contact'
+import OurWorks from './components/MidleContent/TopMenu/OurWorks'
+
+
+import Delivery from './components/MidleContent/Services/Delivery'
+import Design from './components/MidleContent/Services/Design'
+import FurnitureAssembly from './components/MidleContent/Services/FurnitureAssembly'
 
 import E404 from './components/E404';
 
@@ -42,8 +51,40 @@ const routes = [{
         component: Checkout
     },
     {
+        path: '/',
+        component: Product
+    },
+    {
         path: '/About',
         component: About
+    },
+    {
+        path: '/Reviews',
+        component: Reviews
+    },
+    {
+        path: '/Jobs',
+        component: Jobs
+    },
+    {
+        path: '/Contact',
+        component: Contact
+    },
+    {
+        path: '/OurWorks',
+        component: OurWorks
+    },
+    {
+        path: '/Delivery',
+        component: Delivery
+    },
+    {
+        path: '/Design',
+        component: Design
+    },
+    {
+        path: '/FurnitureAssembly',
+        component: FurnitureAssembly
     },
     {
         path: '*',
@@ -53,5 +94,6 @@ const routes = [{
 
 export const router = new VueRouter({
     routes,
+    store,
     mode: 'history'
 });

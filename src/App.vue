@@ -5,141 +5,23 @@
         <div class="first-screen-background"></div>
 
         <div class="left-column">
-
-					<LeftMenu />
-					<FreeDesign />
-
+          <LeftMenu />
+          <FreeDesign />
         </div>
 
         <main class="l-main">
           <header class="header">
             <div class="l-container">
-              <div class="header-info d-flex jc-sb">
-                <div class="header-info-element d-flex ai-c">
-                  <svg class="primary-icon icon-green">
-                    <use xlink:href="../sprite-manual.svg#phone-icon" />
-                  </svg>
-                  <a
-                    class="header-info-phone"
-                    href="tel:+74951209759"
-                    tabindex="0"
-                  >+7 (495) 120-97-59</a>
-                </div>
-                <div class="header-info-element d-flex ai-c">
-                  <svg class="primary-icon icon-green">
-                    <use xlink:href="../sprite-manual.svg#clock-icon" />
-                  </svg>
-                  <div class="header-info-text">Круглосуточно, без выходных</div>
-                </div>
-                <div class="header-actions d-flex">
-                  <div class="header-info-element d-flex ai-c" role="button" tabindex="0">
-                    <svg class="primary-icon header-actions-icon">
-                      <use xlink:href="../sprite-manual.svg#favorite-icon" />
-                    </svg>
-                    <div class="header-actions-count">0</div>
-                  </div>
-                  <div class="header-info-element d-flex ai-c" role="button" tabindex="0">
-                    <svg class="primary-icon header-actions-icon">
-                      <use xlink:href="../sprite-manual.svg#compare-icon" />
-                    </svg>
-                    <div class="header-actions-count">0</div>
-                  </div>
-                </div>
-                <div class="header-info-element d-flex ai-c">
-                  <svg class="primary-icon icon-green">
-                    <use xlink:href="../sprite-manual.svg#location-icon" />
-                  </svg>
-                  <div class="header-info-text">Ваш город:</div>
-                  <div class="header-info-country" role="button" tabindex="0">Москва</div>
-                </div>
-                <div class="header-actions d-flex">
-                  <button
-                    class="button-global button_small button-primary-green call-button"
-                    tabindex="0"
-                  >
-                    Заказать
-                    звонок
-                  </button>
-                  <button
-                    class="button-global button_small button-optional-green email-button"
-                    tabindex="0"
-                  >Написать нам</button>
-                </div>
-              </div>
-              <nav class="l-box header-menu">
-                <!-- <a class="link-orange header-menu-item -is-active" href tabindex="0">Главная</a>
-                <a class="link-orange header-menu-item" href tabindex="0">О компании</a>
-                <a class="link-orange header-menu-item" href tabindex="0">Отзывы</a>
-                <a class="link-orange header-menu-item" href tabindex="0">Вакансии</a>
-                <a class="link-orange header-menu-item" href tabindex="0">Контакты</a>
-                <a class="link-orange header-menu-item" href tabindex="0">Наши работы</a>-->
-                <router-link
-                  v-for="(item, index) in menuListTop"
-                  :key="index"
-                  :to="item.url"
-                  tag="a"
-                  class="link-orange header-menu-item"
-                  active-class="-is-active"
-                >{{ item.text }}</router-link>
-              </nav>
+              <Info />
+              <TopMenu />
+
               <div class="l-box d-flex jc-sb ai-fs">
-                <form class="header-finder">
-                  <input
-                    class="header-finder-field"
-                    type="text"
-                    placeholder="Поиск по сайту"
-                    tabindex="0"
-                  />
-                  <button
-                    class="button-global header-finder-button"
-                    tabindex="0"
-                    title="отменить поиск"
-                  >
-                    <svg class="primary-icon">
-                      <use xlink:href="../sprite-manual.svg#finder-icon" />
-                    </svg>
-                  </button>
-                  <button
-                    class="button-global header-finder-button"
-                    type="submit"
-                    title="начать поиск"
-                    tabindex="0"
-                  >
-                    <svg class="primary-icon">
-                      <use xlink:href="../sprite-manual.svg#close-icon" />
-                    </svg>
-                  </button>
-                </form>
-                <div class="header-basket is-not-empty">
-                  <p class="header-basket-text">Ваша корзина пуста</p>
-                  <a class="header-basket-price" href="#">
-                    <span class="header-basket-price-count">{{ lengthCart }}</span>
-                    <span class="header-basket-price-text">товар</span>
-                  </a>
-                  <p class="header-basket-sum">
-                    на 5 000
-                    <sup class="header-basket-currency">руб</sup>
-                  </p>
-                  <button
-                    class="button-global button_small button-orange order-button"
-                    tabindex="0"
-                  >Оформить заказ</button>
-                </div>
+                <Search />
+                <Cart />
               </div>
-              <nav class="header-optional-menu d-flex jc-sb ai-c">
-                <a class="header-optional-menu-item d-flex ai-c" href>
-                  <img class="header-optional-menu-icon" src="images/desing-project-icon.png" />
-                  <div class="header-optional-menu-title">дизайн проект</div>
-                </a>
-                <a class="header-optional-menu-item d-flex ai-c" href>
-                  <img class="header-optional-menu-icon" src="images/delivery-icon.png" />
-                  <div class="header-optional-menu-title">доставка</div>
-                </a>
-                <a class="header-optional-menu-item d-flex ai-c" href>
-                  <img class="header-optional-menu-icon" src="images/repair-icon.png" />
-                  <div class="header-optional-menu-title">сборка мебели</div>
-                </a>
-              </nav>
+
+              <Services />
+							
             </div>
             <div class="banner-slider slider">
               <router-view></router-view>
@@ -153,21 +35,25 @@
 
 <script>
 import { mapGetters } from "vuex";
-import LeftMenu from './components/LeftContent/LeftMenu.vue'
-import FreeDesign from './components/LeftContent/FreeDesign.vue'
+
+import LeftMenu from "./components/LeftContent/LeftMenu";
+import FreeDesign from "./components/LeftContent/FreeDesign";
+
+import Info from "./components/MidleContent/Info";
+import Search from "./components/MidleContent/Search";
+import Cart from "./components/MidleContent/Cart";
+import Services from "./components/MidleContent/Services";
+import TopMenu from "./components/MidleContent/TopMenu/TopMenu";
 
 export default {
-	components: {
-		LeftMenu,
-		FreeDesign
-  },
-  computed: {
-    ...mapGetters("menu", {
-      menuListTop: "topMenu"
-    }),
-    ...mapGetters("cart", {
-      lengthCart: "cnt"
-    })
+  components: {
+    LeftMenu,
+    FreeDesign,
+    Info,
+    TopMenu,
+    Search,
+		Cart,
+		Services
   }
 };
 </script>

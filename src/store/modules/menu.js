@@ -15,9 +15,37 @@ export default {
             }
         ],
         topMenu: [{
+            url: '/',
+            text: 'Главная'
+        }, {
             url: '/about',
-            text: 'About'
-        }]
+            text: 'О компании'
+        }, {
+            url: '/reviews',
+            text: 'Отзывы'
+        }, {
+            url: '/jobs',
+            text: 'Вакансии'
+        }, {
+            url: '/contact',
+            text: 'Контакты'
+        }, {
+            url: '/ourworks',
+            text: 'Наши работы'
+        }],
+        service: [{
+                url: '/design',
+                text: 'Design'
+            },
+            {
+                url: '/delivery',
+                text: 'Ddelivery'
+            },
+            {
+                url: '/FurnitureAssembly',
+                text: 'Furniture Assembly'
+            }
+        ],
     },
     getters: {
         items(state) {
@@ -25,6 +53,9 @@ export default {
         },
         topMenu(state) {
             return state.topMenu;
+        },
+        service(state) {
+            return state.service;
         }
     },
     mutations: {

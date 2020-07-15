@@ -1,6 +1,6 @@
 <template>
 	<div class="l-container">
-		<h1>About</h1>
+		<h1>Jobs</h1>
 		<hr>
 	</div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="l-container">
 		<h1>Cart</h1>
 		<hr>
 
