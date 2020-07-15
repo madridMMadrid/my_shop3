@@ -16,7 +16,7 @@
 					</tr>
 				</thead>	
 				<tbody>
-					<tr v-for="product in products">
+					<tr v-for="(product, i) in products" :key="i">
 						<td>{{ product.title }}</td>
 						<td>{{ product.price }}</td>
 					</tr>
