@@ -1184,4 +1184,128 @@ input {
     transform: rotate(180deg);
   }
 }
+.collection-image-main {
+	max-width: 670px;
+	height: 490px;
+}
+.collection-gallery {
+	max-width: 195px;
+}
+.collection-gallery-button {
+	width: 100%;
+	padding: 8px 0;
+	border: 0 solid;
+	background-color: #f9f8f3;
+	transition: background-color .2s;
+	&:not([disabled]) {
+		&:focus {
+			background-color: #f3f1ef;
+		}
+		&:hover {
+			background-color: #f3f1ef;
+		}
+		&:active {
+			box-shadow: inset 1px 1px 1px 2px rgba(0, 0, 0, .1);
+			-webkit-transform: translateY(1px);
+			transform: translateY(1px);
+		}
+	}
+}
+.collection-gallery-button-icon {
+	width: 12px;
+	height: 12px;
+	fill: #f59115;
+}
+.collection-gallery-button.next {
+	.collection-gallery-button-icon {
+		-webkit-transform: rotate(90deg);
+		transform: rotate(90deg);
+	}
+}
+.collection-gallery-button.prev {
+	.collection-gallery-button-icon {
+		-webkit-transform: rotate(-90deg);
+		transform: rotate(-90deg);
+	}
+}
+.collection-gallery-image {
+	max-width: 100%;
+	margin: 5px 0;
+	&:not(.active) {
+		opacity: .5;
+		cursor: pointer;
+		transition: opacity .2s;
+		&:not([disabled]) {
+			&:hover {
+				opacity: .9;
+			}
+		}
+	}
+}
+.collection-gallery-slides {
+	max-height: 425px;
+	overflow: hidden;
+}
+.collection-info {
+	margin-top: 35px;
+}
+.collection-info-block {
+	flex: 0 0 40%;
+	&:last-child {
+		max-width: 350px;
+		position: relative;
+	}
+}
+.collection-info-characteristic {
+	margin-bottom: 35px;
+	font-size: 15px;
+	border-bottom: 1px dashed #bfbfbf;
+}
+.collection-info-characteristic-name {
+	margin-bottom: -5px;
+	background-color: #fff;
+	padding-right: 10px;
+	font-weight: 600;
+	color: #bfbfbf;
+}
+.collection-info-characteristic-value {
+	margin-bottom: -5px;
+	background-color: #fff;
+	padding-left: 10px;
+	color: #595959;
+}
+.collection-info-button {
+	width: 100%;
+	padding: 12px;
+	margin-top: 30px;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 600;
+}
+.collection-info-button-icon {
+	width: 18px;
+	height: 18px;
+	margin-right: 10px;
+	display: inline-block;
+	fill: #fff;
+	vertical-align: sub;
+}
+.show-more {
+	max-width: 70px;
+	background-color: transparent;
+	border: 0 solid;
+	font-size: 15px;
+	line-height: 19px;
+	text-align: center;
+	position: absolute;
+	right: 20%;
+	top: 15%;
+	transition: .2s;
+}
+.show-more-count {
+	margin-top: 3px;
+	display: block;
+	color: #8f8c89;
+}
+
 </style>

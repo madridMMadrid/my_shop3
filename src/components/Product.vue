@@ -1,22 +1,1217 @@
 <template>
-	<div class="l-container catalog">
-		<h1>Product</h1>
-		<router-link :to="{name: 'products'}">Вернуться</router-link>
-		<div class="alert alert-success">
-			{{ product }}
-		</div>
-		<hr>
-	</div>
+  <div class="l-container catalog">
+    <h1>Product</h1>
+    <router-link :to="{name: 'products'}">Вернуться</router-link>
+    <div class="alert alert-success">
+      {{ product }}
+      <section class="l-container collection">
+        <div class="l-box d-flex jc-sb ai-c">
+          <h1 class="primary-title">{{ product.title }}</h1>
+          <div class="primary-price">от {{product.price}} руб</div>
+        </div>
+        <div class="l-box identend d-flex jc-sb ai-c">
+          <div class="item-actions d-flex ai-c">
+            <div class="rating d-flex ai-c">
+              <div class="rating-stars">
+                <div class="rating-star">
+                  <svg class="rating-star_out">
+                    <use xlink:href="../sprite-manual.svg#rating-icon" />
+                  </svg>
+                  <div class="rating-star-fill full-part">
+                    <svg class="rating-star_in">
+                      <use xlink:href="../sprite-manual.svg#rating-icon" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="rating-star">
+                  <svg class="rating-star_out">
+                    <use xlink:href="../sprite-manual.svg#rating-icon" />
+                  </svg>
+                  <div class="rating-star-fill full-part">
+                    <svg class="rating-star_in">
+                      <use xlink:href="../sprite-manual.svg#rating-icon" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="rating-star">
+                  <svg class="rating-star_out">
+                    <use xlink:href="../sprite-manual.svg#rating-icon" />
+                  </svg>
+                  <div class="rating-star-fill full-part">
+                    <svg class="rating-star_in">
+                      <use xlink:href="../sprite-manual.svg#rating-icon" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="rating-star">
+                  <svg class="rating-star_out">
+                    <use xlink:href="../sprite-manual.svg#rating-icon" />
+                  </svg>
+                  <div class="rating-star-fill full-part">
+                    <svg class="rating-star_in">
+                      <use xlink:href="../sprite-manual.svg#rating-icon" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="rating-star">
+                  <svg class="rating-star_out">
+                    <use xlink:href="../sprite-manual.svg#rating-icon" />
+                  </svg>
+                  <div class="rating-star-fill third-part">
+                    <svg class="rating-star_in">
+                      <use xlink:href="../sprite-manual.svg#rating-icon" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <p class="rating-reviews">
+                <span class="rating-reviews-count">2</span>
+                <span class="rating-reviews-text">отзыва</span>
+              </p>
+            </div>
+            <div class="share">
+              <div class="item-actions-group d-flex ai-c" role="button">
+                <svg class="item-actions-icon share-icon">
+                  <use xlink:href="../sprite-manual.svg#share-icon" />
+                </svg>
+                <p class="item-actions-text">Поделиться</p>
+              </div>
+            </div>
+            <div class="favorite">
+              <div class="item-actions-group d-flex ai-c" role="button">
+                <svg class="item-actions-icon favorite-icon">
+                  <use xlink:href="../sprite-manual.svg#favorite-icon" />
+                </svg>
+                <p class="item-actions-text">В избранное</p>
+              </div>
+            </div>
+            <div class="compare">
+              <div class="item-actions-group d-flex ai-c" role="button">
+                <svg class="item-actions-icon compare-icon">
+                  <use xlink:href="../sprite-manual.svg#compare-icon" />
+                </svg>
+                <p class="item-actions-text">Сравнить</p>
+              </div>
+            </div>
+          </div>
+          <div class="primary-identifier">id: {{ product.id_product }}</div>
+        </div>
+        <div class="l-box d-flex ai-fs jc-sb">
+          <img
+            class="collection-image-main"
+            src="../assets/images/gallery-ekonom-image-main.jpg"
+            alt
+          />
+          <div class="collection-gallery">
+            <button class="collection-gallery-button prev" tabindex="0">
+              <svg class="collection-gallery-button-icon">
+                <use xlink:href="/sprite-manual.svg#next-icon" />
+              </svg>
+            </button>
+            <div class="collection-gallery-slides">
+              <img
+                class="collection-gallery-image active"
+                src="../assets/images/gallery-ekonom-image-main.jpg"
+                alt
+              />
+              <img
+                class="collection-gallery-image"
+                src="../assets/images/gallery-ekonon-image01.jpg"
+                alt
+              />
+              <img
+                class="collection-gallery-image"
+                src="../assets/images/gallery-ekonon-image01.jpg"
+                alt
+              />
+              <img
+                class="collection-gallery-image"
+                src="../assets/images/gallery-ekonon-image01.jpg"
+                alt
+              />
+            </div>
+            <button class="collection-gallery-button next" tabindex="0">
+              <svg class="collection-gallery-button-icon">
+                <use xlink:href="/sprite-manual.svg#next-icon" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="l-box collection-info d-flex jc-sb">
+          <div class="collection-info-block">
+            <div class="collection-info-characteristic d-flex jc-sb">
+              <span class="collection-info-characteristic-name">Базовая комплектация</span>
+              <span class="collection-info-characteristic-value">Стол рабочий</span>
+            </div>
+            <div class="collection-info-characteristic d-flex jc-sb">
+              <span class="collection-info-characteristic-name">Материал столешницы</span>
+              <span class="collection-info-characteristic-value">ЛДСП</span>
+            </div>
+            <div class="collection-info-characteristic d-flex jc-sb">
+              <span class="collection-info-characteristic-name">Стиль мебели</span>
+              <span class="collection-info-characteristic-value">Классика</span>
+            </div>
+            <div class="collection-info-characteristic d-flex jc-sb">
+              <span class="collection-info-characteristic-name">Страна производства</span>
+              <span class="collection-info-characteristic-value">Россия</span>
+            </div>
+            <div class="collection-info-characteristic d-flex jc-sb">
+              <span class="collection-info-characteristic-name">Толщина столешницы</span>
+              <span class="collection-info-characteristic-value">16 мм</span>
+            </div>
+          </div>
+          <div class="collection-info-block">
+            <div class="primary-subtitle">Выберите вариант расцветки:</div>
+            <div class="select-color">
+              <div class="select-color-list d-flex ai-c fw-w">
+                <img
+                  class="select-color-image"
+                  src="../assets/images/colors-icon_brown.jpg"
+                  alt
+                  role="button"
+                />
+                <img
+                  class="select-color-image"
+                  src="../assets/images/colors-icon_white.jpg"
+                  alt
+                  role="button"
+                />
+                <img
+                  class="select-color-image"
+                  src="../assets/images/colors-icon_red.jpg"
+                  alt
+                  role="button"
+                />
+                <div class="show-more colors" role="button">
+                  <span class="show-more-text link-dashed">
+                    Показать все
+                    цвета
+                  </span>
+                  <span class="show-more-count">(ещё 5)</span>
+                </div>
+              </div>
+            </div>
+            <div class="primary-subtitle">Выберите цвет каркаса:</div>
+            <div class="choice select-frame">
+              <div class="choice-selected select-frame-selected d-flex jc-sb ai-c" role="button">
+                <img class="select-frame-image" src="../assets/images/colors-icon_brown.jpg" alt />
+                <span class="choice-selected-title select-frame-title">Антрацит</span>
+                <svg class="choice-selected-icon">
+                  <use xlink:href="sprite-manual.svg#next-icon" />
+                </svg>
+              </div>
+              <div class="choice-list"></div>
+            </div>
+            <button class="button-global button-primary-green collection-info-button">
+              <svg class="collection-info-button-icon">
+                <use xlink:href="sprite-manual.svg#phone-icon-filled" />
+              </svg>
+              <span class="collection-info-button-text">Заказать по телефону</span>
+            </button>
+          </div>
+        </div>
+        <div class="l-box tabs item-tabs">
+          <div class="tabs-header item-tabs-header d-flex jc-sb">
+            <button class="button-global tabs-header-item item-tabs-header-element is-active">
+              Элементы
+              комплектации
+            </button>
+            <button class="button-global tabs-header-item item-tabs-header-element">
+              Информация о
+              коллекции
+            </button>
+            <button class="button-global tabs-header-item item-tabs-header-element">
+              Отзывы (
+              <span class="reviews-count">2</span>)
+            </button>
+            <button class="button-global tabs-header-item item-tabs-header-element">
+              Вопрос ответ (
+              <span class="ans-ask-count">0</span>)
+            </button>
+          </div>
+          <div class="tab-content item-tabs-content">
+            <div class="tabs-header item-tabs-content-element product-menu d-flex jc-sb ai-fs">
+              <div class="tabs-header-item product-menu-element is-active" role="button">
+                <div class="product-menu-name">Все</div>
+              </div>
+              <div
+                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
+                role="button"
+              >
+                <svg class="product-menu-icon">
+                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
+                </svg>
+                <div class="product-menu-name">Столы</div>
+              </div>
+              <div
+                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
+                role="button"
+              >
+                <svg class="product-menu-icon">
+                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
+                </svg>
+                <div class="product-menu-name">Столы</div>
+              </div>
+              <div
+                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
+                role="button"
+              >
+                <svg class="product-menu-icon">
+                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
+                </svg>
+                <div class="product-menu-name">Столы</div>
+              </div>
+              <div
+                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
+                role="button"
+              >
+                <svg class="product-menu-icon">
+                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
+                </svg>
+                <div class="product-menu-name">Столы</div>
+              </div>
+              <div
+                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
+                role="button"
+              >
+                <svg class="product-menu-icon">
+                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
+                </svg>
+                <div class="product-menu-name">Брифинг и приставки</div>
+              </div>
+              <div
+                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
+                role="button"
+              >
+                <svg class="product-menu-icon">
+                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
+                </svg>
+                <div class="product-menu-name">Столы</div>
+              </div>
+              <div
+                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
+                role="button"
+              >
+                <svg class="product-menu-icon">
+                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
+                </svg>
+                <div class="product-menu-name">Столы</div>
+              </div>
+              <div
+                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
+                role="button"
+              >
+                <svg class="product-menu-icon">
+                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
+                </svg>
+                <div class="product-menu-name">Стол</div>
+              </div>
+            </div>
+          </div>
+          <div class="l-box small-filters dropdown-button" role="button" tabindex="0">
+            <div class="small-filters-header d-flex">
+              <div class="small-filters-text">Сортировать:</div>
+              <div class="small-filters-button">
+                <div class="small-filters-text">Сначала дешевые</div>
+                <svg class="small-filters-icon">
+                  <use xlink:href="../sprite-manual.svg#dropdown-icon" />
+                </svg>
+              </div>
+            </div>
+            <div class="small-filters-list dropdown-list">
+              <div class="small-filters-list-item is-active" role="button">Сначала дешевые</div>
+              <div class="small-filters-list-item" role="button">Сначала дорогие</div>
+              <div class="small-filters-list-item" role="button">По новизне</div>
+              <div class="small-filters-list-item" role="button">По популярности</div>
+            </div>
+          </div>
+          <div class="tab-content d-flex ai-c fw-w product-list">
+            <div class="product-card">
+              <div class="product-card-title">Стол приставной</div>
+              <img class="product-card-image" src="../assets/images/product-table_brown.jpg" />
+              <div class="product-card-scale">
+                <div class="product-card-scale-size">90 см</div>
+                <div class="product-card-scale-size">60 см</div>
+                <div class="product-card-scale-size">90 см</div>
+              </div>
+              <div class="product-card-info">
+                <div class="product-card-info-text green product-key">Код товара</div>
+                <div class="product-card-info-text green product-id">ID</div>
+                <div class="product-card-info-text black">Срок доставки</div>
+              </div>
+              <div class="product-card-actions">
+                <svg class="primary-icon product-card-icon" role="button">
+                  <use xlink:href="sprite-manual.svg#compare-icon" />
+                </svg>
+              </div>
+              <div class="product-card-buy d-flex jc-sb">
+                <div class="product-card-buy-price">
+                  <span class="product-card-buy-price-text">3926</span>
+                  <sup class="product-card-buy-price-currency">руб</sup>
+                </div>
+                <div class="product-card-buy-count d-flex ai-c">
+                  <input class="product-card-buy-count-input" value="1" />
+                  <div class="product-card-buy-count-controls">
+                    <button class="button-global product-card-buy-count-button more">
+                      <svg class="product-card-buy-count-icon">
+                        <use xlink:href="sprite-manual.svg#arrow-up-icon" />
+                      </svg>
+                    </button>
+                    <button class="button-global product-card-buy-count-button less">
+                      <svg class="product-card-buy-count-icon">
+                        <use xlink:href="sprite-manual.svg#arrow-up-icon" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <button
+                  class="product-card-buy-button button-global button-primary-green"
+                  @click="addToCart(product.id_product)"
+                  v-if="inCart.indexOf(product.id_product) === -1"
+                >Add to card</button>
+                <button
+                  class="btn btn-warning"
+                  @click="removeCart(product.id_product)"
+                  v-else
+                >Remove to card</button>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-card-title">Стол приставной</div>
+              <img class="product-card-image" src="../assets/images/product-table_brown.jpg" />
+              <div class="product-card-scale">
+                <div class="product-card-scale-size">90 см</div>
+                <div class="product-card-scale-size">60 см</div>
+                <div class="product-card-scale-size">90 см</div>
+              </div>
+              <div class="product-card-info">
+                <div class="product-card-info-text green product-key">Код товара</div>
+                <div class="product-card-info-text green product-id">ID</div>
+                <div class="product-card-info-text black">Срок доставки</div>
+              </div>
+              <div class="product-card-actions">
+                <svg class="primary-icon product-card-icon" role="button">
+                  <use xlink:href="sprite-manual.svg#compare-icon" />
+                </svg>
+              </div>
+              <div class="product-card-buy d-flex jc-sb">
+                <div class="product-card-buy-price">
+                  <span class="product-card-buy-price-text">3926</span>
+                  <sup class="product-card-buy-price-currency">руб</sup>
+                </div>
+                <div class="product-card-buy-count d-flex ai-c">
+                  <input class="product-card-buy-count-input" value="1" />
+                  <div class="product-card-buy-count-controls">
+                    <button class="button-global product-card-buy-count-button more">
+                      <svg class="product-card-buy-count-icon">
+                        <use xlink:href="sprite-manual.svg#arrow-up-icon" />
+                      </svg>
+                    </button>
+                    <button class="button-global product-card-buy-count-button less">
+                      <svg class="product-card-buy-count-icon">
+                        <use xlink:href="sprite-manual.svg#arrow-up-icon" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <button class="product-card-buy-button button-global button-primary-green">
+                  <svg class="primary-icon product-card-buy-icon">
+                    <use xlink:href="sprite-manual.svg#basket-icon" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="l-container sentence column">
+        <div class="primary-title sentence-title">Обратите внимание</div>
+        <div class="l-box d-flex jc-sb">
+          <a class="sentence-block fd-c d-flex" href>
+            <img class="sentence-image" src="./../assets/images/sentence-block-column-image01.jpg" />
+            <div class="sentence-block-right d-flex jc-c ai-c fd-c">
+              <div class="sentence-block-name">Эконом</div>
+            </div>
+          </a>
+          <a class="sentence-block fd-c d-flex" href>
+            <img class="sentence-image" src="./../assets/images/sentence-block-column-image01.jpg" />
+            <div class="sentence-block-right d-flex jc-c ai-c fd-c">
+              <div class="sentence-block-name">Кабинеты руководителей</div>
+              <p class="sentence-block-price">
+                от 4 882
+                <sup class="sentence-block-currency">руб</sup>
+              </p>
+            </div>
+          </a>
+          <a class="sentence-block fd-c d-flex" href>
+            <img class="sentence-image" src="./../assets/images/sentence-block-column-image01.jpg" />
+            <div class="sentence-block-right d-flex jc-c ai-c fd-c">
+              <div class="sentence-block-name">Столы для переговоров</div>
+              <p class="sentence-block-price">
+                от 2 242
+                <sup class="sentence-block-currency">руб</sup>
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
 </template>
 <script>
-	export default {
-		computed: {
-			id() {
-				return this.$route.params.id;
-			},
-			product() {
-				return this.$store.getters['products/item'](this.id);
-			}
-		}
-	}
+import { mapGetters, mapActions } from "vuex";
+
+export default {
+  computed: {
+    id() {
+      return this.$route.params.id;
+    },
+    product() {
+      return this.$store.getters["products/item"](this.id);
+		},
+    ...mapGetters("products", {
+      products: "items"
+    }),
+    ...mapGetters("cart", {
+      inCart: "products"
+    })
+  },
+  methods: {
+    ...mapActions("cart", {
+      addToCart: "add",
+      removeCart: "remove"
+    })
+  }
+};
 </script>
+<style lang="scss">
+// @import "https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext";
+body {
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+  &::-moz-selection {
+    background-color: hsla(0, 0%, 66.7%, 0.29);
+  }
+  &::selection {
+    background-color: hsla(0, 0%, 66.7%, 0.29);
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: 50px 140px;
+  background-color: #f9f8f3;
+  .dropdown-icon {
+    margin: 0 0 0 7px;
+    fill: #8f8c89;
+  }
+  .dropdown-list-item {
+    margin: 10px 0;
+    font-size: 11px;
+    font-style: italic;
+  }
+}
+
+.call-button {
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+.order-button {
+  position: absolute;
+  left: 0;
+  -webkit-transform: translate(45%, 20%);
+  transform: translate(45%, 20%);
+}
+.product-card {
+  max-width: 216px;
+  margin: 10px 12px 10px 0;
+  flex: 0 0 24%;
+  border: 1px solid #e2e0d3;
+  text-align: center;
+  &:nth-child(4n) {
+    margin-right: 0;
+  }
+}
+.product-card-title {
+  padding: 10px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #595959;
+}
+.product-card-scale {
+  padding-top: 10px;
+  border-top: 1px solid #e2e0d3;
+}
+.product-card-scale-size {
+  display: inline-block;
+  margin: 5px;
+  color: #858585;
+  font-size: 13px;
+}
+.product-card-info {
+  margin: 5px 0;
+}
+.product-card-info-text {
+  font-size: 13px;
+}
+.product-card-info-text.green {
+  color: #00a75f;
+}
+.product-card-info-text.black {
+  color: #858585;
+}
+.product-card-actions {
+  text-align: right;
+  margin: 5px 10px;
+}
+.product-card-icon {
+  fill: #858585;
+}
+.product-card-buy {
+  padding: 5px 10px;
+  margin-top: 5px;
+  background-color: #f9f8f3;
+}
+.product-card-buy-price {
+  color: #595959;
+}
+.product-card-buy-price-text {
+  font-size: 25px;
+}
+.product-card-buy-price-currency {
+  margin-left: 3px;
+  font-size: 13px;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+.product-card-buy-count {
+  margin-left: 15%;
+}
+.product-card-buy-count-input {
+  max-width: 30px;
+  padding: 5px;
+  border: 1px solid #e2e0d3;
+  text-align: center;
+  color: #b8ad87;
+  font-size: 15px;
+}
+.product-card-buy-count-button {
+  display: block;
+  padding: 3px;
+  background-color: #ebe8e5;
+  border: 1px solid #e2e0d3;
+  border-left: 0 solid;
+  border-radius: 0;
+  line-height: 0;
+  &:last-child {
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    border-bottom: 0 solid #e2e0d3;
+    border-left: 1px solid #e2e0d3;
+    border-right: 0 solid;
+  }
+}
+.product-card-buy-count-icon {
+  width: 8px;
+  height: 8px;
+  fill: #ada587;
+}
+.product-card-buy-button {
+  padding: 5px 8px;
+}
+.product-card-buy-icon {
+  fill: #fff;
+  vertical-align: middle;
+}
+.primary-form {
+  width: 100%;
+}
+.primary-form-field {
+  transition: box-shadow 0.2s;
+  &:not([disabled]) {
+    &:focus {
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+    }
+    &:hover {
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+.primary-form-input {
+  padding-left: 20px;
+  color: #595959;
+  font-size: 15px;
+  &::-webkit-input-placeholder {
+    color: #595959;
+  }
+}
+.primary-form-icon {
+  width: 20px;
+  height: 20px;
+  fill: #00a75f;
+}
+.dropdown-icon {
+  width: 6px;
+  height: 6px;
+}
+.dropdown-list {
+  display: none;
+}
+.dropdown-list-item {
+  display: block;
+}
+.dropdown-list.is-showed {
+  display: block;
+}
+.breadcrumbs {
+  padding: 10px 25px;
+}
+.breadcrumbs-item {
+  &:not(:last-child) {
+    &:after {
+      content: "/";
+      margin: 0 10px;
+      display: inline-block;
+      color: #bfbfbf;
+    }
+  }
+}
+.breadcrumbs-item-name {
+  font-size: 13px;
+  font-style: normal;
+}
+.breadcrumbs-item.is-active {
+  color: #595959;
+  cursor: auto;
+}
+.pagination {
+  width: 100%;
+  max-width: 150px;
+  margin: 20px auto 0;
+  position: relative;
+}
+.pagination-pages-item {
+  margin: 0 3px;
+  padding: 5px 10px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  &:not(.is-active) {
+    color: #8f8c89;
+    transition: 0.2s;
+    &:not([disabled]) {
+      &:focus {
+        color: #595959;
+      }
+      &:hover {
+        color: #595959;
+      }
+    }
+  }
+}
+.pagination-pages-item.is-active {
+  background-color: #f59115;
+  color: #fff;
+}
+.pagination-icon {
+  width: 22px;
+  height: 22px;
+  padding: 5px;
+  fill: #8f8c89;
+  position: absolute;
+  top: 50%;
+  transition: 0.2s;
+  &:not([disabled]) {
+    &:focus {
+      fill: #fff;
+      background-color: #f59115;
+    }
+    &:hover {
+      fill: #fff;
+      background-color: #f59115;
+    }
+  }
+}
+.pagination-icon.next {
+  right: 0;
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+}
+.pagination-icon.prev {
+  left: 0;
+  -webkit-transform: rotate(-180deg) translate(50%, 52%);
+  transform: rotate(-180deg) translate(50%, 52%);
+}
+.item-actions-group {
+  margin: 0 10px;
+  &:not([disabled]) {
+    &:hover {
+      .item-actions-icon {
+        fill: #f59115;
+      }
+      .item-actions-text {
+        color: #f59115;
+      }
+    }
+    &:focus {
+      .item-actions-icon {
+        fill: #f59115;
+      }
+      .item-actions-text {
+        color: #f59115;
+      }
+    }
+  }
+}
+.item-actions-icon {
+  transition: fill 0.2s;
+  width: 18px;
+  height: 18px;
+  fill: #bfbfbf;
+}
+.item-actions-text {
+  transition: color 0.2s;
+  margin-left: 8px;
+  display: inline-block;
+  color: #bfbfbf;
+  font-size: 14px;
+}
+.item-actions {
+  .rating {
+    margin-right: 10px;
+    .rating-star_in {
+      width: 18px;
+      height: 18px;
+    }
+    .rating-star_out {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  .rating-star {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    position: relative;
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+  }
+  .rating-star_out {
+    fill: #bfbfbf;
+  }
+  .rating-star_in {
+    fill: #f59115;
+  }
+  .rating-star-fill {
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+  .rating-star-fill.fourth-part {
+    width: 25%;
+  }
+  .rating-star-fill.third-part {
+    width: 45%;
+  }
+  .rating-star-fill.second-part {
+    width: 70%;
+  }
+  .rating-star-fill.full-part {
+    width: 100%;
+  }
+  .rating-reviews {
+    margin-left: 10px;
+    color: #bfbfbf;
+    font-size: 14px;
+    line-height: 0;
+  }
+  .rating-reviews-text {
+    margin-left: 3px;
+  }
+}
+.choice-selected {
+  border: 1px solid #f0efeb;
+}
+.choice-selected-title {
+  color: #595959;
+}
+.choice-selected-icon {
+  width: 12px;
+  height: 12px;
+  fill: #595959;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.select-color {
+  margin-bottom: 15px;
+}
+.select-color-image {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 15px;
+  border: 4px solid #bfbfbf;
+  border-radius: 50%;
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+.select-frame-selected {
+  padding: 10px 15px;
+}
+.select-frame-image {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.select-frame-title {
+  padding: 0 20px;
+  flex-grow: 1;
+}
+.item-tabs {
+  margin-top: 45px;
+}
+.item-tabs-header-element {
+  flex: 1 1 0;
+  padding: 5px 0;
+  background-color: #f9f8f3;
+  font-size: 14px;
+  color: #8f8c89;
+  font-weight: 600;
+  &:not(:first-child) {
+    margin-left: 5px;
+  }
+}
+.item-tabs-header-element.is-active {
+  color: #444643;
+  background-color: #fff;
+  border: 1px solid #ebe8e5;
+  border-bottom-color: #fff;
+  margin-bottom: -1px;
+  border-radius: 4px 4px 0 0;
+  margin-top: -5px;
+}
+.item-tabs-content {
+  padding: 35px 15px 20px;
+  border: 1px solid #ebe8e5;
+}
+.item-tabs-content-icon {
+  width: 35px;
+  height: 35px;
+  fill: #b8ad87;
+}
+.product-menu-element {
+  width: 70px;
+  background-color: transparent;
+  transition: box-shadow 0.2s;
+  text-align: center;
+  &:not([disabled]) {
+    &:hover {
+      .product-menu-icon {
+        fill: #f59115;
+      }
+      .product-menu-name {
+        color: #f59115;
+      }
+    }
+    &:focus {
+      .product-menu-icon {
+        fill: #f59115;
+      }
+      .product-menu-name {
+        color: #f59115;
+      }
+    }
+  }
+  &:not(:first-child) {
+    padding: 7px 0;
+  }
+  &:first-child {
+    padding: 25px 0;
+  }
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+.product-menu-element.is-active {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: auto;
+  .product-menu-icon {
+    fill: #f59115;
+  }
+  .product-menu-name {
+    color: #f59115;
+  }
+}
+.product-menu-icon {
+  width: 40px;
+  height: 40px;
+  fill: #b8ad87;
+  transition: fill 0.2s;
+}
+.product-menu-name {
+  font-size: 15px;
+  color: #b8ad87;
+  transition: color 0.2s;
+}
+.small-filters {
+  max-width: 235px;
+  margin: 15px 0 5px;
+  padding-bottom: 10px;
+  position: relative;
+  &:not([disabled]) {
+    &:hover {
+      .small-filters-list {
+        display: block;
+      }
+      .small-filters-button {
+        .small-filters-text {
+          color: #f59115;
+        }
+      }
+      .small-filters-icon {
+        fill: #f59115;
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+      }
+    }
+    &:focus {
+      .small-filters-list {
+        display: block;
+      }
+      .small-filters-button {
+        .small-filters-text {
+          color: #f59115;
+        }
+      }
+      .small-filters-icon {
+        fill: #f59115;
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}
+.small-filters-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: 5px;
+  vertical-align: middle;
+  fill: #595959;
+  transition: 0.2s;
+}
+.small-filters-text {
+  display: inline-block;
+  font-size: 15px;
+  color: #595959;
+  transition: color 0.2s;
+}
+.small-filters-button {
+  margin-left: 10px;
+}
+.small-filters-list {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 20px;
+  z-index: 1;
+  &:not([disabled]) {
+    &:hover {
+      display: block;
+    }
+  }
+}
+.small-filters-list-item {
+  margin: 10px 0 10px 25px;
+  font-size: 15px;
+  color: #595959;
+  position: relative;
+  transition: color 0.2s;
+  &:not([disabled]) {
+    &:focus {
+      color: #f59115;
+    }
+    &:hover {
+      color: #f59115;
+    }
+  }
+  &:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #f59115;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translate(-150%, -50%);
+    transform: translate(-150%, -50%);
+  }
+  &:not(.is-active) {
+    &:before {
+      background-color: #fff;
+    }
+  }
+}
+.small-filters-list-item.is-active {
+  &:before {
+    background-color: #f59115;
+  }
+}
+.side-menu-item {
+  transition: background-color 0.2s;
+  padding: 10px 20px;
+  border-bottom: 1px solid #f3f1ef;
+  &:not([disabled]) {
+    &:active {
+      box-shadow: inset 1px 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    &:hover {
+      background-color: #b8ad87;
+      .side-menu-item-title {
+        color: #fff;
+        border-bottom: 1px dashed #b8ad87;
+      }
+      .side-menu-item-icon {
+        mix-blend-mode: color-dodge;
+      }
+    }
+    &:focus {
+      background-color: #b8ad87;
+      .side-menu-item-title {
+        color: #fff;
+        border-bottom: 1px dashed #b8ad87;
+      }
+      .side-menu-item-icon {
+        mix-blend-mode: color-dodge;
+      }
+    }
+  }
+}
+.side-menu-item-icon {
+  transition: inherit;
+  width: 36px;
+  height: 26px;
+  margin-right: 15px;
+  transition: 0.2s;
+}
+.side-menu-item-title {
+  transition: inherit;
+  font-size: 15px;
+  color: #595959;
+  border-bottom: 1px dashed #595959;
+  transition: color 0.2s;
+}
+.left-column {
+  max-width: 280px;
+  z-index: 2;
+}
+.shadow-wrap {
+  background-color: #f9f8f3;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+}
+.free-design {
+  padding: 20px;
+  margin-top: 30px;
+  border: 1px solid #e2e0d3;
+}
+.free-design-field {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f8f3;
+}
+.free-design-input {
+  border: 0 solid;
+  background-color: inherit;
+}
+.free-design-button {
+  width: 100%;
+  padding: 10px;
+}
+.sentence {
+  margin: 25px 0 35px;
+}
+.sentence-block {
+  flex: 0 0 49%;
+  transition: box-shadow 0.2s;
+  &:not([disabled]) {
+    &:hover {
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+      .sentence-block-right {
+        background-color: #41e09c;
+      }
+    }
+  }
+}
+.sentence-block-right {
+  width: 100%;
+  padding: 55px 0;
+  color: #fff;
+  background-color: #47c08c;
+  transition: background-color 0.2s;
+}
+.sentence-block-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+.sentence-block-price {
+  font-size: 15px;
+  font-style: italic;
+}
+.sentence-block-currency {
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.sentence.column {
+  .sentence-title {
+    margin-bottom: 25px;
+  }
+  .sentence-block {
+    flex: 0 0 32%;
+  }
+  .sentence-block-right {
+    padding: 8px 0;
+    min-height: 66px;
+  }
+}
+
+.shadow-line {
+  width: 100%;
+  height: 10px;
+  box-shadow: 0 3px 4px -2px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 195px;
+  z-index: 2;
+}
+
+.show-more {
+  max-width: 70px;
+  background-color: transparent;
+  border: 0 solid;
+  font-size: 15px;
+  line-height: 19px;
+  text-align: center;
+  position: absolute;
+  right: 20%;
+  top: 15%;
+  transition: 0.2s;
+}
+.show-more-count {
+  margin-top: 3px;
+  display: block;
+  color: #8f8c89;
+}
+</style>

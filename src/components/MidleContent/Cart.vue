@@ -7,6 +7,7 @@
         <span class="header-basket-price-text">товар</span>
       </a>
       <p class="header-basket-sum">
+        <!-- {{ sum }} -->
         на 5 000
         <sup class="header-basket-currency">руб</sup>
       </p>
@@ -23,7 +24,8 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters("cart", {
-      lengthCart: "cnt"
+      lengthCart: "cnt",
+      // sum: "test"
     })
   }
 };

@@ -25,7 +25,7 @@
 			<button @click="onOrder"
 					class="btn btn-success"
 					>
-				Order Now
+				Оформить заказ
 			</button>
 		</template>
 	</div>

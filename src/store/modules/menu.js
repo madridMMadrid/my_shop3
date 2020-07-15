@@ -35,15 +35,15 @@ export default {
         }],
         service: [{
                 url: '/design',
-                text: 'Design'
+                text: 'Дизайн'
             },
             {
                 url: '/delivery',
-                text: 'Ddelivery'
+                text: 'Доставка'
             },
             {
                 url: '/FurnitureAssembly',
-                text: 'Furniture Assembly'
+                text: 'Сборка мебели'
             }
         ],
     },
