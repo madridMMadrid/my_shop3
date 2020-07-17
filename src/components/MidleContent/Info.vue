@@ -85,7 +85,7 @@
                       placeholder="Enter email"
                     ></b-form-input>
                   </b-form-group>
-                  <d-form-group>
+                  <b-form-group>
                     <b-button
                       class="mt-2"
                       type="submit"
@@ -93,7 +93,7 @@
                       block
                       @click="$bvModal.hide('bv-modal-example')"
                     >Заказать обратный звонок</b-button>
-                  </d-form-group>
+                  </b-form-group>
                 </b-form>
               </b-col>
             </b-row>
@@ -158,7 +158,7 @@
                       max-rows="6"
                     ></b-form-textarea>
                   </b-form-group>
-                  <d-form-group>
+                  <b-form-group>
                     <b-button
                       class="mt-2"
                       type="submit"
@@ -166,7 +166,7 @@
                       block
                       @click="$bvModal.hide('bv-modal-example_1')"
                     >Написать нам сообщение</b-button>
-                  </d-form-group>
+                  </b-form-group>
                 </b-form>
               </b-col>
             </b-row>

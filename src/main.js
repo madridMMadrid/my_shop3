@@ -2,7 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 
 import { store } from './store';
-import { router } from './routes.js';
+import router from './router';
 import { BootstrapVue, IconsPlugin, BootstrapVueIcons } from 'bootstrap-vue'
 
 import 'bootstrap/dist/css/bootstrap.css'

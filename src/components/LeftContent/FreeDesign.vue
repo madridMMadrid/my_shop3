@@ -4,9 +4,9 @@
       <img class="free-design-image" src="../../assets/images/free-design.jpg" />
       <form class="primary-form free-design-form">
         <label class="primary-form-field free-design-field d-flex ai-c" tabindex="0">
-          <svg class="primary-form-icon">
+          <!-- <svg class="primary-form-icon">
             <use xlink:href="../sprite-manual.svg#profile-icon" />
-          </svg>
+          </svg> -->
           <input
             class="primary-form-input free-design-input"
             type="text"
@@ -15,9 +15,9 @@
           />
         </label>
         <label class="primary-form-field free-design-field d-flex ai-c">
-          <svg class="primary-form-icon">
+          <!-- <svg class="primary-form-icon">
             <use xlink:href="../sprite-manual.svg#form-phone-icon" />
-          </svg>
+          </svg> -->
           <masked-input
             class="primary-form-input free-design-input"
             id="input"
@@ -27,9 +27,9 @@
           />
         </label>
         <label class="primary-form-field free-design-field d-flex ai-c">
-          <svg class="primary-form-icon">
+          <!-- <svg class="primary-form-icon">
             <use xlink:href="../sprite-manual.svg#email-icon" />
-          </svg>
+          </svg> -->
           <input
             class="primary-form-input free-design-input"
             type="email"

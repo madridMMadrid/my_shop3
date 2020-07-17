@@ -1,12 +1,19 @@
-# my_shop3
+# prime_vue
 
-инструкция для тех кто знаком с тем что такое webpack,NPM,MAMP
+## Project setup
+```
+npm install
+```
 
-1) в корневой папке запускаем команду npm i
-2) запускаем команду npm run dev, и любуемся микро магазинчиком)))
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-или 
+### Compiles and minifies for production
+```
+npm run build
+```
 
-1) в корневой папке запускаем npm i
-2) запускаем сборку npm run build
-3) запускаем MAMP (я пользуюсь именно им), и вновь любуемся микро магазинчиком)))
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

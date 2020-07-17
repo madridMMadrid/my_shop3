@@ -4,9 +4,9 @@
       <div class="small-filters-text">Сортировать:</div>
       <div class="small-filters-button">
         <div class="small-filters-text">Сначала дешевые</div>
-        <svg class="small-filters-icon">
+        <!-- <svg class="small-filters-icon">
           <use xlink:href="../sprite-manual.svg#dropdown-icon" />
-        </svg>
+        </svg> -->
       </div>
     </div>
     <div class="small-filters-list dropdown-list">
