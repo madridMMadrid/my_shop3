@@ -2,15 +2,15 @@
   <div class="unique_modal">
     <div class="header-info d-flex jc-sb">
       <div class="header-info-element d-flex ai-c">
-        <svg class="primary-icon icon-green">
+        <!-- <svg class="primary-icon icon-green">
           <use xlink:href="../sprite-manual.svg#phone-icon" />
-        </svg>
+        </svg> -->
         <a class="header-info-phone" href="tel:+74951209759" tabindex="0">+7 (495) 120-97-59</a>
       </div>
       <div class="header-info-element d-flex ai-c">
-        <svg class="primary-icon icon-green">
+        <!-- <svg class="primary-icon icon-green">
           <use xlink:href="../sprite-manual.svg#clock-icon" />
-        </svg>
+        </svg> -->
         <div class="header-info-text">Круглосуточно, без выходных</div>
       </div>
       <div class="header-actions d-flex">
@@ -21,16 +21,16 @@
           <div class="header-actions-count">0</div>
         </div>
         <div class="header-info-element d-flex ai-c" role="button" tabindex="0">
-          <svg class="primary-icon header-actions-icon">
+          <!-- <svg class="primary-icon header-actions-icon">
             <use xlink:href="../sprite-manual.svg#compare-icon" />
-          </svg>
+          </svg> -->
           <div class="header-actions-count">0</div>
         </div>
       </div>
       <div class="header-info-element d-flex ai-c">
-        <svg class="primary-icon icon-green">
+        <!-- <svg class="primary-icon icon-green">
           <use xlink:href="../sprite-manual.svg#location-icon" />
-        </svg>
+        </svg> -->
         <div class="header-info-text">Ваш город:</div>
         <div class="header-info-country" role="button" tabindex="0">Москва</div>
       </div>
@@ -51,13 +51,13 @@
           </template>
           <div class="d-block text-center">
             <b-row class="my-1">
-              <b-col sm="4" class="test">
+              <b-col sm="4" class="left_content">
                 <div
                   class="unique_modal_modal_img"
                   :style="{'background-image': `url(${require('../../assets/images/logo.png')})`}"
                 ></div>
               </b-col>
-              <b-col sm="8">
+              <b-col sm="8" class="right_content">
                 <b-form @submit="onSubmit" @reset="onReset" v-if="show">
                   <b-form-group id="input-group-2" label label-for="input-2">
                     <b-form-input
@@ -87,7 +87,7 @@
                   </b-form-group>
                   <d-form-group>
                     <b-button
-                      class="mt-3"
+                      class="mt-2"
                       type="submit"
                       variant="primary"
                       block
@@ -112,13 +112,16 @@
           </template>
           <div class="d-block text-center">
             <b-row class="my-1">
-              <b-col sm="4" class="test">
+              <b-col sm="4" class="left_content">
+                <div>
+                  Задайте нам любой интересующий вас вопрос ONLINE!
+                </div>
                 <div
                   class="unique_modal_modal_img"
                   :style="{'background-image': `url(${require('../../assets/images/logo.png')})`}"
                 ></div>
               </b-col>
-              <b-col sm="8">
+              <b-col sm="8" class="right_content">
                 <b-form @submit="onSubmit_1" @reset="onReset_1" v-if="show_1">
                   <b-form-group id="input-group-2" label label-for="input-2">
                     <b-form-input
@@ -157,7 +160,7 @@
                   </b-form-group>
                   <d-form-group>
                     <b-button
-                      class="mt-3"
+                      class="mt-2"
                       type="submit"
                       variant="primary"
                       block
@@ -241,7 +244,28 @@ export default {
   }
   .modal-body {
     padding: 0 50px 30px;
+    & .text-center {
+      & .right_content,
+      .left_content {
+        padding: 0;
+      }
+      & .left_content {
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        & div {
+          flex: auto;
+          text-align: left;
+          font-size: 15px;
+          font-family: PT Sans, Arial, sans-serif;
+        }
+      }
+      & .right_content {
+        padding-left: 15px;
+      }
+    }
     & .form-group {
+      margin-bottom: 8px;
       & #input-3 {
         display: block;
         width: 100%;
@@ -268,6 +292,7 @@ export default {
     justify-content: center;
     & .modal-title {
       text-align: center;
+      margin-bottom: 15px;
     }
     & .close {
       position: absolute;

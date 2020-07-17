@@ -36,32 +36,34 @@
             </div>
             <div class="share">
               <div class="item-actions-group d-flex ai-c" role="button">
-                <svg class="item-actions-icon share-icon">
+                <!-- <svg class="item-actions-icon share-icon">
                   <use xlink:href="../sprite-manual.svg#share-icon" />
-                </svg>
+                </svg> -->
                 <p class="item-actions-text">Поделиться</p>
               </div>
             </div>
             <div class="favorite">
               <div class="item-actions-group d-flex ai-c" role="button">
-                <svg class="item-actions-icon favorite-icon">
+                <!-- <svg class="item-actions-icon favorite-icon">
                   <use xlink:href="../sprite-manual.svg#favorite-icon" />
-                </svg>
+                </svg> -->
                 <p class="item-actions-text">В избранное</p>
               </div>
             </div>
             <div class="compare">
               <div class="item-actions-group d-flex ai-c" role="button">
-                <svg class="item-actions-icon compare-icon">
+                <!-- <svg class="item-actions-icon compare-icon">
                   <use xlink:href="../sprite-manual.svg#compare-icon" />
-                </svg>
+                </svg> -->
                 <p class="item-actions-text">Сравнить</p>
               </div>
             </div>
           </div>
           <div class="primary-identifier">id: {{ product.id_product }}</div>
         </div>
-        <div class="l-box d-flex ai-fs jc-sb">
+
+
+        <!-- <div class="l-box d-flex ai-fs jc-sb">
           <img
             class="collection-image-main"
             src="../../../assets/images/gallery-ekonom-image-main.jpg"
@@ -101,7 +103,8 @@
               </svg>
             </button>
           </div>
-        </div>
+        </div> -->
+        <ProductSlider />
 
         <DescriptionProduct />
 
@@ -163,13 +166,15 @@ import Tabs from "./Tabs";
 import DescriptionProduct from "./DescriptionProduct";
 import SortProduct from "./SortProduct";
 import SortingResult from "./SortingResult";
+import ProductSlider from "./ProductSlider";
 
 export default {
   components: {
     Tabs,
     DescriptionProduct,
     SortProduct,
-    SortingResult
+    SortingResult,
+    ProductSlider
   },
   computed: {
     id() {

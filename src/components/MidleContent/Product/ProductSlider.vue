@@ -1,10 +1,40 @@
 <template>
   <div class>
-    <VueSlickCarousel :arrows="true" :dots="true" :autoplay="true" :speed="500" :infinite="true" :autoplaySpeed="3000">
-      <div v-for="(image, i) in images" :key="i">
-        <img :src="image.url" :alt="image.alt" />
-      </div>
-    </VueSlickCarousel>
+    <b-row class="my-1">
+      <b-col sm="10" class="left_content">
+        <VueSlickCarousel
+          ref="c1"
+          :asNavFor="$refs.c2"
+          :focusOnSelect="true"
+          :dots="false"
+          :fade="true"
+          :infinite="true"
+          :speed="500"
+          :slidesToShow="1"
+          :slidesToScroll="1"
+        >
+          <div v-for="(image, i) in images" :key="i">
+            <img :src="image.url" :alt="image.alt" />
+          </div>
+        </VueSlickCarousel>
+      </b-col>
+      <b-col sm="2" class="right_content">
+        <VueSlickCarousel
+          ref="c2"
+          :asNavFor="$refs.c1"
+          :slidesToShow="5"
+          :focusOnSelect="true"
+          :vertical="true"
+          :dots="false"
+          :arrow="false"
+          :infinite="true"
+        >
+          <div v-for="(image, i) in images" :key="i">
+            <img :src="image.url" :alt="image.alt" />
+          </div>
+        </VueSlickCarousel>
+      </b-col>
+    </b-row>
   </div>
 </template>
 <script>
@@ -13,16 +43,19 @@ import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
   components: { VueSlickCarousel },
+  methods: {
+    methodThatForcesUpdate() {
+      this.$forceUpdate(); // Заметьте, что мы используем $ в качестве префикса
+      console.log("test");
+    },
+    forceRerender() {
+      this.componentKey += 1;  
+      console.log('test2')
+    }
+  },
   data() {
     return {
-      settings: {
-        arrows: true,
-        dots: true,
-        autoplay: true,
-        speed: 500,
-        infinite: true,
-        autoplaySpeed: 2000
-      },
+      componentKey: 0,
       images: [
         {
           url: "https://picsum.photos/1024/480/?image=11",
@@ -64,6 +97,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 img {
+  // height: 40px;
   width: 100%;
+}
+.right_content {
+  & img {
+    margin-top: 5px;
+  }
 }
 </style>

@@ -3,9 +3,9 @@
     <form >
       <input class="header-finder-field" type="text" placeholder="Поиск по сайту" tabindex="0" />
       <button class="button-global header-finder-button" tabindex="0" title="отменить поиск">
-        <svg class="primary-icon">
+        <!-- <svg class="primary-icon">
           <use xlink:href="../sprite-manual.svg#finder-icon" />
-        </svg>
+        </svg> -->
       </button>
       <button
         class="button-global header-finder-button"
@@ -13,9 +13,9 @@
         title="начать поиск"
         tabindex="0"
       >
-        <svg class="primary-icon">
+        <!-- <svg class="primary-icon">
           <use xlink:href="../sprite-manual.svg#close-icon" />
-        </svg>
+        </svg> -->
       </button>
     </form>
   </div>

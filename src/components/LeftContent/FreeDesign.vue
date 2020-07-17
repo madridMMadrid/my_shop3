@@ -18,10 +18,11 @@
           <svg class="primary-form-icon">
             <use xlink:href="../sprite-manual.svg#form-phone-icon" />
           </svg>
-          <input
+          <masked-input
             class="primary-form-input free-design-input"
-            type="tel"
-            placeholder="+7 (___) ___-__-__"
+            id="input"
+            mask="\+\7 (111) 1111-11"
+            placeholder="Phone"
             required
           />
         </label>
@@ -45,5 +46,10 @@
   </div>
 </template>
 <script>
-export default {};
+import MaskedInput from "vue-masked-input";
+export default {
+  components: {
+    MaskedInput
+  }
+};
 </script>
