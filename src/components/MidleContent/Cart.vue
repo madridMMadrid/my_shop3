@@ -2,19 +2,18 @@
   <div class="header-basket is-not-empty">
     <div class>
       <p class="header-basket-text">Ваша корзина пуста</p>
-      <a class="header-basket-price" href="#">
+      <router-link to="/cart" tag="a" class="header-basket-price">
         <span class="header-basket-price-count">{{ lengthCart }}</span>
         <span class="header-basket-price-text">товар</span>
-      </a>
+      </router-link>
+
       <p class="header-basket-sum">
-        <!-- {{ sum }} -->
         на 5 000
         <sup class="header-basket-currency">руб</sup>
       </p>
-      <button
-        class="button-global button_small button-orange order-button"
-        tabindex="0"
-      >Оформить заказ</button>
+      <router-link to="/checkout" tag="button" class="button-global button_small button-orange order-button">
+        Оформить заказ
+      </router-link>
     </div>
   </div>
 </template>
@@ -24,7 +23,7 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters("cart", {
-      lengthCart: "cnt",
+      lengthCart: "cnt"
       // sum: "test"
     })
   }

@@ -15,9 +15,9 @@
       </div>
       <div class="header-actions d-flex">
         <div class="header-info-element d-flex ai-c" role="button" tabindex="0">
-          <svg class="primary-icon header-actions-icon">
-            <use xlink:href="../sprite-manual.svg#favorite-icon" />
-          </svg>
+          <div class="primary-icon header-actions-icon">
+            <b-icon icon="heart" style="color: red;"></b-icon>
+          </div>
           <div class="header-actions-count">0</div>
         </div>
         <div class="header-info-element d-flex ai-c" role="button" tabindex="0">
@@ -35,14 +35,14 @@
         <div class="header-info-country" role="button" tabindex="0">Москва</div>
       </div>
       <div class="header-actions d-flex">
-        <button class="button-global button_small button-primary-green call-button" tabindex="0">
-          Заказать
-          звонок
-        </button>
-        <button
-          class="button-global button_small button-optional-green email-button"
-          tabindex="0"
-        >Написать нам</button>
+        <b-button v-b-modal.modal-center class="button-global button_small button-primary-green call-button">Заказать звонок</b-button>
+        <b-modal id="modal-center" title="BootstrapVue">
+          <p class="my-4">Заказать звонок</p>
+        </b-modal>
+        <b-button v-b-modal.modal-center-2 class="button-global button_small button-optional-green email-button">Написать нам</b-button>
+        <b-modal id="modal-center-2" title="BootstrapVue">
+          <p class="my-4">Написать нам</p>
+        </b-modal>
       </div>
     </div>
   </div>

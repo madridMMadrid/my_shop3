@@ -2,7 +2,7 @@
   <div class="l-container catalog">
     <h1>Product</h1>
     <router-link :to="{name: 'products'}">Вернуться</router-link>
-    <div class="alert alert-success">
+    <div class="alert">
       {{ product }}
       <section class="l-container collection">
         <div class="l-box d-flex jc-sb ai-c">
@@ -12,56 +12,21 @@
         <div class="l-box identend d-flex jc-sb ai-c">
           <div class="item-actions d-flex ai-c">
             <div class="rating d-flex ai-c">
-              <div class="rating-stars">
+              <div class="rating-stars" v-for="(item, index) in 5" :key="index">
                 <div class="rating-star">
-                  <svg class="rating-star_out">
-                    <use xlink:href="../sprite-manual.svg#rating-icon" />
+                  <svg
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    class="bi bi-star"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+                    />
                   </svg>
-                  <div class="rating-star-fill full-part">
-                    <svg class="rating-star_in">
-                      <use xlink:href="../sprite-manual.svg#rating-icon" />
-                    </svg>
-                  </div>
-                </div>
-                <div class="rating-star">
-                  <svg class="rating-star_out">
-                    <use xlink:href="../sprite-manual.svg#rating-icon" />
-                  </svg>
-                  <div class="rating-star-fill full-part">
-                    <svg class="rating-star_in">
-                      <use xlink:href="../sprite-manual.svg#rating-icon" />
-                    </svg>
-                  </div>
-                </div>
-                <div class="rating-star">
-                  <svg class="rating-star_out">
-                    <use xlink:href="../sprite-manual.svg#rating-icon" />
-                  </svg>
-                  <div class="rating-star-fill full-part">
-                    <svg class="rating-star_in">
-                      <use xlink:href="../sprite-manual.svg#rating-icon" />
-                    </svg>
-                  </div>
-                </div>
-                <div class="rating-star">
-                  <svg class="rating-star_out">
-                    <use xlink:href="../sprite-manual.svg#rating-icon" />
-                  </svg>
-                  <div class="rating-star-fill full-part">
-                    <svg class="rating-star_in">
-                      <use xlink:href="../sprite-manual.svg#rating-icon" />
-                    </svg>
-                  </div>
-                </div>
-                <div class="rating-star">
-                  <svg class="rating-star_out">
-                    <use xlink:href="../sprite-manual.svg#rating-icon" />
-                  </svg>
-                  <div class="rating-star-fill third-part">
-                    <svg class="rating-star_in">
-                      <use xlink:href="../sprite-manual.svg#rating-icon" />
-                    </svg>
-                  </div>
                 </div>
               </div>
               <p class="rating-reviews">
@@ -99,7 +64,7 @@
         <div class="l-box d-flex ai-fs jc-sb">
           <img
             class="collection-image-main"
-            src="../assets/images/gallery-ekonom-image-main.jpg"
+            src="../../../assets/images/gallery-ekonom-image-main.jpg"
             alt
           />
           <div class="collection-gallery">
@@ -111,22 +76,22 @@
             <div class="collection-gallery-slides">
               <img
                 class="collection-gallery-image active"
-                src="../assets/images/gallery-ekonom-image-main.jpg"
+                src="../../../assets/images/gallery-ekonom-image-main.jpg"
                 alt
               />
               <img
                 class="collection-gallery-image"
-                src="../assets/images/gallery-ekonon-image01.jpg"
+                src="../../../assets/images/gallery-ekonon-image01.jpg"
                 alt
               />
               <img
                 class="collection-gallery-image"
-                src="../assets/images/gallery-ekonon-image01.jpg"
+                src="../../../assets/images/gallery-ekonon-image01.jpg"
                 alt
               />
               <img
                 class="collection-gallery-image"
-                src="../assets/images/gallery-ekonon-image01.jpg"
+                src="../../../assets/images/gallery-ekonon-image01.jpg"
                 alt
               />
             </div>
@@ -137,305 +102,32 @@
             </button>
           </div>
         </div>
-        <div class="l-box collection-info d-flex jc-sb">
-          <div class="collection-info-block">
-            <div class="collection-info-characteristic d-flex jc-sb">
-              <span class="collection-info-characteristic-name">Базовая комплектация</span>
-              <span class="collection-info-characteristic-value">Стол рабочий</span>
-            </div>
-            <div class="collection-info-characteristic d-flex jc-sb">
-              <span class="collection-info-characteristic-name">Материал столешницы</span>
-              <span class="collection-info-characteristic-value">ЛДСП</span>
-            </div>
-            <div class="collection-info-characteristic d-flex jc-sb">
-              <span class="collection-info-characteristic-name">Стиль мебели</span>
-              <span class="collection-info-characteristic-value">Классика</span>
-            </div>
-            <div class="collection-info-characteristic d-flex jc-sb">
-              <span class="collection-info-characteristic-name">Страна производства</span>
-              <span class="collection-info-characteristic-value">Россия</span>
-            </div>
-            <div class="collection-info-characteristic d-flex jc-sb">
-              <span class="collection-info-characteristic-name">Толщина столешницы</span>
-              <span class="collection-info-characteristic-value">16 мм</span>
-            </div>
-          </div>
-          <div class="collection-info-block">
-            <div class="primary-subtitle">Выберите вариант расцветки:</div>
-            <div class="select-color">
-              <div class="select-color-list d-flex ai-c fw-w">
-                <img
-                  class="select-color-image"
-                  src="../assets/images/colors-icon_brown.jpg"
-                  alt
-                  role="button"
-                />
-                <img
-                  class="select-color-image"
-                  src="../assets/images/colors-icon_white.jpg"
-                  alt
-                  role="button"
-                />
-                <img
-                  class="select-color-image"
-                  src="../assets/images/colors-icon_red.jpg"
-                  alt
-                  role="button"
-                />
-                <div class="show-more colors" role="button">
-                  <span class="show-more-text link-dashed">
-                    Показать все
-                    цвета
-                  </span>
-                  <span class="show-more-count">(ещё 5)</span>
-                </div>
-              </div>
-            </div>
-            <div class="primary-subtitle">Выберите цвет каркаса:</div>
-            <div class="choice select-frame">
-              <div class="choice-selected select-frame-selected d-flex jc-sb ai-c" role="button">
-                <img class="select-frame-image" src="../assets/images/colors-icon_brown.jpg" alt />
-                <span class="choice-selected-title select-frame-title">Антрацит</span>
-                <svg class="choice-selected-icon">
-                  <use xlink:href="sprite-manual.svg#next-icon" />
-                </svg>
-              </div>
-              <div class="choice-list"></div>
-            </div>
-            <button class="button-global button-primary-green collection-info-button">
-              <svg class="collection-info-button-icon">
-                <use xlink:href="sprite-manual.svg#phone-icon-filled" />
-              </svg>
-              <span class="collection-info-button-text">Заказать по телефону</span>
-            </button>
-          </div>
-        </div>
-        <div class="l-box tabs item-tabs">
-          <div class="tabs-header item-tabs-header d-flex jc-sb">
-            <button class="button-global tabs-header-item item-tabs-header-element is-active">
-              Элементы
-              комплектации
-            </button>
-            <button class="button-global tabs-header-item item-tabs-header-element">
-              Информация о
-              коллекции
-            </button>
-            <button class="button-global tabs-header-item item-tabs-header-element">
-              Отзывы (
-              <span class="reviews-count">2</span>)
-            </button>
-            <button class="button-global tabs-header-item item-tabs-header-element">
-              Вопрос ответ (
-              <span class="ans-ask-count">0</span>)
-            </button>
-          </div>
-          <div class="tab-content item-tabs-content">
-            <div class="tabs-header item-tabs-content-element product-menu d-flex jc-sb ai-fs">
-              <div class="tabs-header-item product-menu-element is-active" role="button">
-                <div class="product-menu-name">Все</div>
-              </div>
-              <div
-                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
-                role="button"
-              >
-                <svg class="product-menu-icon">
-                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
-                </svg>
-                <div class="product-menu-name">Столы</div>
-              </div>
-              <div
-                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
-                role="button"
-              >
-                <svg class="product-menu-icon">
-                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
-                </svg>
-                <div class="product-menu-name">Столы</div>
-              </div>
-              <div
-                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
-                role="button"
-              >
-                <svg class="product-menu-icon">
-                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
-                </svg>
-                <div class="product-menu-name">Столы</div>
-              </div>
-              <div
-                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
-                role="button"
-              >
-                <svg class="product-menu-icon">
-                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
-                </svg>
-                <div class="product-menu-name">Столы</div>
-              </div>
-              <div
-                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
-                role="button"
-              >
-                <svg class="product-menu-icon">
-                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
-                </svg>
-                <div class="product-menu-name">Брифинг и приставки</div>
-              </div>
-              <div
-                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
-                role="button"
-              >
-                <svg class="product-menu-icon">
-                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
-                </svg>
-                <div class="product-menu-name">Столы</div>
-              </div>
-              <div
-                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
-                role="button"
-              >
-                <svg class="product-menu-icon">
-                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
-                </svg>
-                <div class="product-menu-name">Столы</div>
-              </div>
-              <div
-                class="tabs-header-item product-menu-element d-flex fd-c jc-c ai-c"
-                role="button"
-              >
-                <svg class="product-menu-icon">
-                  <use xlink:href="sprite-manual.svg#furniture-table-icon" />
-                </svg>
-                <div class="product-menu-name">Стол</div>
-              </div>
-            </div>
-          </div>
-          <div class="l-box small-filters dropdown-button" role="button" tabindex="0">
-            <div class="small-filters-header d-flex">
-              <div class="small-filters-text">Сортировать:</div>
-              <div class="small-filters-button">
-                <div class="small-filters-text">Сначала дешевые</div>
-                <svg class="small-filters-icon">
-                  <use xlink:href="../sprite-manual.svg#dropdown-icon" />
-                </svg>
-              </div>
-            </div>
-            <div class="small-filters-list dropdown-list">
-              <div class="small-filters-list-item is-active" role="button">Сначала дешевые</div>
-              <div class="small-filters-list-item" role="button">Сначала дорогие</div>
-              <div class="small-filters-list-item" role="button">По новизне</div>
-              <div class="small-filters-list-item" role="button">По популярности</div>
-            </div>
-          </div>
-          <div class="tab-content d-flex ai-c fw-w product-list">
-            <div class="product-card">
-              <div class="product-card-title">Стол приставной</div>
-              <img class="product-card-image" src="../assets/images/product-table_brown.jpg" />
-              <div class="product-card-scale">
-                <div class="product-card-scale-size">90 см</div>
-                <div class="product-card-scale-size">60 см</div>
-                <div class="product-card-scale-size">90 см</div>
-              </div>
-              <div class="product-card-info">
-                <div class="product-card-info-text green product-key">Код товара</div>
-                <div class="product-card-info-text green product-id">ID</div>
-                <div class="product-card-info-text black">Срок доставки</div>
-              </div>
-              <div class="product-card-actions">
-                <svg class="primary-icon product-card-icon" role="button">
-                  <use xlink:href="sprite-manual.svg#compare-icon" />
-                </svg>
-              </div>
-              <div class="product-card-buy d-flex jc-sb">
-                <div class="product-card-buy-price">
-                  <span class="product-card-buy-price-text">3926</span>
-                  <sup class="product-card-buy-price-currency">руб</sup>
-                </div>
-                <div class="product-card-buy-count d-flex ai-c">
-                  <input class="product-card-buy-count-input" value="1" />
-                  <div class="product-card-buy-count-controls">
-                    <button class="button-global product-card-buy-count-button more">
-                      <svg class="product-card-buy-count-icon">
-                        <use xlink:href="sprite-manual.svg#arrow-up-icon" />
-                      </svg>
-                    </button>
-                    <button class="button-global product-card-buy-count-button less">
-                      <svg class="product-card-buy-count-icon">
-                        <use xlink:href="sprite-manual.svg#arrow-up-icon" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
 
-                <button
-                  class="product-card-buy-button button-global button-primary-green"
-                  @click="addToCart(product.id_product)"
-                  v-if="inCart.indexOf(product.id_product) === -1"
-                >Add to card</button>
-                <button
-                  class="btn btn-warning"
-                  @click="removeCart(product.id_product)"
-                  v-else
-                >Remove to card</button>
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="product-card-title">Стол приставной</div>
-              <img class="product-card-image" src="../assets/images/product-table_brown.jpg" />
-              <div class="product-card-scale">
-                <div class="product-card-scale-size">90 см</div>
-                <div class="product-card-scale-size">60 см</div>
-                <div class="product-card-scale-size">90 см</div>
-              </div>
-              <div class="product-card-info">
-                <div class="product-card-info-text green product-key">Код товара</div>
-                <div class="product-card-info-text green product-id">ID</div>
-                <div class="product-card-info-text black">Срок доставки</div>
-              </div>
-              <div class="product-card-actions">
-                <svg class="primary-icon product-card-icon" role="button">
-                  <use xlink:href="sprite-manual.svg#compare-icon" />
-                </svg>
-              </div>
-              <div class="product-card-buy d-flex jc-sb">
-                <div class="product-card-buy-price">
-                  <span class="product-card-buy-price-text">3926</span>
-                  <sup class="product-card-buy-price-currency">руб</sup>
-                </div>
-                <div class="product-card-buy-count d-flex ai-c">
-                  <input class="product-card-buy-count-input" value="1" />
-                  <div class="product-card-buy-count-controls">
-                    <button class="button-global product-card-buy-count-button more">
-                      <svg class="product-card-buy-count-icon">
-                        <use xlink:href="sprite-manual.svg#arrow-up-icon" />
-                      </svg>
-                    </button>
-                    <button class="button-global product-card-buy-count-button less">
-                      <svg class="product-card-buy-count-icon">
-                        <use xlink:href="sprite-manual.svg#arrow-up-icon" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <button class="product-card-buy-button button-global button-primary-green">
-                  <svg class="primary-icon product-card-buy-icon">
-                    <use xlink:href="sprite-manual.svg#basket-icon" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
+        <DescriptionProduct />
+
+        <div class="l-box tabs item-tabs">
+          <Tabs />
+          <SortProduct />
+          <SortingResult />
         </div>
       </section>
       <div class="l-container sentence column">
         <div class="primary-title sentence-title">Обратите внимание</div>
         <div class="l-box d-flex jc-sb">
           <a class="sentence-block fd-c d-flex" href>
-            <img class="sentence-image" src="./../assets/images/sentence-block-column-image01.jpg" />
+            <img
+              class="sentence-image"
+              src="../../../assets/images/sentence-block-column-image01.jpg"
+            />
             <div class="sentence-block-right d-flex jc-c ai-c fd-c">
               <div class="sentence-block-name">Эконом</div>
             </div>
           </a>
           <a class="sentence-block fd-c d-flex" href>
-            <img class="sentence-image" src="./../assets/images/sentence-block-column-image01.jpg" />
+            <img
+              class="sentence-image"
+              src="../../../assets/images/sentence-block-column-image01.jpg"
+            />
             <div class="sentence-block-right d-flex jc-c ai-c fd-c">
               <div class="sentence-block-name">Кабинеты руководителей</div>
               <p class="sentence-block-price">
@@ -445,7 +137,10 @@
             </div>
           </a>
           <a class="sentence-block fd-c d-flex" href>
-            <img class="sentence-image" src="./../assets/images/sentence-block-column-image01.jpg" />
+            <img
+              class="sentence-image"
+              src="../../../assets/images/sentence-block-column-image01.jpg"
+            />
             <div class="sentence-block-right d-flex jc-c ai-c fd-c">
               <div class="sentence-block-name">Столы для переговоров</div>
               <p class="sentence-block-price">
@@ -463,26 +158,29 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 
+
+import Tabs from "./Tabs";
+import DescriptionProduct from "./DescriptionProduct";
+import SortProduct from "./SortProduct";
+import SortingResult from "./SortingResult";
+
 export default {
+  components: {
+    Tabs,
+    DescriptionProduct,
+    SortProduct,
+    SortingResult
+  },
   computed: {
     id() {
       return this.$route.params.id;
     },
     product() {
       return this.$store.getters["products/item"](this.id);
-		},
+    },
     ...mapGetters("products", {
       products: "items"
     }),
-    ...mapGetters("cart", {
-      inCart: "products"
-    })
-  },
-  methods: {
-    ...mapActions("cart", {
-      addToCart: "add",
-      removeCart: "remove"
-    })
   }
 };
 </script>

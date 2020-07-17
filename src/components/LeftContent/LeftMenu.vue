@@ -1,14 +1,17 @@
 <template>
 	<div>
 		<div class="shadow-wrap">
-            <a href="/">
+            <router-link 
+              to="/"
+              tag="a"
+            >
               <figure class="logo">
                 <picture>
                   <source srcset="images/logo.png" media="min-width: 800px" />
                   <img src="../../assets/images/logo.png" alt="Prime Wood" title="Prime-wood" />
                 </picture>
               </figure>
-            </a>
+            </router-link>
             <div class="side-menu">
               <router-link
                 v-for="(item, index) in menuList"

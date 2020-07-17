@@ -29,6 +29,7 @@
           </header>
         </main>
       </div>
+				<Footer />
     </div>
   </div>
 </template>
@@ -45,6 +46,8 @@ import Cart from "./components/MidleContent/Cart";
 import Services from "./components/MidleContent/Services";
 import TopMenu from "./components/MidleContent/TopMenu/TopMenu";
 
+import Footer from './components/Footer/Footer'
+
 export default {
   components: {
     LeftMenu,
@@ -53,7 +56,8 @@ export default {
     TopMenu,
     Search,
 		Cart,
-		Services
+		Services,
+		Footer
   }
 };
 </script>
@@ -429,6 +433,18 @@ input {
     }
     &:hover {
       background-color: #87da3d;
+    }
+  }
+}
+.button-primary-yellow {
+  transition: background-color 0.2s;
+  background-color: #f5c801;
+  &:not([disabled]) {
+    &:focus {
+      background-color: #f5e501;
+    }
+    &:hover {
+      background-color: #f5c801;
     }
   }
 }
@@ -1306,6 +1322,10 @@ input {
 	margin-top: 3px;
 	display: block;
 	color: #8f8c89;
+}
+:active, :hover, :focus {
+    outline: 0 !important;
+    outline-offset: 0 !important;
 }
 
 </style>

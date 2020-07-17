@@ -5,7 +5,7 @@ Vue.use(VueRouter);
 
 import ProductList from './components/ProducktList';
 import Cart from './components/Cart';
-import Product from './components/Product';
+import Product from './components/MidleContent/Product/Product';
 import Checkout from './components/Checkout';
 
 
