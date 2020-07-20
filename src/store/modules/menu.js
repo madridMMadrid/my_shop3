@@ -17,7 +17,11 @@ export default {
             {
                 url: '/ProductItem',
                 text: 'Мебель для персонала'
+            }, {
+                url: '/smartphones',
+                text: 'smartphones'
             }
+
         ],
         topMenu: [{
             url: '/about',

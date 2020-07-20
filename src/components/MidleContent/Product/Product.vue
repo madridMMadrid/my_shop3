@@ -169,6 +169,11 @@ import SortingResult from "./SortingResult";
 import ProductSlider from "./ProductSlider";
 
 export default {
+  data() {
+    return {
+      prod: 'products'
+    }
+  },
   components: {
     Tabs,
     DescriptionProduct,
@@ -181,16 +186,15 @@ export default {
       return this.$route.params.id;
     },
     product() {
-      return this.$store.getters["products/item"](this.id);
+      return this.$store.getters[`${this.prod}/item`](this.id);
     },
     ...mapGetters("products", {
       products: "items"
-    }),
+    })
   }
 };
 </script>
 <style lang="scss">
-// @import "https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext";
 body {
   overflow-y: scroll;
   margin: 0;

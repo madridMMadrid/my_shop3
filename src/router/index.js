@@ -23,6 +23,11 @@ import FurnitureAssembly from '../components/MidleContent/Services/FurnitureAsse
 
 import ProductItem from '../components/MidleContent/Productitem/ProductItem'
 
+import AllSmartphones from '../components/MidleContent/Productitem/AllSmartphones'
+import AllNotebooks from '../components/MidleContent/Productitem/AllNotebooks'
+import MyProduct from '../components/MidleContent/Productitem/MyProduct'
+import CartCheckout from '../components/MidleContent/Productitem/CartCheckout'
+
 import E404 from '../components/E404';
 
 // import { store } from './store';
@@ -91,6 +96,26 @@ const routes = [{
     {
         path: '/ProductItem',
         component: ProductItem
+    },
+    {
+        path: '/smartphones',
+        name: 'Smartphones',
+        component: AllSmartphones,
+    },
+    {
+        path: '/notebooks',
+        name: 'Notebooks',
+        component: AllNotebooks,
+    },
+    {
+        path: '/product-details',
+        name: 'MyProduct',
+        component: MyProduct,
+    },
+    {
+        path: '/checkout',
+        name: 'Checkout',
+        component: CartCheckout,
     },
     {
         path: '*',

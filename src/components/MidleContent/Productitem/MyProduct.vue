@@ -34,18 +34,9 @@ export default {
   },
 
   computed: {
-    ...mapGetters("products",{
+    ...mapGetters({
       currentProduct: 'getCurrentProduct',
-		}),
-		// id() {
-    //   return this.$route.params.id;
-    // },
-    // product() {
-    //   return this.$store.getters[`${this.prod}/item`](this.id);
-    // },
-    // ...mapGetters("products", {
-    //   products: "items"
-    // })
+    }),
   },
 
   methods: {

@@ -2,7 +2,7 @@
   <div class="tab-content d-flex ai-c fw-w product-list">
     <div class="product-card" v-for="(value, i) in 1" :key="i">
       <div class="product-card-title">Стол приставной</div>
-      <img class="product-card-image" src="../../../assets/images/product-table_brown.jpg" />
+      <img class="product-card-image" src="../../../assets/images/product-table_brown_c.jpg" />
       <div class="product-card-scale">
         <div class="product-card-scale-size">90 см</div>
         <div class="product-card-scale-size">60 см</div>
