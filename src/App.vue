@@ -115,7 +115,7 @@ export default {
     transform: rotateY(90deg);
   }
 }
-// @import "https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext";
+@import "https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext";
 body {
   overflow-y: scroll;
   margin: 0;
@@ -646,12 +646,15 @@ input {
   transition: background-color 0.2s;
   padding: 10px 20px;
   border-bottom: 1px solid #f3f1ef;
+  
   &:not([disabled]) {
     &:active {
       box-shadow: inset 1px 1px 1px 2px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
     }
     &:hover {
       background-color: #b8ad87;
+      text-decoration: none;
       .side-menu-item-title {
         color: #fff;
         border-bottom: 1px dashed #b8ad87;

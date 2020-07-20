@@ -1,6 +1,6 @@
 <template>
   <div class>
-    <VueSlickCarousel :arrows="true" :dots="true" :autoplay="true" :speed="500" :infinite="true" :autoplaySpeed="3000">
+    <VueSlickCarousel v-bind="settings">
       <div v-for="(image, i) in images" :key="i">
         <img :src="image.url" :alt="image.alt" />
       </div>
@@ -16,8 +16,8 @@ export default {
   data() {
     return {
       settings: {
-        arrows: true,
-        dots: true,
+        arrows: false,
+        dots: false,
         autoplay: true,
         speed: 500,
         infinite: true,

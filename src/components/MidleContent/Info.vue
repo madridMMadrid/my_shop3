@@ -35,11 +35,11 @@
         <div class="header-info-country" role="button" tabindex="0">Москва</div>
       </div>
       <div class="header-actions d-flex">
-        <b-button
+        <button
           id="show-btn"
           @click="$bvModal.show('bv-modal-example')"
           class="button-global button_small button-primary-green call-button"
-        >Заказать звонок</b-button>
+        >Заказать звонок</button>
 
         <b-modal id="bv-modal-example" centered hide-footer>
           <template v-slot:modal-title>
@@ -54,7 +54,7 @@
               <b-col sm="4" class="left_content">
                 <div
                   class="unique_modal_modal_img"
-                  :style="{'background-image': `url(${require('../../assets/images/logo.png')})`}"
+                  :style="{'background-image': `url(${require('../../assets/images/callback_img.png')})`}"
                 ></div>
               </b-col>
               <b-col sm="8" class="right_content">
@@ -100,11 +100,11 @@
           </div>
         </b-modal>
 
-        <b-button
+        <button
           id="show-btn"
           @click="$bvModal.show('bv-modal-example_1')"
           class="button-global button_small button-primary-green call-button"
-        >Написать нам</b-button>
+        >Написать нам</button>
 
         <b-modal id="bv-modal-example_1" centered hide-footer>
           <template v-slot:modal-title>
@@ -118,7 +118,7 @@
                 </div>
                 <div
                   class="unique_modal_modal_img"
-                  :style="{'background-image': `url(${require('../../assets/images/logo.png')})`}"
+                  :style="{'background-image': `url(${require('../../assets/images/send_message_img.png')})`}"
                 ></div>
               </b-col>
               <b-col sm="8" class="right_content">
@@ -324,7 +324,7 @@ export default {
 }
 @media (min-width: 576px) {
   .modal-dialog {
-    max-width: 555px;
+    max-width: 555px !important;
     margin: 1.75rem auto;
   }
 }

@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-import ProductList from '../components/ProducktList';
+import HomeItem from '../components/HomeItem';
 import Cart from '../components/Cart';
 import Product from '../components/MidleContent/Product/Product';
 import Checkout from '../components/Checkout';
@@ -21,18 +21,20 @@ import Delivery from '../components/MidleContent/Services/Delivery'
 import Design from '../components/MidleContent/Services/Design'
 import FurnitureAssembly from '../components/MidleContent/Services/FurnitureAssembly'
 
+import ProductItem from '../components/MidleContent/Productitem/ProductItem'
+
 import E404 from '../components/E404';
 
 // import { store } from './store';
 
 const routes = [{
         path: '',
-        redirect: { name: 'products' }
+        redirect: { name: 'HomeItem' }
     },
     {
-        name: 'products',
-        path: '/products',
-        component: ProductList,
+        name: 'HomeItem',
+        path: '/HomeItem',
+        component: HomeItem,
         beforeEnter(from, to, next) {
             // store.dispatch('products/loadItems'); для реального запроса
             next();
@@ -85,6 +87,10 @@ const routes = [{
     {
         path: '/FurnitureAssembly',
         component: FurnitureAssembly
+    },
+    {
+        path: '/ProductItem',
+        component: ProductItem
     },
     {
         path: '*',

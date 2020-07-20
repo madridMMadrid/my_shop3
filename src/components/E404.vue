@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="l-container">
 		<h1>error</h1>
 		<hr>
 	</div>

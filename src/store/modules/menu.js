@@ -1,10 +1,11 @@
 export default {
     namespaced: true,
     state: {
-        items: [{
-                url: '/products',
-                text: 'Product List'
-            },
+        items: [
+            // {
+            //     url: '/HomeItem',
+            //     text: 'Домашняя странийца'
+            // },
             {
                 url: '/cart',
                 text: 'Cart'
@@ -12,12 +13,13 @@ export default {
             {
                 url: '/checkout',
                 text: 'Checkout'
+            },
+            {
+                url: '/ProductItem',
+                text: 'Мебель для персонала'
             }
         ],
         topMenu: [{
-            url: '/',
-            text: 'Главная'
-        }, {
             url: '/about',
             text: 'О компании'
         }, {
@@ -35,15 +37,18 @@ export default {
         }],
         service: [{
                 url: '/design',
-                text: 'Дизайн'
+                text: 'Дизайн',
+                img: require('@/assets/images/desing-project-icon.png')
             },
             {
                 url: '/delivery',
-                text: 'Доставка'
+                text: 'Доставка',
+                img: require('@/assets/images/delivery-icon.png')
             },
             {
                 url: '/FurnitureAssembly',
-                text: 'Сборка мебели'
+                text: 'Сборка мебели',
+                img: require('@/assets/images/repair-icon.png')
             }
         ],
     },

@@ -292,7 +292,7 @@ body {
   vertical-align: top;
 }
 .product-card-buy-count {
-  margin-left: 15%;
+  // margin-left: 15%;
 }
 .product-card-buy-count-input {
   max-width: 30px;

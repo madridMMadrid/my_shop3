@@ -10,7 +10,7 @@
         class="header-optional-menu-item d-flex ai-c"
         active-class="-is-active"
       >
-        <img class="header-optional-menu-icon" src="images/desing-project-icon.png" />
+        <img class="header-optional-menu-icon" :src="item.img" />
         <div class="header-optional-menu-title">{{ item.text }}</div>
       </router-link>
     </nav>

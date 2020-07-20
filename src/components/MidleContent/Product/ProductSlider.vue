@@ -1,17 +1,11 @@
 <template>
-  <div class>
+  <div>
     <b-row class="my-1">
       <b-col sm="10" class="left_content">
         <VueSlickCarousel
           ref="c1"
-          :asNavFor="$refs.c2"
-          :focusOnSelect="true"
-          :dots="false"
-          :fade="true"
-          :infinite="true"
-          :speed="500"
-          :slidesToShow="1"
-          :slidesToScroll="1"
+          v-bind="topSliderOptions"
+          @beforeChange="syncSliders"
         >
           <div v-for="(image, i) in images" :key="i">
             <img :src="image.url" :alt="image.alt" />
@@ -21,13 +15,8 @@
       <b-col sm="2" class="right_content">
         <VueSlickCarousel
           ref="c2"
-          :asNavFor="$refs.c1"
-          :slidesToShow="5"
-          :focusOnSelect="true"
-          :vertical="true"
-          :dots="false"
-          :arrow="false"
-          :infinite="true"
+          v-bind="bottomSliderOptions"
+          @beforeChange="syncSliders"
         >
           <div v-for="(image, i) in images" :key="i">
             <img :src="image.url" :alt="image.alt" />
@@ -43,19 +32,36 @@ import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
   components: { VueSlickCarousel },
+  created() {},
+  mounted() {},
   methods: {
-    methodThatForcesUpdate() {
-      this.$forceUpdate(); // Заметьте, что мы используем $ в качестве префикса
-      console.log("test");
-    },
-    forceRerender() {
-      this.componentKey += 1;  
-      console.log('test2')
+    syncSliders(currentPosition, nextPosition) {
+      this.$refs.c1.next()
+      this.$refs.c2.next()
     }
   },
   data() {
     return {
       componentKey: 0,
+      topSliderOptions: {
+        slidesToShow: 1,
+        asNavFor: this.$refs.c2,
+        focusOnSelect: true,
+        dots: false,
+        fade: true,
+        infinite: true,
+        speed: 500,
+      },
+      bottomSliderOptions: {
+        asNavFor: this.$refs.c1,
+        slidesToShow: 5,
+        focusOnSelect: true,
+        vertical: true,
+        dots: false,
+        arrow: false,
+        infinite: true,
+      },
+
       images: [
         {
           url: "https://picsum.photos/1024/480/?image=11",
