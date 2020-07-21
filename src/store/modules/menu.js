@@ -7,19 +7,12 @@ export default {
             //     text: 'Домашняя странийца'
             // },
             {
-                url: '/cart',
-                text: 'Cart'
-            },
-            {
-                url: '/checkout',
-                text: 'Checkout'
-            },
-            {
-                url: '/ProductItem',
-                text: 'Мебель для персонала'
-            }, {
                 url: '/smartphones',
-                text: 'smartphones'
+                text: 'Мебуль для офиса'
+            },
+            {
+                url: '/notebooks',
+                text: 'Мебель для кухни'
             }
 
         ],

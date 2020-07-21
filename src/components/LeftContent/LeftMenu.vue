@@ -23,19 +23,6 @@
         </router-link>
       </div>
     </div>
-    <nav class="nav">
-      <ul class="nav-links">
-        <li class="link">
-          <router-link to="/">AllProducts</router-link>
-        </li>
-        <li class="link">
-          <router-link to="/smartphones">Smartphones</router-link>
-        </li>
-        <li class="link">
-          <router-link to="/notebooks">Notebooks</router-link>
-        </li>
-      </ul>
-    </nav>
   </div>
 </template>
 <script>

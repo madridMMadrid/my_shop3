@@ -26,12 +26,12 @@ export default {
     maskBg,
   },
   computed: {
-    ...mapGetters({
+    ...mapGetters("products", {
       showModal: 'getShowModal',
     }),
   },
   methods: {
-    ...mapActions([
+    ...mapActions("products", [
       'showOrHiddenModal',
     ]),
     closeModal() {
