@@ -20,10 +20,11 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 
+
 export default {
    computed: {
     ...mapGetters("products", [
-      'getProductsInCart',
+      'getProductsInCart', 'summ'
     ]),
   },
 

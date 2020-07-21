@@ -56,7 +56,7 @@ export default {
 
         smartphones: [{
                 name: 'Smartphone Xiaomi Mi A1 dual Android one 7.1',
-                price: 1199,
+                price: 100,
                 image: 'https://picsum.photos/id/1/200/300/',
                 stars: 0,
                 totalReviews: 0,
@@ -105,6 +105,7 @@ export default {
         ],
 
         cartProducts: [],
+        summ: 0,
         currentProduct: {},
         showModal: false,
         showPopupCart: false,
@@ -130,6 +131,7 @@ export default {
         getSmartphones: state => state.smartphones,
         getAllProducts: state => state.notebooks.concat(state.smartphones),
         getProductsInCart: state => state.cartProducts,
+        summ: state => state.summ,
         getCurrentProduct: state => state.currentProduct,
         getShowModal: state => state.showModal,
         getPopupCart: state => state.showPopupCart,
@@ -141,8 +143,9 @@ export default {
         // loadItems(state, data) {
         // 	state.items = data;
         // },
-        ADD_PRODUCT: (state, product) => {
-            state.cartProducts.push(product);
+        ADD_PRODUCT: (state, payload) => {
+            state.cartProducts.push(payload.key2);
+            state.summ = payload.key1
         },
         REMOVE_PRODUCT: (state, index) => {
             state.cartProducts.splice(index, 1);

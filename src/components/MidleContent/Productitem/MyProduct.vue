@@ -1,20 +1,23 @@
 <template>
-  <div class="product-box">
-    <div class="product-image">
-      <img :src="currentProduct.image" alt />
-      <stars :rate="rated(currentProduct.stars)" :totalReviews="currentProduct.totalReviews" />
+  <div class="l-container">
+    <Slider />
+    <div class="product-box">
+      <div class="product-image">
+        <img :src="currentProduct.image" alt />
+        <stars :rate="rated(currentProduct.stars)" :totalReviews="currentProduct.totalReviews" />
+      </div>
+      <div class="product-info">
+        <h2 class="product-title">{{ currentProduct.name }}</h2>
+        <span class="product-price">Руб. {{ currentProduct.price }}, 00</span>
+        <btn
+          btnColor="btn btn-large btn-sucess"
+          :cartIcon="true"
+          @click.native="addProductToCart(currentProduct)"
+        ></btn>
+        <!-- <btn btnColor="btn btn-large btn-info" @click.native="openModal()">Инфа</btn> -->
+      </div>
+      <modal>{{ currentProduct.details }}</modal>
     </div>
-    <div class="product-info">
-      <h2 class="product-title">{{ currentProduct.name }}</h2>
-      <span class="product-price">Руб. {{ currentProduct.price }}, 00</span>
-      <btn
-        btnColor="btn btn-large btn-sucess"
-        :cartIcon="true"
-        @click.native="addProductToCart(currentProduct)"
-      ></btn>
-      <btn btnColor="btn btn-large btn-info" @click.native="openModal()">Инфа</btn>
-    </div>
-    <modal>{{ currentProduct.details }}</modal>
   </div>
 </template>
 
@@ -24,11 +27,14 @@ import btn from "./Btn";
 import stars from "./Stars";
 import modal from "./Modal";
 
+import Slider from "../Product/ProductSlider";
+
 export default {
   components: {
     btn,
     stars,
-    modal
+    modal,
+    Slider
   },
 
   computed: {
@@ -40,7 +46,9 @@ export default {
   methods: {
     ...mapActions("products", ["addProduct", "showOrHiddenModal"]),
     addProductToCart(product) {
-      this.addProduct(product);
+      let payload = { key1: this.summaUnique, key2: product };
+
+      this.addProduct(payload);
     },
     rated(rate) {
       return `${rate * 20}%`;

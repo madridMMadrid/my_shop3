@@ -21,7 +21,7 @@
     </ul>-->
 
     <div class="tab-content d-flex ai-c fw-w product-list">
-      <div class="product-card" v-for="(product, index) in products" :key="index">
+      <div class="product-card" v-for="(product, index) in products" :key="index + 1">
         <!-- <div class="product-card-title"> -->
         <router-link class="product-card-title" to="/product-details">
           <h2 class="product-name" @click="addCurrentProduct(product)">{{ product.name }}</h2>
@@ -48,17 +48,13 @@
             <span class="product-card-buy-price-text">{{ product.price }}</span>
             <sup class="product-card-buy-price-currency">руб</sup>
           </div>
-          <div class="product-card-buy-count d-flex ai-c">
-            <input class="product-card-buy-count-input" v-model="summa" value="summa" />
-            <div class="product-card-buy-count-controls">
-              <div class="more" @click="moreCaunt()">+</div>
-              <div class="less" @click="lessCaunt()">-</div>
-            </div>
-          </div>
+
+          <PlusMinus @backSumm="onSumm" />
+
           <button
             class="product-card-buy-button button-global button-primary-green"
             btnColor="btn btn-large btn-sucess"
-            @click.native="addProductToCart(product)"
+            @click="addProductToCart(product)"
           >
             <b-icon icon="cart-dash"></b-icon>
           </button>
@@ -86,35 +82,33 @@
 <script>
 import { mapActions } from "vuex";
 import btn from "./Btn";
+import PlusMinus from "./PlusMubus";
 
 export default {
   props: ["products"],
-
   data() {
     return {
-      summa: 0
+      summaUnique: 0
     };
   },
+
   components: {
-    btn
+    btn,
+    PlusMinus
   },
   methods: {
     ...mapActions("products", ["addProduct", "currentProduct"]),
 
     addProductToCart(product) {
-      this.addProduct(product);
+      let payload = {'key1': this.summaUnique, 'key2': product}
+      this.addProduct(payload);
     },
     addCurrentProduct(product) {
       this.currentProduct(product);
     },
-    moreCaunt() {
-      this.summa += 1;
-    },
-    lessCaunt() {
-      if (this.summa <= 0) {
-        return;
-      }
-      this.summa -= 1;
+    onSumm(data) {
+      console.log("child component said login", data);
+      this.summaUnique = data
     }
   }
 };
