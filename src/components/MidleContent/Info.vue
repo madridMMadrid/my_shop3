@@ -2,15 +2,9 @@
   <div class="unique_modal">
     <div class="header-info d-flex jc-sb">
       <div class="header-info-element d-flex ai-c">
-        <!-- <svg class="primary-icon icon-green">
-          <use xlink:href="../sprite-manual.svg#phone-icon" />
-        </svg> -->
         <a class="header-info-phone" href="tel:+74951209759" tabindex="0">+7 (495) 120-97-59</a>
       </div>
       <div class="header-info-element d-flex ai-c">
-        <!-- <svg class="primary-icon icon-green">
-          <use xlink:href="../sprite-manual.svg#clock-icon" />
-        </svg> -->
         <div class="header-info-text">Круглосуточно, без выходных</div>
       </div>
       <div class="header-actions d-flex">
@@ -21,16 +15,10 @@
           <div class="header-actions-count">0</div>
         </div>
         <div class="header-info-element d-flex ai-c" role="button" tabindex="0">
-          <!-- <svg class="primary-icon header-actions-icon">
-            <use xlink:href="../sprite-manual.svg#compare-icon" />
-          </svg> -->
           <div class="header-actions-count">0</div>
         </div>
       </div>
       <div class="header-info-element d-flex ai-c">
-        <!-- <svg class="primary-icon icon-green">
-          <use xlink:href="../sprite-manual.svg#location-icon" />
-        </svg> -->
         <div class="header-info-text">Ваш город:</div>
         <div class="header-info-country" role="button" tabindex="0">Москва</div>
       </div>
@@ -58,7 +46,7 @@
                 ></div>
               </b-col>
               <b-col sm="8" class="right_content">
-                <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+                <b-form id="call" @submit="onSubmit" v-if="show">
                   <b-form-group id="input-group-2" label label-for="input-2">
                     <b-form-input
                       id="input-2"
@@ -86,13 +74,7 @@
                     ></b-form-input>
                   </b-form-group>
                   <b-form-group>
-                    <b-button
-                      class="mt-2"
-                      type="submit"
-                      variant="primary"
-                      block
-                      @click="$bvModal.hide(`${location}`)"
-                    >Заказать обратный звонок</b-button>
+                    <b-button class="mt-2" block type="submit" variant="primary" @click="$bvModal.hide(`${location}`)">Заказать обратный звонок</b-button>
                   </b-form-group>
                 </b-form>
               </b-col>
@@ -122,11 +104,11 @@
                 ></div>
               </b-col>
               <b-col sm="8" class="right_content">
-                <b-form @submit="onSubmit_1" @reset="onReset_1" v-if="show_1">
+                <b-form id="message" @submit="onSubmit" v-if="show_1">
                   <b-form-group id="input-group-2" label label-for="input-2">
                     <b-form-input
                       id="input-2"
-                      v-model="form_1.name_1"
+                      v-model="form.name"
                       required
                       placeholder="Enter name"
                     ></b-form-input>
@@ -134,7 +116,7 @@
                   <b-form-group id="input-group-3" label label-for="input-3">
                     <masked-input
                       id="input-3"
-                      v-model="form_1.phone_1"
+                      v-model="form.phone"
                       mask="\+\7 (111) 1111-11"
                       placeholder="Phone"
                       required
@@ -143,7 +125,7 @@
                   <b-form-group id="input-group-1" label label-for="input-1">
                     <b-form-input
                       id="input-1"
-                      v-model="form_1.email_1"
+                      v-model="form.email"
                       type="email"
                       required
                       placeholder="Enter email"
@@ -152,7 +134,7 @@
                   <b-form-group>
                     <b-form-textarea
                       id="textarea"
-                      v-model="form_1.text_1"
+                      v-model="form.text"
                       placeholder="Сообщение"
                       rows="3"
                       max-rows="6"
@@ -189,14 +171,7 @@ export default {
         email: "",
         name: "",
         phone: "",
-        checked: []
-      },
-      form_1: {
-        email_1: "",
-        name_1: "",
-        phone_1: "",
-        text_1: "",
-        checked_1: []
+        text: "",
       },
       show: true,
       show_1: true
@@ -205,31 +180,24 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
-      alert(JSON.stringify(this.form));
+      if (evt.target.id == 'call') {
+        alert(JSON.stringify(this.form));
+        this.onReset()
+      } else if (evt.target.id == 'message') {
+        alert(JSON.stringify(this.form));
+        this.onReset()
+      }
     },
     onReset(evt) {
-      evt.preventDefault();
       this.form.email = "";
       this.form.name = "";
       this.form.phone = null;
-      this.form.checked = [];
+      this.form.text = "";
       this.show = false;
+      this.show_1 = false;
+
       this.$nextTick(() => {
         this.show = true;
-      });
-    },
-    onSubmit_1(evt) {
-      evt.preventDefault();
-      alert(JSON.stringify(this.form_1));
-    },
-    onReset_1(evt) {
-      evt.preventDefault();
-      this.form_1.email_1 = "";
-      this.form_1.name_1 = "";
-      this.form_1.phone_1 = null;
-      this.form_1.checked_1 = [];
-      this.show_1 = false;
-      this.$nextTick(() => {
         this.show_1 = true;
       });
     }

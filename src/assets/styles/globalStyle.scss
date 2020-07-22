@@ -138,6 +138,9 @@ ul {
 a {
     text-decoration: none;
     outline: 0;
+    &:hover {
+        text-decoration: none !important;
+    }
 }
 
 [role="button"] {
@@ -924,7 +927,7 @@ input {
         right: 0;
     }
     &:last-child {
-        right: 5%;
+        right: 0%;
     }
 }
 

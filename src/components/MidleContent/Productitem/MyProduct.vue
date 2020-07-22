@@ -1,23 +1,28 @@
 <template>
   <div class="l-container">
-    <Slider />
-    <div class="product-box">
-      <div class="product-image">
-        <img :src="currentProduct.image" alt />
-        <stars :rate="rated(currentProduct.stars)" :totalReviews="currentProduct.totalReviews" />
-      </div>
-      <div class="product-info">
-        <h2 class="product-title">{{ currentProduct.name }}</h2>
-        <span class="product-price">Руб. {{ currentProduct.price }}, 00</span>
-        <btn
-          btnColor="btn btn-large btn-sucess"
-          :cartIcon="true"
-          @click.native="addProductToCart(currentProduct)"
-        ></btn>
-        <!-- <btn btnColor="btn btn-large btn-info" @click.native="openModal()">Инфа</btn> -->
-      </div>
-      <modal>{{ currentProduct.details }}</modal>
-    </div>
+    <b-row class="my-1">
+      <b-col sm="8">
+        <ProductSlider :productCartPosition="vertical" />
+      </b-col>
+      <b-col sm="4">
+        <div class="">
+          <!-- <div class="product-image">
+            <img :src="currentProduct.image" alt />
+            <stars :rate="rated(currentProduct.stars)" :totalReviews="currentProduct.totalReviews" />
+          </div> -->
+          <div class="">
+            <h2 class="product-title">{{ currentProduct.name }}</h2>
+            <span class="product-price">Руб. {{ currentProduct.price }}, 00</span>
+            <btn
+              btnColor="btn btn-large btn-sucess"
+              :cartIcon="true"
+              @click.native="addProductToCart(currentProduct)"
+            ></btn>
+          </div>
+          <modal>{{ currentProduct.details }}</modal>
+        </div>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -27,14 +32,23 @@ import btn from "./Btn";
 import stars from "./Stars";
 import modal from "./Modal";
 
-import Slider from "../Product/ProductSlider";
+import ProductSlider from "../Product/ProductSlider";
 
 export default {
+  data() {
+    return {
+      vertical: {
+        vertical: false,
+        bigImg: 12,
+        miniImg: 12
+      }
+    };
+  },
   components: {
     btn,
     stars,
     modal,
-    Slider
+    ProductSlider
   },
 
   computed: {

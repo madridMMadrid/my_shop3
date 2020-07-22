@@ -21,6 +21,7 @@
 
         <div class="left-column">
           <LeftMenu />
+          <FilterCollections />
           <FreeDesign />
         </div>
 
@@ -54,6 +55,7 @@ import { mapGetters } from "vuex";
 import GoTop from '@inotom/vue-go-top';
 
 import LeftMenu from "./components/LeftContent/LeftMenu";
+import FilterCollections from './components/LeftContent/FiltrCollections'
 import FreeDesign from "./components/LeftContent/FreeDesign";
 
 import Info from "./components/MidleContent/Info";
@@ -74,7 +76,9 @@ export default {
   },
   components: {
     LeftMenu,
+    FilterCollections,
     FreeDesign,
+    
     Info,
     TopMenu,
     Search,

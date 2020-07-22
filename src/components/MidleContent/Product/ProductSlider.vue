@@ -1,25 +1,28 @@
 <template>
   <div>
-    <b-row class="my-1">
-      <b-col sm="10" class="left_content">
-        <VueSlickCarousel
-          ref="c1"
-          v-bind="topSliderOptions"
-          @beforeChange="syncSliders"
-        >
+    <b-row class="my-1" :class="{column_style: !productCartPosition.vertical}">
+      <b-col :sm="productCartPosition.bigImg" class="left_content">
+        <VueSlickCarousel ref="c1" v-bind="topSliderOptions" @beforeChange="syncSliders">
           <div v-for="(image, i) in images" :key="i">
             <img :src="image.url" :alt="image.alt" />
           </div>
         </VueSlickCarousel>
       </b-col>
-      <b-col sm="2" class="right_content">
+      <b-col
+        :sm="productCartPosition.miniImg"
+        class="right_content"
+        :class="{column_style: !productCartPosition.vertical}"
+      >
         <VueSlickCarousel
           ref="c2"
           v-bind="bottomSliderOptions"
           @beforeChange="syncSliders"
+          :vertical="productCartPosition.vertical"
         >
           <div v-for="(image, i) in images" :key="i">
-            <img :src="image.url" :alt="image.alt" />
+            <div :class="{verticalMargin: !productCartPosition.vertical}">
+              <img :src="image.url" :alt="image.alt" />
+            </div>
           </div>
         </VueSlickCarousel>
       </b-col>
@@ -31,13 +34,14 @@ import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
+  props: ["productCartPosition"],
   components: { VueSlickCarousel },
   created() {},
   mounted() {},
   methods: {
     syncSliders(currentPosition, nextPosition) {
-      this.$refs.c1.next()
-      this.$refs.c2.next()
+      this.$refs.c1.next();
+      this.$refs.c2.next();
     }
   },
   data() {
@@ -50,16 +54,15 @@ export default {
         dots: false,
         fade: true,
         infinite: true,
-        speed: 500,
+        speed: 500
       },
       bottomSliderOptions: {
         asNavFor: this.$refs.c1,
         slidesToShow: 5,
         focusOnSelect: true,
-        vertical: true,
         dots: false,
         arrow: false,
-        infinite: true,
+        infinite: true
       },
 
       images: [
@@ -110,5 +113,12 @@ img {
   & img {
     margin-top: 5px;
   }
+}
+.verticalMargin {
+  margin: 0 3px;
+}
+.column_style {
+  display: flex;
+  flex-direction: column;
 }
 </style>
