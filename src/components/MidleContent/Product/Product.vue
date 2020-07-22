@@ -38,7 +38,7 @@
               <div class="item-actions-group d-flex ai-c" role="button">
                 <!-- <svg class="item-actions-icon share-icon">
                   <use xlink:href="../sprite-manual.svg#share-icon" />
-                </svg> -->
+                </svg>-->
                 <p class="item-actions-text">Поделиться</p>
               </div>
             </div>
@@ -46,7 +46,7 @@
               <div class="item-actions-group d-flex ai-c" role="button">
                 <!-- <svg class="item-actions-icon favorite-icon">
                   <use xlink:href="../sprite-manual.svg#favorite-icon" />
-                </svg> -->
+                </svg>-->
                 <p class="item-actions-text">В избранное</p>
               </div>
             </div>
@@ -54,14 +54,13 @@
               <div class="item-actions-group d-flex ai-c" role="button">
                 <!-- <svg class="item-actions-icon compare-icon">
                   <use xlink:href="../sprite-manual.svg#compare-icon" />
-                </svg> -->
+                </svg>-->
                 <p class="item-actions-text">Сравнить</p>
               </div>
             </div>
           </div>
           <div class="primary-identifier">id: {{ product.id_product }}</div>
         </div>
-
 
         <!-- <div class="l-box d-flex ai-fs jc-sb">
           <img
@@ -103,7 +102,7 @@
               </svg>
             </button>
           </div>
-        </div> -->
+        </div>-->
         <ProductSlider />
 
         <DescriptionProduct />
@@ -161,7 +160,6 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 
-
 import Tabs from "./Tabs";
 import DescriptionProduct from "./DescriptionProduct";
 import SortProduct from "./SortProduct";
@@ -171,8 +169,8 @@ import ProductSlider from "./ProductSlider";
 export default {
   data() {
     return {
-      prod: 'products'
-    }
+      prod: "products"
+    };
   },
   components: {
     Tabs,
@@ -229,9 +227,8 @@ body {
 }
 .order-button {
   position: absolute;
-  left: 0;
-  -webkit-transform: translate(45%, 20%);
-  transform: translate(45%, 20%);
+  left: 50%;
+  transform: translateX(-50%);
 }
 .product-card {
   max-width: 216px;
@@ -285,6 +282,8 @@ body {
 }
 .product-card-buy-price {
   color: #595959;
+  width: 100%;
+  justify-content: center;
 }
 .product-card-buy-price-text {
   font-size: 25px;

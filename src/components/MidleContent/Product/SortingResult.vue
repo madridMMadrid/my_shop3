@@ -91,7 +91,6 @@ export default {
 <style lang="scss" scaped>
 .product-card-buy {
   &-count {
-    padding-left: 20px;
     margin: 0;
     &-controls {
       & .more,
