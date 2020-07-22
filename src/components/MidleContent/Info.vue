@@ -37,11 +37,11 @@
       <div class="header-actions d-flex">
         <button
           id="show-btn"
-          @click="$bvModal.show('bv-modal-example')"
+          @click="$bvModal.show(`${location}`)"
           class="button-global button_small button-primary-green call-button"
         >Заказать звонок</button>
 
-        <b-modal id="bv-modal-example" centered hide-footer>
+        <b-modal :id="`${location}`" centered hide-footer>
           <template v-slot:modal-title>
             <div class="unique_modal_bv-modal-call">Заказать звонока</div>
             <div class="unique_modal_bv-modal-title">
@@ -91,7 +91,7 @@
                       type="submit"
                       variant="primary"
                       block
-                      @click="$bvModal.hide('bv-modal-example')"
+                      @click="$bvModal.hide(`${location}`)"
                     >Заказать обратный звонок</b-button>
                   </b-form-group>
                 </b-form>
@@ -102,11 +102,11 @@
 
         <button
           id="show-btn"
-          @click="$bvModal.show('bv-modal-example_1')"
+          @click="$bvModal.show(`${location}_1`)"
           class="button-global button_small button-primary-green call-button"
         >Написать нам</button>
 
-        <b-modal id="bv-modal-example_1" centered hide-footer>
+        <b-modal :id="`${location}_1`" centered hide-footer>
           <template v-slot:modal-title>
             <div class="unique_modal_bv-modal-call">Написать нам сообщение</div>
           </template>
@@ -164,7 +164,7 @@
                       type="submit"
                       variant="primary"
                       block
-                      @click="$bvModal.hide('bv-modal-example_1')"
+                      @click="$bvModal.hide(`${location}_1`)"
                     >Написать нам сообщение</b-button>
                   </b-form-group>
                 </b-form>
@@ -179,6 +179,7 @@
 <script>
 import MaskedInput from "vue-masked-input";
 export default {
+  props: ["location"],
   components: {
     MaskedInput
   },
@@ -236,8 +237,10 @@ export default {
 };
 </script>
 <style lang="scss">
-#bv-modal-example___BV_modal_content_,
-#bv-modal-example_1___BV_modal_content_ {
+#header_bv-modal-example___BV_modal_content_,
+#header_bv-modal-example_1___BV_modal_content_,
+#content_bv-modal-example___BV_modal_content_,
+#content_bv-modal-example_1___BV_modal_content_ {
   background: #47c08c;
   &.modal-content {
     border-radius: 0;

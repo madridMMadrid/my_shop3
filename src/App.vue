@@ -1,5 +1,20 @@
 <template>
   <div>
+    <div id="nav" :class="{sticky:active}">
+      <div id="nav-container" :class="toggleNavClass()">
+        <div class="wrap_header">
+          <div class="logo">
+            <img src="./assets/images/logo_s.svg" alt />
+          </div>
+          <div class="info">
+            <Info :location="locationHeader" />
+          </div>
+          <div>
+            <Cart />
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="home-page">
       <div class="l-global d-flex ai-fs jc-c">
         <div class="first-screen-background"></div>
@@ -12,7 +27,7 @@
         <main class="l-main">
           <header class="header">
             <div class="l-container">
-              <Info />
+              <Info  :location="locationContent" />
               <TopMenu />
 
               <div class="l-box d-flex jc-sb ai-fs">
@@ -21,7 +36,6 @@
               </div>
 
               <Services />
-							
             </div>
             <div class="banner-slider slider">
               <router-view></router-view>
@@ -29,7 +43,7 @@
           </header>
         </main>
       </div>
-				<Footer />
+      <Footer />
     </div>
   </div>
 </template>
@@ -46,22 +60,98 @@ import Cart from "./components/MidleContent/Cart";
 import Services from "./components/MidleContent/Services";
 import TopMenu from "./components/MidleContent/TopMenu/TopMenu";
 
-import Footer from './components/Footer/Footer'
+import Footer from "./components/Footer/Footer";
 
 export default {
+  data() {
+    return {
+      active: false,
+      locationHeader: "header_bv-modal-example",
+      locationContent: "content_bv-modal-example"
+    };
+  },
   components: {
     LeftMenu,
     FreeDesign,
     Info,
     TopMenu,
     Search,
-		Cart,
-		Services,
-		Footer
+    Cart,
+    Services,
+    Footer
+  },
+  methods: {
+    toggleNavClass() {
+      if (this.active == false) {
+        return "nav";
+      } else {
+        return "sticky-nav";
+      }
+    }
+  },
+  mounted() {
+    window.document.onscroll = () => {
+      let navBar = document.getElementById("nav");
+      if (window.scrollY > 100) {
+        // console.log('window.scrollY ', window.scrollY )
+        this.active = true;
+      } else {
+        this.active = false;
+      }
+    };
   }
 };
 </script>
 <style lang="scss">
+#nav {
+  transition: 500ms;
+  & .wrap_header {
+    display: flex;
+    & .logo {
+      padding: 3px;
+      margin: auto;
+    }
+    & .info {
+      display: flex;
+      margin: auto;
+    }
+    & .header-basket {
+      margin: 0 10px;
+      min-width: 200px;
+      padding: 2px 0;
+      & .order-button {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+      }
+      & .header-basket-sum {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+.sticky-nav {
+  transition: 500ms;
+  padding: 5px;
+}
+
+#nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+}
+
+#nav.sticky {
+  transition: 550ms;
+  box-shadow: 0px 15px 10px -15px #111;
+  z-index: 9;
+  justify-content: center;
+}
+
 .menu {
   border-right: 1px solid #ddd;
 }
@@ -646,7 +736,7 @@ input {
   transition: background-color 0.2s;
   padding: 10px 20px;
   border-bottom: 1px solid #f3f1ef;
-  
+
   &:not([disabled]) {
     &:active {
       box-shadow: inset 1px 1px 1px 2px rgba(0, 0, 0, 0.1);
@@ -1204,131 +1294,132 @@ input {
   }
 }
 .collection-image-main {
-	max-width: 670px;
-	height: 490px;
+  max-width: 670px;
+  height: 490px;
 }
 .collection-gallery {
-	max-width: 195px;
+  max-width: 195px;
 }
 .collection-gallery-button {
-	width: 100%;
-	padding: 8px 0;
-	border: 0 solid;
-	background-color: #f9f8f3;
-	transition: background-color .2s;
-	&:not([disabled]) {
-		&:focus {
-			background-color: #f3f1ef;
-		}
-		&:hover {
-			background-color: #f3f1ef;
-		}
-		&:active {
-			box-shadow: inset 1px 1px 1px 2px rgba(0, 0, 0, .1);
-			-webkit-transform: translateY(1px);
-			transform: translateY(1px);
-		}
-	}
+  width: 100%;
+  padding: 8px 0;
+  border: 0 solid;
+  background-color: #f9f8f3;
+  transition: background-color 0.2s;
+  &:not([disabled]) {
+    &:focus {
+      background-color: #f3f1ef;
+    }
+    &:hover {
+      background-color: #f3f1ef;
+    }
+    &:active {
+      box-shadow: inset 1px 1px 1px 2px rgba(0, 0, 0, 0.1);
+      -webkit-transform: translateY(1px);
+      transform: translateY(1px);
+    }
+  }
 }
 .collection-gallery-button-icon {
-	width: 12px;
-	height: 12px;
-	fill: #f59115;
+  width: 12px;
+  height: 12px;
+  fill: #f59115;
 }
 .collection-gallery-button.next {
-	.collection-gallery-button-icon {
-		-webkit-transform: rotate(90deg);
-		transform: rotate(90deg);
-	}
+  .collection-gallery-button-icon {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
 }
 .collection-gallery-button.prev {
-	.collection-gallery-button-icon {
-		-webkit-transform: rotate(-90deg);
-		transform: rotate(-90deg);
-	}
+  .collection-gallery-button-icon {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
 }
 .collection-gallery-image {
-	max-width: 100%;
-	margin: 5px 0;
-	&:not(.active) {
-		opacity: .5;
-		cursor: pointer;
-		transition: opacity .2s;
-		&:not([disabled]) {
-			&:hover {
-				opacity: .9;
-			}
-		}
-	}
+  max-width: 100%;
+  margin: 5px 0;
+  &:not(.active) {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    &:not([disabled]) {
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
 }
 .collection-gallery-slides {
-	max-height: 425px;
-	overflow: hidden;
+  max-height: 425px;
+  overflow: hidden;
 }
 .collection-info {
-	margin-top: 35px;
+  margin-top: 35px;
 }
 .collection-info-block {
-	flex: 0 0 40%;
-	&:last-child {
-		max-width: 350px;
-		position: relative;
-	}
+  flex: 0 0 40%;
+  &:last-child {
+    max-width: 350px;
+    position: relative;
+  }
 }
 .collection-info-characteristic {
-	margin-bottom: 35px;
-	font-size: 15px;
-	border-bottom: 1px dashed #bfbfbf;
+  margin-bottom: 35px;
+  font-size: 15px;
+  border-bottom: 1px dashed #bfbfbf;
 }
 .collection-info-characteristic-name {
-	margin-bottom: -5px;
-	background-color: #fff;
-	padding-right: 10px;
-	font-weight: 600;
-	color: #bfbfbf;
+  margin-bottom: -5px;
+  background-color: #fff;
+  padding-right: 10px;
+  font-weight: 600;
+  color: #bfbfbf;
 }
 .collection-info-characteristic-value {
-	margin-bottom: -5px;
-	background-color: #fff;
-	padding-left: 10px;
-	color: #595959;
+  margin-bottom: -5px;
+  background-color: #fff;
+  padding-left: 10px;
+  color: #595959;
 }
 .collection-info-button {
-	width: 100%;
-	padding: 12px;
-	margin-top: 30px;
-	color: #fff;
-	font-size: 18px;
-	font-weight: 600;
+  width: 100%;
+  padding: 12px;
+  margin-top: 30px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
 }
 .collection-info-button-icon {
-	width: 18px;
-	height: 18px;
-	margin-right: 10px;
-	display: inline-block;
-	fill: #fff;
-	vertical-align: sub;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  display: inline-block;
+  fill: #fff;
+  vertical-align: sub;
 }
 .show-more {
-	max-width: 70px;
-	background-color: transparent;
-	border: 0 solid;
-	font-size: 15px;
-	line-height: 19px;
-	text-align: center;
-	position: absolute;
-	right: 20%;
-	top: 15%;
-	transition: .2s;
+  max-width: 70px;
+  background-color: transparent;
+  border: 0 solid;
+  font-size: 15px;
+  line-height: 19px;
+  text-align: center;
+  position: absolute;
+  right: 20%;
+  top: 15%;
+  transition: 0.2s;
 }
 .show-more-count {
-	margin-top: 3px;
-	display: block;
-	color: #8f8c89;
+  margin-top: 3px;
+  display: block;
+  color: #8f8c89;
 }
-:active, :hover, :focus {
-    outline: 0 !important;
-    outline-offset: 0 !important;
+:active,
+:hover,
+:focus {
+  outline: 0 !important;
+  outline-offset: 0 !important;
 }
-
 </style>
