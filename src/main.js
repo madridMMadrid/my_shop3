@@ -8,12 +8,17 @@ import { BootstrapVue, IconsPlugin, BootstrapVueIcons } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+import rate from 'vue-rate'
+import 'vue-rate/dist/vue-rate.css'
+
 // Install BootstrapVue
 Vue.use(BootstrapVue)
     // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
     // import VueCarousel from '@chenfengyuan/vue-carousel';
 Vue.use(BootstrapVueIcons)
+
+Vue.use(rate)
 
 
 // Vue.component(VueCarousel.name, VueCarousel);
