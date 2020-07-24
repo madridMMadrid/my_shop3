@@ -1,6 +1,6 @@
 
 <template>
-  <div class="l-container">
+  <div class="l-container reviews">
     <h1 class="rev">Отзывы Прайм Вуд</h1>
     <div class="wrapper">
       <h1 class="h1">Отзывы клиентов</h1>
@@ -29,6 +29,8 @@
         :total-rows="rows"
         :per-page="perPage"
         aria-controls="my-table"
+        first-number
+        last-number
       ></b-pagination>
 
       <div class="b_ttl center">Добавить отзыв</div>
@@ -94,13 +96,13 @@ export default {
       return this.review.length;
     },
     evenNumbers: function () {
-      let iter = this.perPage * this.currentPage
+      let iter = this.perPage * this.currentPage;
       return this.review.filter(function (number) {
         return number.id <= iter && number.id >= iter - 2;
       });
     },
   },
-  
+
   data() {
     return {
       perPage: 3,
@@ -137,52 +139,50 @@ export default {
           name: "JimBeam",
           data: "12:12:12",
           star: 3,
-          rev:
-            "item1",
+          rev: "item1",
         },
         {
           id: 5,
           name: "Daffy Duck",
           data: "12:01:14",
           star: 4,
-          rev: "item 2"
+          rev: "item 2",
         },
         {
           id: 6,
           name: "Duff",
           data: "12:01:14",
           star: 4,
-          rev: "item 3"
+          rev: "item 3",
         },
-         {
+        {
           id: 7,
           name: "JimBeam",
           data: "12:12:12",
           star: 3,
-          rev:
-            "item4",
+          rev: "item4",
         },
         {
           id: 8,
           name: "Daffy Duck",
           data: "12:01:14",
           star: 4,
-          rev: "item 5"
+          rev: "item 5",
         },
         {
           id: 9,
           name: "Duff",
           data: "12:01:14",
           star: 4,
-          rev: "item 6"
+          rev: "item 6",
         },
         {
           id: 10,
           name: "Duff",
           data: "12:01:14",
           star: 4,
-          rev: "item 7"
-        }
+          rev: "item 7",
+        },
       ],
     };
   },
@@ -323,6 +323,39 @@ p {
 }
 </style>
 <style lang="scss">
+.reviews {
+  & .pagination {
+    max-width: 100%;
+    justify-content: center;
+    margin: 35px auto;
+    & .page-item {
+      &.disabled {
+        display: none;
+      }
+      & .page-link {
+        border: none;
+        font-weight: 600;
+        text-decoration: none;
+        color: #b5b5b5;
+        transition: all .2s ease;
+        &:hover {
+          transition: all .2s ease;
+          background: none;
+          color: #3c3c3c;
+        }
+        &:focus {
+          box-shadow: none;
+        }
+      }
+      &.active {
+        & .page-link {
+          background: #ff9e24;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
 .Rate__star {
   padding: 0;
   & .icon {
