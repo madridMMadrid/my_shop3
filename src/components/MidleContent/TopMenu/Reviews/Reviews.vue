@@ -5,12 +5,11 @@
     <div class="wrapper">
       <h1 class="h1">Отзывы клиентов</h1>
 
-      <div class="review_item" v-for="(value, i) in review" :key="i">
+      <div class="review_item" v-for="(value, i) in evenNumbers" :key="i">
         <div class="review_info">
           <div class="review_stars">
             <span class="review_date">{{ value.data }}</span>
             <div class="vote vote_small">
-              <!-- <b-icon-star-fill v-for="(value, i) in value.star" :key="i" /> -->
               <rate class="RateCustom" :length="5" :value="value.star" :readonly="true" />
             </div>
           </div>
@@ -23,6 +22,15 @@
           <p>{{ value.rev }}</p>
         </div>
       </div>
+
+      <p class="mt-3">Current Page: {{ currentPage }}</p>
+      <b-pagination
+        v-model="currentPage"
+        :total-rows="rows"
+        :per-page="perPage"
+        aria-controls="my-table"
+      ></b-pagination>
+
       <div class="b_ttl center">Добавить отзыв</div>
       <form id="js_reviews_form">
         <div class="review_form form_border_style">
@@ -66,20 +74,42 @@
 </template>
 <script>
 import { StarRating } from "vue-rate-it";
+import Paginate from "vuejs-paginate";
+
 import reviews from "./RewItem";
 export default {
   name: "Reviews",
   components: {
     reviews,
     StarRating,
+    Paginate,
   },
-  methods: {},
+  methods: {
+    clickCallback(pageNum) {
+      console.log(pageNum);
+    },
+  },
+  computed: {
+    rows() {
+      return this.review.length;
+    },
+    evenNumbers: function () {
+      let iter = this.perPage * this.currentPage
+      return this.review.filter(function (number) {
+        return number.id <= iter && number.id >= iter - 2;
+      });
+    },
+  },
+  
   data() {
     return {
+      perPage: 3,
+      currentPage: 1,
       myRate: 0,
       rating: 3,
       review: [
         {
+          id: 1,
           name: "JimBeam",
           data: "12:12:12",
           star: 3,
@@ -87,12 +117,72 @@ export default {
             "Заказал мебель для домашнего кабинета. нареканий нет, всем доволен.",
         },
         {
+          id: 2,
           name: "Daffy Duck",
           data: "12:01:14",
           star: 4,
           rev:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro inventore aliquam labore, deserunt quod cum architecto aperiam obcaecati odit animi accusamus vitae, distinctio, molestias dolores sunt voluptatibus necessitatibus ex earum delectus nemo? Maiores cumque quam, explicabo illum distinctio veniam voluptatem ipsam. Ex quaerat vero ut ducimus quas delectus mollitia dolorem.",
         },
+        {
+          id: 3,
+          name: "Duff",
+          data: "12:01:14",
+          star: 4,
+          rev:
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro inventore aliquam labore, deserunt quod cum architecto aperiam obcaecati odit animi accusamus vitae, distinctio, molestias dolores sunt voluptatibus necessitatibus ex earum delectus nemo? Maiores cumque quam, explicabo illum distinctio veniam voluptatem ipsam. Ex quaerat vero ut ducimus quas delectus mollitia dolorem.",
+        },
+        {
+          id: 4,
+          name: "JimBeam",
+          data: "12:12:12",
+          star: 3,
+          rev:
+            "item1",
+        },
+        {
+          id: 5,
+          name: "Daffy Duck",
+          data: "12:01:14",
+          star: 4,
+          rev: "item 2"
+        },
+        {
+          id: 6,
+          name: "Duff",
+          data: "12:01:14",
+          star: 4,
+          rev: "item 3"
+        },
+         {
+          id: 7,
+          name: "JimBeam",
+          data: "12:12:12",
+          star: 3,
+          rev:
+            "item4",
+        },
+        {
+          id: 8,
+          name: "Daffy Duck",
+          data: "12:01:14",
+          star: 4,
+          rev: "item 5"
+        },
+        {
+          id: 9,
+          name: "Duff",
+          data: "12:01:14",
+          star: 4,
+          rev: "item 6"
+        },
+        {
+          id: 10,
+          name: "Duff",
+          data: "12:01:14",
+          star: 4,
+          rev: "item 7"
+        }
       ],
     };
   },
@@ -198,6 +288,7 @@ p {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+      margin-bottom: 15px;
     }
     &_stars {
       text-align: right;
@@ -241,12 +332,15 @@ p {
 .RateCustom.Rate .icon {
   width: 17px;
   height: 17px;
+  margin: 2px;
 }
 .RateCustom.Rate .Rate__star.filled {
   color: #ff9e24;
+  padding: 0;
 }
-.RateCustom.Rate .Rate__star.hover {
+.RateCustom.Rate .Rate__star {
   // color: red;
+  padding: 0 !important;
 }
 .rev {
   font-size: 30px;
