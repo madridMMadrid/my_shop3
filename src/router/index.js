@@ -10,11 +10,11 @@ import Product from '../components/MidleContent/Product/Product';
 import Checkout from '../components/Checkout';
 
 
-import About from '../components/MidleContent/TopMenu/About'
-import Reviews from '../components/MidleContent/TopMenu/Reviews'
-import Jobs from '../components/MidleContent/TopMenu/Jobs'
-import Contact from '../components/MidleContent/TopMenu/Contact'
-import OurWorks from '../components/MidleContent/TopMenu/OurWorks'
+import About from '../components/MidleContent/TopMenu/About/About'
+import Reviews from '../components/MidleContent/TopMenu/Reviews/Reviews'
+import Jobs from '../components/MidleContent/TopMenu/Jobs/Jobs'
+import Contact from '../components/MidleContent/TopMenu/Contact/Contact'
+import OurWorks from '../components/MidleContent/TopMenu/OurWorks/OurWorks'
 
 
 import Delivery from '../components/MidleContent/Services/Delivery'
