@@ -85,7 +85,7 @@
         <button
           id="show-btn"
           @click="$bvModal.show(`${location}_1`)"
-          class="button-global button_small button-primary-green call-button"
+          class="button-global button_small button-primary-green call-button deep_green"
         >Написать нам</button>
 
         <b-modal :id="`${location}_1`" centered hide-footer>

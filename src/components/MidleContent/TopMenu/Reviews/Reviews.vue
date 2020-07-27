@@ -316,8 +316,6 @@ p {
       height: 20px;
       position: relative;
       width: 105px;
-      &.vote_small {
-      }
     }
   }
 }

@@ -699,7 +699,7 @@ body {
 
 .left-column {
     max-width: 280px;
-    z-index: 2;
+    z-index: 1;
 }
 
 .shadow-wrap {
@@ -809,3 +809,8 @@ body {
     display: block;
     color: #8f8c89;
 }
+.commonpage {
+    font-size: 30px;
+    font-weight: 400;
+    margin: .8em .2em;
+} 

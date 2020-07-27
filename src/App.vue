@@ -27,8 +27,8 @@
 
         <main class="l-main">
           <header class="header">
-            <div class="l-container">
-              <Info  :location="locationContent" />
+            <div class="l-container header">
+              <Info :location="locationContent" />
               <TopMenu />
 
               <div class="l-box d-flex jc-sb ai-fs">
@@ -39,6 +39,7 @@
               <Services />
             </div>
             <div class="banner-slider slider">
+              <div class="breadcrumbs">breadcrumbs</div>
               <router-view></router-view>
             </div>
           </header>
@@ -52,10 +53,10 @@
 
 <script>
 import { mapGetters } from "vuex";
-import GoTop from '@inotom/vue-go-top';
+import GoTop from "@inotom/vue-go-top";
 
 import LeftMenu from "./components/LeftContent/LeftMenu";
-import FilterCollections from './components/LeftContent/FiltrCollections'
+import FilterCollections from "./components/LeftContent/FiltrCollections";
 import FreeDesign from "./components/LeftContent/FreeDesign";
 
 import Info from "./components/MidleContent/Info";
@@ -71,21 +72,21 @@ export default {
     return {
       active: false,
       locationHeader: "header_bv-modal-example",
-      locationContent: "content_bv-modal-example"
+      locationContent: "content_bv-modal-example",
     };
   },
   components: {
     LeftMenu,
     FilterCollections,
     FreeDesign,
-    
+
     Info,
     TopMenu,
     Search,
     Cart,
     Services,
     Footer,
-    GoTop
+    GoTop,
   },
   methods: {
     toggleNavClass() {
@@ -94,7 +95,7 @@ export default {
       } else {
         return "sticky-nav";
       }
-    }
+    },
   },
   mounted() {
     window.document.onscroll = () => {
@@ -106,11 +107,18 @@ export default {
         this.active = false;
       }
     };
-  }
+  },
 };
 </script>
 <style lang="scss">
-@import './assets/styles/globalStyle.scss';
+@import "./assets/styles/globalStyle.scss";
+.breadcrumbs {
+  color: #a5a5a5;
+  margin-bottom: 15px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
 #nav {
   transition: 500ms;
   & .wrap_header {

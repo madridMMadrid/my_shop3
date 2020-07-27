@@ -11,6 +11,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import rate from 'vue-rate'
 import 'vue-rate/dist/vue-rate.css'
 
+import ProductZoomer from 'vue-product-zoomer'
+Vue.use(ProductZoomer)
+
 // Install BootstrapVue
 Vue.use(BootstrapVue)
     // Optionally install the BootstrapVue icon components plugin

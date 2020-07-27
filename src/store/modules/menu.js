@@ -31,6 +31,9 @@ export default {
         }, {
             url: '/ourworks',
             text: 'Наши работы'
+        }, {
+            url: '/support',
+            text: 'Клиентская поддержка'
         }],
         service: [{
                 url: '/design',

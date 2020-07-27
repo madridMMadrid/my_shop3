@@ -182,6 +182,12 @@ input {
     background-color: #fff;
     z-index: 1;
     min-height: 100vh;
+    .l-container {
+        &.header {
+            padding: 25px 35px;
+        }
+        // padding: 35px 25px;
+    }
 }
 
 .l-box.center {
@@ -194,7 +200,7 @@ input {
 
 .l-container {
     width: 100%;
-    padding: 35px 25px;
+    padding: 0px 25px;
 }
 
 .d-flex {
@@ -415,6 +421,12 @@ input {
 .button-primary-green {
     transition: background-color 0.2s;
     background-color: #71c73b;
+    &.deep_green {
+        background: #00a75f;
+        &:hover {
+            background: #0dc474 !important;
+        }
+    }
     &:not([disabled]) {
         &:focus {
             background-color: #87da3d;
@@ -708,7 +720,7 @@ input {
 
 .left-column {
     max-width: 280px;
-    z-index: 2;
+    z-index: 1;
 }
 
 .shadow-wrap {
@@ -817,7 +829,7 @@ input {
 
 .header {
     .l-container {
-        padding: 20px 25px;
+        padding: 0px 25px;
     }
     .l-box {
         margin-top: 15px;

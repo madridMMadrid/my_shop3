@@ -15,6 +15,7 @@ import Reviews from '../components/MidleContent/TopMenu/Reviews/Reviews'
 import Jobs from '../components/MidleContent/TopMenu/Jobs/Jobs'
 import Contact from '../components/MidleContent/TopMenu/Contact/Contact'
 import OurWorks from '../components/MidleContent/TopMenu/OurWorks/OurWorks'
+import Support from '../components/MidleContent/TopMenu/Support/Support'
 
 
 import Delivery from '../components/MidleContent/Services/Delivery'
@@ -80,6 +81,10 @@ const routes = [{
     {
         path: '/OurWorks',
         component: OurWorks
+    },
+    {
+        path: '/Support',
+        component: Support
     },
     {
         path: '/Delivery',

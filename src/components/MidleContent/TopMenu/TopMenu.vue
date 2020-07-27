@@ -16,6 +16,7 @@
 import { mapGetters } from "vuex";
 
 export default {
+  name:'menuListTop',
   computed: {
     ...mapGetters("menu", {
       menuListTop: "topMenu"
