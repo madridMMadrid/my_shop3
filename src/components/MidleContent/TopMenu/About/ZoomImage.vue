@@ -74,7 +74,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 img {
   cursor: zoom-in;
   display: block;

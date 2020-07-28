@@ -207,7 +207,8 @@ export default {
   & .grid {
     & > div {
       display: flex;
-      border-top: 1px solid #cecdcd;
+	  border-top: 1px solid #cecdcd;
+	justify-content: space-between;
     }
   }
 }

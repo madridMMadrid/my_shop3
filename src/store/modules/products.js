@@ -64,7 +64,7 @@ export default {
             },
             {
                 name: 'Smartphone Moto G 5S Dual Chip Android 7.0',
-                price: 929,
+                price: 500,
                 image: 'https://picsum.photos/id/2/200/300/',
                 stars: 1.5,
                 totalReviews: 11,
@@ -72,7 +72,7 @@ export default {
             },
             {
                 name: 'iPhone 8 Dourado 64GB Tela 4.7" IOS 11',
-                price: 3949,
+                price: 300,
                 image: 'https://picsum.photos/id/3/200/300/',
                 stars: 1,
                 totalReviews: 2,

@@ -42,7 +42,7 @@
             :options="options"
             placeholder="Отзыв о работе персонала"
             :show-labels="false"
-            clearOnSelect="true"
+            :clearOnSelect="true"
             @open="clearValue"
           />
         </div>

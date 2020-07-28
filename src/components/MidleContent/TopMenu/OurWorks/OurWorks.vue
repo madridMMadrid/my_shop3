@@ -24,18 +24,57 @@
     <b-pagination
       v-model="currentPage"
       :total-rows="rows"
-      :per-page="perPage"
+      :per-page="perPageOld"
       aria-controls="my-table"
       first-number
       last-number
     ></b-pagination>
+    <p style="color: #000; font-size: 12px;">моя пагинация</p> 
+	<!-- подготовка к пагинации с сервака -->
+    <div class="offset">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>User ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(p, i) in displayedPosts" :key="i">
+            <td>{{p.first}}</td>
+            <td>{{p.last}}</td>
+            <td>{{p.suffix}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <button type="button" class="page-link" v-if="page != 1" @click="page--">Previous</button>
+          </li>
+          <li class="page-item">
+            <button
+              type="button"
+              class="page-link"
+              v-for="(pageNumber, i) in pages.slice(page-1, page+5)"
+              @click="page = pageNumber"
+              :key="i"
+            >{{pageNumber}}</button>
+          </li>
+          <li class="page-item">
+            <button type="button" @click="page++" v-if="page < pages.length" class="page-link">Next</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      perPage: 3,
+      perPageOld: 3,
       currentPage: 1,
       myRate: 0,
       rating: 3,
@@ -56,16 +95,72 @@ export default {
           test: 1,
         },
       ],
+      posts: [""],
+      page: 1,
+      perPage: 9,
+      pages: [],
     };
+  },
+  methods: {
+    getPosts() {
+      let data = [];
+      for (let i = 0; i < 200; i++) {
+        this.posts.push({ first: "John", last: "Doe", suffix: "#" + i });
+      }
+    },
+    setPages() {
+      let numberOfPages = Math.ceil(this.posts.length / this.perPage);
+      for (let index = 1; index <= numberOfPages; index++) {
+        this.pages.push(index);
+      }
+    },
+    paginate(posts) {
+      let page = this.page;
+      let perPage = this.perPage;
+      let from = page * perPage - perPage;
+      let to = page * perPage;
+      return posts.slice(from, to);
+    },
   },
   computed: {
     rows() {
       return this.ourWorks.length;
     },
+    displayedPosts() {
+      return this.paginate(this.posts);
+    },
+  },
+  watch: {
+    posts() {
+      this.setPages();
+    },
+  },
+  created() {
+    this.getPosts();
+  },
+  filters: {
+    trimWords(value) {
+      return value.split(" ").splice(0, 20).join(" ") + "...";
+    },
   },
 };
 </script>
 <style lang="scss">
+.table-bordered {
+	font-size: 12px;
+}
+button.page-link {
+  display: inline-block;
+}
+button.page-link {
+  font-size: 20px;
+  color: #29b3ed;
+  font-weight: 500;
+}
+.offset {
+  width: 500px !important;
+  margin: 20px auto;
+}
 .gallery {
   margin: 0 0 10px -5px;
   font-size: 0;
@@ -101,8 +196,8 @@ export default {
   & .pagination {
     max-width: 100%;
     justify-content: center;
-	margin: 35px auto;
-	font-size: 16px;
+    margin: 35px auto;
+    font-size: 16px;
     & .page-item {
       &.disabled {
         display: none;
