@@ -61,6 +61,14 @@ export default {
                 stars: 0,
                 totalReviews: 0,
                 details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+                selected: null,
+                options: [
+                  { value: null, text: 'Please select an option' },
+                  { value: 'a', text: 'This is First option' },
+                  { value: 'b', text: 'Selected Option' },
+                  { value: { C: '3PO' }, text: 'This is an option with object value' },
+                  { value: 'd', text: 'This one is disabled', disabled: true }
+                ]
             },
             {
                 name: 'Smartphone Moto G 5S Dual Chip Android 7.0',

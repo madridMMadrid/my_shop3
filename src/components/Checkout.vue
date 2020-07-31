@@ -14,16 +14,17 @@
           <button class="product-remove" @click="remove(index)">X</button>
         </li>
       </transition-group>-->
-
-      <!-- <transition-group name="fade"> -->
+  <table class="resp-tab">
+    <tbody>
         <CheckoutProductSumm
           class="checkout-list"
           v-for="(product, index) in getProductsInCart"
-          :key="index + Math.floor(Math.random() * 100000)"
+          :key="index + random"
           :index="index"
           :getProductsInCart="product"
         />
-      <!-- </transition-group> -->
+    </tbody>
+  </table>
     </ul>
     <div v-if="!hasProduct()" class="checkout-message">
       <h3>Нет товара...</h3>
@@ -234,8 +235,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import PlusMinus from "./MidleContent/Productitem/PlusMubus";
-import PlusMinusForCheckout from "./MidleContent/Productitem/PlusMinusForCheckout";
+
 
 import CheckoutProductSumm from "./CheckoutProductSumm";
 
@@ -245,15 +245,13 @@ export default {
     return {
       picked: "forUr",
       picked_delivery: "delivery",
-      totalCurrenSumm: 0,
+      random: Math.floor(Math.random() * 100000)
     };
   },
   computed: {
     ...mapGetters("products", ["getProductsInCart"]),
   },
   components: {
-    PlusMinus,
-    PlusMinusForCheckout,
     CheckoutProductSumm,
   },
 
@@ -268,23 +266,11 @@ export default {
         0
       );
     },
-    remove(index) {
-      this.removeProduct(index);
-    },
-    totalSummMore(data) {
-      console.log("++++", data);
-      // this.summaUnique = data
-      this.totalCurrenSumm = data;
-    },
-    totalSummLess(data) {
-      console.log("---", data);
-      this.totalCurrenSumm = data;
-    },
   },
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped >
 .checkout-box {
   width: 100%;
   max-width: 900px;
@@ -299,96 +285,7 @@ export default {
   padding: 0;
 }
 
-.checkout-product {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
-  background-color: #fff;
-  // box-shadow: 0px 0px 10px rgba(73, 74, 78, 0.1);
-  border-radius: 0;
-  list-style: none;
-  box-sizing: border-box;
-  padding: 0.8em;
-  margin: 1em 0;
-  border-top: 1px solid #d6d5cc;
-  &:last-child {
-    border-bottom: 1px solid #d6d5cc;
-  }
-  .status:before {
-    content: "";
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    vertical-align: top;
-    margin-right: 7px;
-  }
-  .status.yes {
-    color: #ff9e57;
-    display: flex;
-    align-items: center;
-  }
-  .status.yes:before {
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAFM0aXcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAhlJREFUeNpi+P//P8P/ZamvgETKayDnP0AAMfy/eyQSRDOCefMjGAACiBEoEsVwcPJSBhBg5WBgYlCyXsYAA8xsrwACiAFmCkwvC1Dff7DshbUglYyM/5enA4XZGBi+vmNg4OB5zsTw/98rhs+vGBj+/WFgCJ8hBRBAIOsYGJanvWT48UmMARlw8L1iiJwlzghyIcOPzyJwCV6gupBJDAxLkxkYWFiBRpon5IMlJHUYGBJXMDB8fs0A8gDDr68MDKaxJRBngjDImSsynv5fkf4M5DmYOEAAQST//WP6v7tr0/954f/BNIgPDo9PL5UY1uTdZUAHIZOUGUGqMSQsgQ47PhcYGiDAxg1xCAgE9TEAvQlmQiQjpjMwXN3OwKDmyMDw7DIDMLTBwkxgclEcA4OWBwPD00twCRAAOuiFMsOa/DuYDpqoguqVBdE/kb0CEGCQsAaBz6+UGPZPWMXw9p4xAy4grHSWwbEgDBjc9yDWAk1h2FJ9kuHNPRMGYoGI0hkGn1Zzxv8727YzPL3ogVcxJz8Dg0cdA4OANAPDnm4GhsdnGRik9XcgAllCC6igloHh8iYGhrPAiGb4D7KBgcG1ApRcgBrOMzAcmMDA8OcnxEAmll+oNitaMjDY5QAlmBkYfv8Ap2qGG7sZGE7MA5qFFpFgm7H5GeQKDl4GhoengZr+4fEzPLRfKjPsn7iScGjnhzPwioMTGgBHfgwlkWXMRgAAAABJRU5ErkJggg==");
-  }
-  .status.no {
-    color: #a1729b;
-  }
-  .status.no:before {
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAFM0aXcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAeFJREFUeNpi/v//P4PWf5VXzFr/VF6z8bKLAgQQw71zdyJBoowLi2b/ZwACgABiuHf2ThSIc+3olf8gmhEkvah4DliWk5fzFUAAMYAEVtYtfgXTy6z0Wea/bbwT98EFe4P5RPlvM4GU3j5xA2ze2c0ne5hA+p5cfgQWCKmPkgIIILChqxuWvvz++bsYAxIAKQxtiBYHu/DHlx+iIEF9LyMGIRlhhjcPXjH8+fWHG2h0OpNpgGU+TJeQtAgDjxAv3BRjX/MSsBUgcP/83UiQIxiAvgRJKBopLwOJAwQQ2B///v1j2jd35yaQT0E0iA8Oj89vPimta1t5lwENBFWFKzNr/FF6BxOI601huLjrHJh9/fDVfCYGPIB8ScZPbz4qr29bdQddIrAqTAXsVyBmOjB/94ZnN5+4S6nL7HRIdA1gZGT8BxBg8ID48vaz0sFFe1e9ffLGGJc1wjIiZ+3jnMN4hHnvga0FBcj2iZtOvnn82gRZoWOqG4OshhzD9WNXGU6vPY5iiIis6BnPfD9zpn1zdm5F1wgCv77/RKGRAUg9SB/T0xtPPLA58d3Tt2D67eM3WL3w4s4zJ8Y9s7Zvx2UAPiCtIbODIj/DQ/vz20/KhxbtW0kotO3inMJ5hfnACQ0AXEoEm226Q6MAAAAASUVORK5CYII=");
-  }
-}
 
-.checkout-product * {
-  place-self: center;
-}
-.product-image {
-  grid-column: 1/2;
-  width: 50%;
-}
-
-.product-name {
-  box-sizing: border-box;
-}
-
-.product-price {
-  font-size: 20px;
-  font-weight: bold;
-  color: #ff9e24;
-  padding-right: 30px;
-  line-height: 17px;
-  position: relative;
-  &:before {
-    content: "РУБ";
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 12px;
-  }
-}
-.currentSum {
-  font-size: 20px;
-  font-weight: bold;
-  color: #888;
-  padding-right: 30px;
-  line-height: 17px;
-  position: relative;
-  &:before {
-    content: "РУБ";
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 12px;
-  }
-}
-
-.product-remove {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border: 0;
-  background-color: #e0e0e0;
-  color: #fff;
-  cursor: pointer;
-}
 
 .total {
   font-size: 2em;
