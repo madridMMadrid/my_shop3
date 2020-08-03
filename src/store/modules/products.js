@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { ListGroupPlugin } from 'bootstrap-vue';
 
 export default {
     namespaced: true,
@@ -10,10 +11,19 @@ export default {
             productName: 'notebooks',
             name: 'Notebook Lenovo Ideapad 320 Intel® Core i5-7200u 8GB',
             price: 2259,
+            fixPrice: 2259,
             image: 'https://picsum.photos/id/7/200/300/',
             stars: 5,
             totalReviews: 230,
+            coffecient: 0,
             details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+            selected: 'a',
+            options: [
+                { cof: 1, value: 'a', text: 'Категория А' },
+                { cof: 1.3, value: 'b', text: 'Категория В' },
+                { cof: 1.4, value: 'c', text: 'Категория С' },
+                { cof: 1.5, value: 'd', text: 'Категория D' }
+            ]
         },
         {
             id: 2,
@@ -21,10 +31,19 @@ export default {
             productName: 'notebooks',
             name: 'Notebook Dell Inspiron i15-3567-A30P Intel Core 7ª i5 4GB',
             price: 2284,
+            fixPrice: 2284,
             image: 'https://picsum.photos/id/8/200/300/',
             stars: 3.4,
             totalReviews: 20,
+            coffecient: 0,
             details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+            selected: 'a',
+            options: [
+                { cof: 1, value: 'a', text: 'Категория А' },
+                { cof: 1.3, value: 'b', text: 'Категория В' },
+                { cof: 1.4, value: 'c', text: 'Категория С' },
+                { cof: 1.5, value: 'd', text: 'Категория D' }
+            ]
         },
         {
             id: 3,
@@ -32,53 +51,82 @@ export default {
             productName: 'notebooks',
             name: 'Notebook Samsung Essentials E21 Intel Celeron Dual Core',
             price: 1490,
+            fixPrice: 1490,
             image: 'https://picsum.photos/id/9/200/300/',
             stars: 1,
             totalReviews: 1,
+            coffecient: 0,
             details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+            selected: 'a',
+            options: [
+                { cof: 1, value: 'a', text: 'Категория А' },
+                { cof: 1.3, value: 'b', text: 'Категория В' },
+                { cof: 1.4, value: 'c', text: 'Категория С' },
+                { cof: 1.5, value: 'd', text: 'Категория D' }
+            ]
         }
         ],
 
         smartphones: [{
-            id: 1,
+            id: 11,
             qty: 1,
             productName: 'smartphones',
             name: 'Smartphone Xiaomi Mi A1 dual Android one 7.1',
             price: 100,
+            fixPrice: 100,
             image: 'https://picsum.photos/id/1/200/300/',
             stars: 0,
             totalReviews: 0,
+            coffecient: 0,
             details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-            selected: null,
+            selected: 'a',
             options: [
-                { value: null, text: 'Please select an option' },
-                { value: 'a', text: 'This is First option' },
-                { value: 'b', text: 'Selected Option' },
-                { value: { C: '3PO' }, text: 'This is an option with object value' },
-                { value: 'd', text: 'This one is disabled', disabled: true }
+                { cof: 1, value: 'a', text: 'This is First option' },
+                { cof: 1.3, value: 'b', text: 'Selected Option' },
+                { cof: 1.4, value: 'c', text: 'This is an option with object value' },
+                { cof: 1.5, value: 'd', text: 'This one is disabled' }
             ]
         },
         {
-            id: 2,
+            id: 12,
             qty: 1,
             productName: 'smartphones',
             name: 'Smartphone Moto G 5S Dual Chip Android 7.0',
             price: 500,
+            fixPrice: 500,
             image: 'https://picsum.photos/id/2/200/300/',
             stars: 1.5,
             totalReviews: 11,
+            coffecient: 0,
             details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+            selected: 'a',
+            options: [
+                { cof: 1, value: 'a', text: 'Категория А' },
+                { cof: 1.3, value: 'b', text: 'Категория В' },
+                { cof: 1.4, value: 'c', text: 'Категория С' },
+                { cof: 1.5, value: 'd', text: 'Категория D' }
+            ]
         },
         {
-            id: 3,
+            id: 13,
             qty: 1,
             productName: 'smartphones',
-            name: 'iPhone 8 Dourado 64GB Tela 4.7" IOS 11',
+            name: 'Smartphone iPhone 8 Dourado 64GB Tela 4.7" IOS 11',
             price: 300,
+            fixPrice: 300,
+            coffecient: 0,
             image: 'https://picsum.photos/id/3/200/300/',
             stars: 1,
             totalReviews: 2,
+            coffecient: 0,
             details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+            selected: 'a',
+            options: [
+                { cof: 1, value: 'a', text: 'Категория 1' },
+                { cof: 1.3, value: 'b', text: 'Категория 2' },
+                { cof: 1.4, value: 'c', text: 'Категория 3' },
+                { cof: 1.5, value: 'd', text: 'Категория 4' }
+            ]
         }
         ],
 
@@ -87,10 +135,6 @@ export default {
         currentProduct: {},
         showModal: false,
         showPopupCart: false,
-
-        beerClick: 0,
-        ecoClick: 0,
-        paperClick: 0,
     },
     getters: {
         items(state) {
@@ -122,9 +166,6 @@ export default {
         clearItems(state) {
             state.items = [];
         },
-        // loadItems(state, data) {
-        // 	state.items = data;
-        // },
         ADD_PRODUCT: (state, payload) => {
             state.cartProducts.push(payload.key2);
             state.summ = payload.key1
@@ -154,6 +195,18 @@ export default {
                     state.cartProducts[i].qty -= 1
                 }
             });
+        },
+        CHANGE_COFF: (state, payload) => {
+            state.cartProducts.forEach((element, i) => {
+                if (element.productName == payload.a.productName && element.id == payload.a.id) {
+                    state.cartProducts[i].price = element.fixPrice
+                    let searchCof = payload.b;
+                    let cof = element.options.find(city => city.value === searchCof).cof
+                    let totalCof = state.cartProducts[i].price * cof 
+                    state.cartProducts[i].coffecient = cof
+                    state.cartProducts[i].price = totalCof.toFixed()
+                }
+            })
         }
     },
     actions: {
@@ -188,7 +241,12 @@ export default {
         },
         minusQty: (context, product) => {
             context.commit('MINUS_QTY', product);
+        },
+
+        changeCoff: (context, product) => {
+            context.commit('CHANGE_COFF', product);
         }
+
     }
 
 };

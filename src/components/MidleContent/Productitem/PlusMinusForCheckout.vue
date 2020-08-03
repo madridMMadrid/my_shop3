@@ -13,40 +13,45 @@
 import { mapActions } from "vuex";
 
 export default {
-    props: ['price', 'AllInfoForProduct'],
+  props: ["price", "AllInfoForProduct"],
   data() {
     return {
       summa: 1,
-      totalSum: this.price
+      totalSum: this.price,
     };
+  },
+  watch: {
+    price() {
+      this.totalSum = this.price * this.summa
+    }
   },
   methods: {
     ...mapActions("products", ["plusQty", "minusQty"]),
 
     moreCaunt() {
       this.summa += 1;
-      this.totalSum += this.price
+      this.totalSum += this.price;
       this.$emit("backSumm", {
         sum: this.summa,
       });
       this.$emit("totalCurrentSummMore", {
         total: this.totalSum,
       });
-      this.plusQty(this.AllInfoForProduct)
+      this.plusQty(this.AllInfoForProduct);
     },
     lessCaunt() {
       if (this.summa <= 1) {
         return;
       }
       this.summa -= 1;
-      this.totalSum -= this.price
+      this.totalSum -= this.price;
       this.$emit("backSumm", {
         sum: this.summa,
       });
       this.$emit("totalCurrentSummLess", {
         total: this.totalSum,
       });
-      this.minusQty(this.AllInfoForProduct)
+      this.minusQty(this.AllInfoForProduct);
     },
   },
 };
@@ -61,21 +66,21 @@ export default {
     justify-content: center;
     position: relative;
     &:before {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
   }
   & .more {
-      &:before {
-        content: '+';
-      }
+    &:before {
+      content: "+";
+    }
   }
   & .less {
-      &:before {
-        content: '-';
-      }
+    &:before {
+      content: "-";
+    }
   }
 }
 .box {

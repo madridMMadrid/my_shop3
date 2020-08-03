@@ -58,21 +58,6 @@
           >
             <b-icon icon="cart-dash"></b-icon>
           </button>
-
-          <!-- <button
-            class="product-card-buy-button button-global button-primary-green"
-            @click="addToCart(product.id_product)"
-            v-if="inCart.indexOf(product.id_product) === -1"
-          >
-            <b-icon icon="cart-plus"></b-icon>
-          </button>
-          <button
-            class="product-card-buy-button button-global button-primary-yellow"
-            @click="removeCart(product.id_product)"
-            v-else
-          >
-            <b-icon icon="cart-dash"></b-icon>
-          </button>-->
         </div>
       </div>
     </div>

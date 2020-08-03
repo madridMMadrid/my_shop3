@@ -22,7 +22,7 @@
             <div class="bold">Материал:</div>
             <div>
               <b-form-select
-                v-model="getProductsInCart.selected"
+                v-model="changeSelect"
                 :options="getProductsInCart.options"
                 size="sm"
                 class="mt-3 my_select"
@@ -39,7 +39,7 @@
     </td>
     <td>
       <div class="currentSum">
-        <div>{{ totalCurrenSumm == 0 ? getProductsInCart.price : totalCurrenSumm.total }}</div>
+        <div>{{ getProductsInCart.price * getProductsInCart.qty }}/ {{ getProductsInCart.coffecient }}</div>
         <div>РУБ</div>
       </div>
     </td>
@@ -71,10 +71,11 @@ export default {
   data() {
     return {
       totalCurrenSumm: 0,
+      changeSelect: this.getProductsInCart.selected
     };
   },
   methods: {
-    ...mapActions("products", ["removeProduct"]),
+    ...mapActions("products", ["removeProduct", "changeCoff"]),
     remove(index) {
       this.removeProduct(index);
     },
@@ -82,9 +83,19 @@ export default {
       this.totalCurrenSumm = data;
     },
     totalSummLess(data) {
+      console.log('сумма минуса', data)
       this.totalCurrenSumm = data;
     },
+    // onChange(value) {
+    //   console.log("Выбрано значение", value.target.value);
+    // },
   },
+   watch: {
+    changeSelect(val) {
+      let infoForProduct = {'a': this.getProductsInCart, 'b': val}
+      this.changeCoff(infoForProduct)
+    },
+  }
 };
 </script>
 <style lang="scss" scoped>
