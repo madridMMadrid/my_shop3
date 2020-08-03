@@ -6,6 +6,8 @@ export default {
         items: getProducts(),
         notebooks: [{
             id: 1,
+            qty: 1,
+            productName: 'notebooks',
             name: 'Notebook Lenovo Ideapad 320 Intel® Core i5-7200u 8GB',
             price: 2259,
             image: 'https://picsum.photos/id/7/200/300/',
@@ -15,6 +17,8 @@ export default {
         },
         {
             id: 2,
+            qty: 1,
+            productName: 'notebooks',
             name: 'Notebook Dell Inspiron i15-3567-A30P Intel Core 7ª i5 4GB',
             price: 2284,
             image: 'https://picsum.photos/id/8/200/300/',
@@ -24,6 +28,8 @@ export default {
         },
         {
             id: 3,
+            qty: 1,
+            productName: 'notebooks',
             name: 'Notebook Samsung Essentials E21 Intel Celeron Dual Core',
             price: 1490,
             image: 'https://picsum.photos/id/9/200/300/',
@@ -35,6 +41,8 @@ export default {
 
         smartphones: [{
             id: 1,
+            qty: 1,
+            productName: 'smartphones',
             name: 'Smartphone Xiaomi Mi A1 dual Android one 7.1',
             price: 100,
             image: 'https://picsum.photos/id/1/200/300/',
@@ -52,6 +60,8 @@ export default {
         },
         {
             id: 2,
+            qty: 1,
+            productName: 'smartphones',
             name: 'Smartphone Moto G 5S Dual Chip Android 7.0',
             price: 500,
             image: 'https://picsum.photos/id/2/200/300/',
@@ -61,6 +71,8 @@ export default {
         },
         {
             id: 3,
+            qty: 1,
+            productName: 'smartphones',
             name: 'iPhone 8 Dourado 64GB Tela 4.7" IOS 11',
             price: 300,
             image: 'https://picsum.photos/id/3/200/300/',
@@ -129,6 +141,20 @@ export default {
         SHOW_POPUP_CART: (state) => {
             state.showPopupCart = !state.showPopupCart;
         },
+        PLUS_QTY: (state, payload) => {
+            state.cartProducts.forEach((element, i) => {
+                if (element.productName == payload.productName && element.id == payload.id) {
+                    state.cartProducts[i].qty += 1
+                }
+            });
+        },
+        MINUS_QTY: (state, payload) => {
+            state.cartProducts.forEach((element, i) => {
+                if (element.productName == payload.productName && element.id == payload.id) {
+                    state.cartProducts[i].qty -= 1
+                }
+            });
+        }
     },
     actions: {
 
@@ -156,6 +182,13 @@ export default {
         showOrHiddenPopupCart: (context) => {
             context.commit('SHOW_POPUP_CART');
         },
+
+        plusQty: (context, product) => {
+            context.commit('PLUS_QTY', product);
+        },
+        minusQty: (context, product) => {
+            context.commit('MINUS_QTY', product);
+        }
     }
 
 };

@@ -10,8 +10,10 @@
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
+
 export default {
-    props: ['price'],
+    props: ['price', 'AllInfoForProduct'],
   data() {
     return {
       summa: 1,
@@ -19,6 +21,8 @@ export default {
     };
   },
   methods: {
+    ...mapActions("products", ["plusQty", "minusQty"]),
+
     moreCaunt() {
       this.summa += 1;
       this.totalSum += this.price
@@ -28,6 +32,7 @@ export default {
       this.$emit("totalCurrentSummMore", {
         total: this.totalSum,
       });
+      this.plusQty(this.AllInfoForProduct)
     },
     lessCaunt() {
       if (this.summa <= 1) {
@@ -41,6 +46,7 @@ export default {
       this.$emit("totalCurrentSummLess", {
         total: this.totalSum,
       });
+      this.minusQty(this.AllInfoForProduct)
     },
   },
 };

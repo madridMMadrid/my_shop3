@@ -48,6 +48,7 @@
         @totalCurrentSummMore="totalSummMore"
         @totalCurrentSummLess="totalSummLess"
         :price="getProductsInCart.price"
+        :AllInfoForProduct="getProductsInCart"
       />
     </td>
     <td>

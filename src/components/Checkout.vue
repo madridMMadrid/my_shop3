@@ -14,17 +14,17 @@
           <button class="product-remove" @click="remove(index)">X</button>
         </li>
       </transition-group>-->
-  <table class="resp-tab">
-    <tbody>
-        <CheckoutProductSumm
-          class="checkout-list"
-          v-for="(product, index) in getProductsInCart"
-          :key="product.id"
-          :index="index"
-          :getProductsInCart="product"
-        />
-    </tbody>
-  </table>
+      <table class="resp-tab">
+        <tbody>
+          <CheckoutProductSumm
+            class="checkout-list"
+            v-for="(product, index) in getProductsInCart"
+            :key="product.id"
+            :index="index"
+            :getProductsInCart="product"
+          />
+        </tbody>
+      </table>
     </ul>
     <div v-if="!hasProduct()" class="checkout-message">
       <h3>Нет товара...</h3>
@@ -236,7 +236,6 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 
-
 import CheckoutProductSumm from "./CheckoutProductSumm";
 
 export default {
@@ -245,7 +244,7 @@ export default {
     return {
       picked: "forUr",
       picked_delivery: "delivery",
-      random: Math.floor(Math.random() * 100000)
+      random: Math.floor(Math.random() * 100000),
     };
   },
   computed: {
@@ -262,7 +261,7 @@ export default {
     },
     totalPrice() {
       return this.getProductsInCart.reduce(
-        (current, next) => current + next.price,
+        (current, next) => current + next.price*next.qty,
         0
       );
     },
@@ -284,8 +283,6 @@ export default {
 .checkout-list {
   padding: 0;
 }
-
-
 
 .total {
   font-size: 2em;
