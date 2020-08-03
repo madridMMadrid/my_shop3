@@ -22,7 +22,6 @@ export default {
     moreCaunt() {
       this.summa += 1;
       this.totalSum += this.price
-      console.log(this.price);
       this.$emit("backSumm", {
         sum: this.summa,
       });

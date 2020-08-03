@@ -19,7 +19,7 @@
         <CheckoutProductSumm
           class="checkout-list"
           v-for="(product, index) in getProductsInCart"
-          :key="index + random"
+          :key="product.id"
           :index="index"
           :getProductsInCart="product"
         />
