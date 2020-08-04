@@ -1,25 +1,5 @@
 <template>
   <div class="l-container">
-    <!-- <ul class="listOfProducts">
-    <li v-for="(product, index) in products" :key="index" class="product">
-      <img :src="product.image" alt />
-      <router-link to="/product-details">
-        <h2 class="product-name" @click="addCurrentProduct(product)">{{ product.name }}</h2>
-      </router-link>
-      <div class="product-price">
-        <span>Руб {{ product.price }}, 00</span>
-        <span>10 x {{ Math.round(product.price / 10) }}, 00 </span> 
-        округление суммы товара
-      </div>
-
-      <btn
-        btnColor="btn btn-large btn-sucess"
-        :cartIcon="true"
-        @click.native="addProductToCart(product)"
-      ></btn>
-    </li>
-    </ul>-->
-
     <div class="tab-content d-flex ai-c fw-w product-list">
       <div class="product-card" v-for="(product, index) in products" :key="index + 1">
         <!-- <div class="product-card-title"> -->
@@ -65,7 +45,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import btn from "./Btn";
 import PlusMinus from "./PlusMubus";
 
@@ -73,33 +53,44 @@ export default {
   props: ["products"],
   data() {
     return {
-      summaUnique: 0
+      summaUnique: 0,
+      exist: false
     };
   },
 
   components: {
     btn,
-    PlusMinus
+    PlusMinus,
+  },
+  computed: {
+    ...mapGetters("products", ["getProductsInCart"]),
   },
   methods: {
     ...mapActions("products", ["addProduct", "currentProduct"]),
 
     addProductToCart(product) {
-      let payload = {'key1': this.summaUnique, 'key2': product}
+      let payload = { key1: this.summaUnique, key2: product };
       this.addProduct(payload);
+      this.existToCart(product.id);
     },
     addCurrentProduct(product) {
       this.currentProduct(product);
     },
     onSumm(data) {
-      console.log("child component said login", data);
-      this.summaUnique = data
-    }
-  }
+      this.summaUnique = data;
+    },
+    existToCart(id) {
+      console.log(id)
+      let exist = this.getProductsInCart.some((o) => o.id === id);
+    },
+  },
 };
 </script>
 
 <style scoped>
+.test {
+  color: red;
+}
 .listOfProducts {
   width: 100%;
   max-width: 1000px;

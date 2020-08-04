@@ -83,12 +83,8 @@ export default {
       this.totalCurrenSumm = data;
     },
     totalSummLess(data) {
-      console.log('сумма минуса', data)
       this.totalCurrenSumm = data;
-    },
-    // onChange(value) {
-    //   console.log("Выбрано значение", value.target.value);
-    // },
+    }
   },
    watch: {
     changeSelect(val) {

@@ -18,7 +18,7 @@
 				<tbody>
 					<tr v-for="(product, i) in products" :key="i">
 						<td>{{ product.title }}</td>
-						<td>{{ product.price }}</td>
+						<td>{{ product.price }} !!!</td>
 					</tr>
 				</tbody>	
 			</table>

@@ -167,8 +167,13 @@ export default {
             state.items = [];
         },
         ADD_PRODUCT: (state, payload) => {
-            state.cartProducts.push(payload.key2);
-            state.summ = payload.key1
+            let id = payload.key2.id
+            let name = payload.key2.productName 
+            let exist = state.cartProducts.some(o => o.id === id && o.productName === name);
+            if (!exist) {
+                state.cartProducts.push(payload.key2);
+                state.summ = payload.key1
+            }
         },
         REMOVE_PRODUCT: (state, index) => {
             state.cartProducts.splice(index, 1);
@@ -201,8 +206,8 @@ export default {
                 if (element.productName == payload.a.productName && element.id == payload.a.id) {
                     state.cartProducts[i].price = element.fixPrice
                     let searchCof = payload.b;
-                    let cof = element.options.find(city => city.value === searchCof).cof
-                    let totalCof = state.cartProducts[i].price * cof 
+                    let cof = element.options.find(exist => exist.value === searchCof).cof
+                    let totalCof = state.cartProducts[i].price * cof
                     state.cartProducts[i].coffecient = cof
                     state.cartProducts[i].price = totalCof.toFixed()
                 }
