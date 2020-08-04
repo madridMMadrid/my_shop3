@@ -2,7 +2,7 @@
   <div class="unique_modal">
     <div class="header-info d-flex jc-sb">
       <div class="header-info-element d-flex ai-c">
-        <a class="header-info-phone" href="tel:+74951209759" tabindex="0">+7 (495) 120-97-59</a>
+        <a class="header-info-phone" href="tel:+74951209759" tabindex="0">+7 (495) 120-00-00</a>
       </div>
       <div class="header-info-element d-flex ai-c">
         <div class="header-info-text">Круглосуточно, без выходных</div>
