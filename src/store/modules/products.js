@@ -9,7 +9,7 @@ export default {
             id: 1,
             qty: 1,
             productName: 'notebooks',
-            name: 'Notebook Lenovo Ideapad 320 Intel® Core i5-7200u 8GB',
+            name: 'Notebook Lenovo',
             price: 2259,
             fixPrice: 2259,
             image: 'https://picsum.photos/id/7/200/300/',
@@ -29,7 +29,7 @@ export default {
             id: 2,
             qty: 1,
             productName: 'notebooks',
-            name: 'Notebook Dell Inspiron i15-3567-A30P Intel Core 7ª i5 4GB',
+            name: 'Notebook Dell',
             price: 2284,
             fixPrice: 2284,
             image: 'https://picsum.photos/id/8/200/300/',
@@ -49,7 +49,7 @@ export default {
             id: 3,
             qty: 1,
             productName: 'notebooks',
-            name: 'Notebook Samsung Essentials E21 Intel Celeron Dual Core',
+            name: 'Notebook Samsung',
             price: 1490,
             fixPrice: 1490,
             image: 'https://picsum.photos/id/9/200/300/',
@@ -71,7 +71,7 @@ export default {
             id: 11,
             qty: 1,
             productName: 'smartphones',
-            name: 'Smartphone Xiaomi Mi A1 dual Android one 7.1',
+            name: 'Smartphone Xiaomi Mi',
             price: 100,
             fixPrice: 100,
             image: 'https://picsum.photos/id/1/200/300/',
@@ -81,17 +81,17 @@ export default {
             details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
             selected: 'a',
             options: [
-                { cof: 1, value: 'a', text: 'This is First option' },
-                { cof: 1.3, value: 'b', text: 'Selected Option' },
-                { cof: 1.4, value: 'c', text: 'This is an option with object value' },
-                { cof: 1.5, value: 'd', text: 'This one is disabled' }
+                { cof: 1, value: 'a', text: 'категория А' },
+                { cof: 1.3, value: 'b', text: 'категория В' },
+                { cof: 1.4, value: 'c', text: 'категория С' },
+                { cof: 1.5, value: 'd', text: 'категория D' }
             ]
         },
         {
             id: 12,
             qty: 1,
             productName: 'smartphones',
-            name: 'Smartphone Moto G 5S Dual Chip Android 7.0',
+            name: 'Smartphone Moto',
             price: 500,
             fixPrice: 500,
             image: 'https://picsum.photos/id/2/200/300/',
@@ -111,7 +111,7 @@ export default {
             id: 13,
             qty: 1,
             productName: 'smartphones',
-            name: 'Smartphone iPhone 8 Dourado 64GB Tela 4.7" IOS 11',
+            name: 'Smartphone iPhone 8',
             price: 300,
             fixPrice: 300,
             coffecient: 0,
@@ -167,12 +167,13 @@ export default {
             state.items = [];
         },
         ADD_PRODUCT: (state, payload) => {
-            let id = payload.key2.id
-            let name = payload.key2.productName 
+            let id = payload.prod.id
+            let name = payload.prod.productName  
+            payload.prod.qty = payload.qty 
             let exist = state.cartProducts.some(o => o.id === id && o.productName === name);
             if (!exist) {
-                state.cartProducts.push(payload.key2);
-                state.summ = payload.key1
+                state.cartProducts.push(payload.prod);
+                state.summ = payload.qty
             }
         },
         REMOVE_PRODUCT: (state, index) => {

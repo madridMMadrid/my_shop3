@@ -1,19 +1,6 @@
 <template>
   <div class="checkout-box">
     <ul>
-      <!-- <transition-group name="fade">
-        <li v-for="(product, index) in getProductsInCart" :key="index + 1" class="checkout-product">
-          <img :src="product.image" alt class="product-image" />
-          <div class="product-name">{{ product.name }}</div>
-          <div class="inStorage">
-            <div class="status yes">На складе</div>
-          </div>
-          <div class="currentSum">{{ totalCurrenSumm == 0 ? product.price : totalCurrenSumm.total }}</div>
-          <PlusMinusForCheckout @totalCurrentSummMore="totalSummMore" @totalCurrentSummLess="totalSummLess" :price="product.price" />
-          <span class="product-price">{{ product.price }}</span>
-          <button class="product-remove" @click="remove(index)">X</button>
-        </li>
-      </transition-group>-->
       <table class="resp-tab">
         <tbody>
           <CheckoutProductSumm

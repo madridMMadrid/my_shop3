@@ -34,9 +34,11 @@
           <button
             class="product-card-buy-button button-global button-primary-green"
             btnColor="btn btn-large btn-sucess"
+            :class="{existToCart: existToCart(product.id)}"
             @click="addProductToCart(product)"
           >
-            <b-icon icon="cart-dash"></b-icon>
+            <b-icon v-if="existToCart(product.id)" icon="cart-dash"></b-icon>
+            <b-icon v-else icon="cart-plus"></b-icon>
           </button>
         </div>
       </div>
@@ -53,7 +55,7 @@ export default {
   props: ["products"],
   data() {
     return {
-      summaUnique: 0,
+      summaUnique: 1,
       exist: false
     };
   },
@@ -69,7 +71,7 @@ export default {
     ...mapActions("products", ["addProduct", "currentProduct"]),
 
     addProductToCart(product) {
-      let payload = { key1: this.summaUnique, key2: product };
+      let payload = { qty: this.summaUnique, prod: product };
       this.addProduct(payload);
       this.existToCart(product.id);
     },
@@ -80,16 +82,16 @@ export default {
       this.summaUnique = data;
     },
     existToCart(id) {
-      console.log(id)
       let exist = this.getProductsInCart.some((o) => o.id === id);
+      return exist
     },
   },
 };
 </script>
 
 <style scoped>
-.test {
-  color: red;
+.existToCart {
+  background: #ff9e24 !important;
 }
 .listOfProducts {
   width: 100%;

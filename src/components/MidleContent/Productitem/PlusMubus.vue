@@ -19,18 +19,14 @@ export default {
   methods: {
     moreCaunt() {
       this.summa += 1;
-      this.$emit("backSumm", {
-        sum: this.summa
-      });
+      this.$emit("backSumm", this.summa);
     },
     lessCaunt() {
       if (this.summa <= 1) {
         return;
       }
       this.summa -= 1;
-      this.$emit("backSumm", {
-        sum: this.summa
-      });
+      this.$emit("backSumm", this.summa);
     }
   }
 };

@@ -13,10 +13,10 @@
 import { mapActions } from "vuex";
 
 export default {
-  props: ["price", "AllInfoForProduct"],
+  props: ["price", "qty", "AllInfoForProduct"],
   data() {
     return {
-      summa: 1,
+      summa: this.qty,
       totalSum: this.price,
     };
   },

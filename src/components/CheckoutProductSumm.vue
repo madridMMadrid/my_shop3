@@ -39,7 +39,7 @@
     </td>
     <td>
       <div class="currentSum">
-        <div>{{ getProductsInCart.price * getProductsInCart.qty }}/ {{ getProductsInCart.coffecient }}</div>
+        <div>{{ getProductsInCart.price * getProductsInCart.qty }}</div>
         <div>РУБ</div>
       </div>
     </td>
@@ -48,6 +48,7 @@
         @totalCurrentSummMore="totalSummMore"
         @totalCurrentSummLess="totalSummLess"
         :price="getProductsInCart.price"
+        :qty="getProductsInCart.qty"
         :AllInfoForProduct="getProductsInCart"
       />
     </td>
