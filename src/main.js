@@ -11,6 +11,10 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import rate from 'vue-rate'
 import 'vue-rate/dist/vue-rate.css'
 
+import VueDadata from 'vue-dadata'
+Vue.use(VueDadata)
+
+
 import ProductZoomer from 'vue-product-zoomer'
 Vue.use(ProductZoomer)
 

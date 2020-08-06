@@ -2,9 +2,11 @@
   <div>
     <div class="product-card-buy-count d-flex ai-c">
       <div class="product-card-buy-count-controls">
-        <div class="less" @click="lessCaunt()"></div>
         <input class="product-card-buy-count-input" v-model="ProdUniqueQty" value="qty" />
-        <div class="more" @click="moreCaunt()"></div>
+        <div class="wrapper_iterator">
+          <div class="less" @click="lessCaunt()"></div>
+          <div class="more" @click="moreCaunt()"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -13,7 +15,7 @@
 import { mapActions } from "vuex";
 
 export default {
-  props: ["price", "qty", "currentProduct"],
+  props: ["price", "qty", "getCurrentProduct"],
   data() {
     return {
       ProdUniqueQty: this.qty,
@@ -31,9 +33,9 @@ export default {
     moreCaunt() {
       this.ProdUniqueQty += 1;
       this.ProdUniqueSum += this.price;
-      let result = {_qty: this.ProdUniqueQty, _sum: this.ProdUniqueSum}
+      let result = { _qty: this.ProdUniqueQty, _sum: this.ProdUniqueSum };
       this.$emit("More", result);
-      this.plusQty(this.currentProduct);
+      this.plusQty(this.getCurrentProduct);
     },
     lessCaunt() {
       if (this.ProdUniqueQty <= 1) {
@@ -41,9 +43,9 @@ export default {
       }
       this.ProdUniqueQty -= 1;
       this.ProdUniqueSum -= this.price;
-      let result = {_qty: this.ProdUniqueQty, _sum: this.ProdUniqueSum}
+      let result = { _qty: this.ProdUniqueQty, _sum: this.ProdUniqueSum };
       this.$emit("Less", result);
-      this.minusQty(this.currentProduct);
+      this.minusQty(this.getCurrentProduct);
     },
   },
 };
@@ -52,11 +54,14 @@ export default {
 .product-card-buy {
   &-count {
     margin: 0;
+    height: 100%;
     &-controls {
       display: flex;
+      height: 100%;
       & .more,
       .less {
         width: 25px;
+        height: 50%;
         background: #c5c4c4;
         line-height: 0.9;
         -webkit-touch-callout: none; /* iOS Safari */
@@ -79,11 +84,13 @@ export default {
         }
       }
       & .more {
+          border-radius: 0 0 5px 0;
         &:before {
           content: "+";
         }
       }
       & .less {
+          border-radius: 0 5px 0 0;
         &:before {
           content: "-";
         }
@@ -192,6 +199,11 @@ export default {
   text-align: center;
   color: #b8ad87;
   font-size: 15px;
+  border-radius: 5px 0px 0px 5px;
+
+  & .wrapper_iterator {
+    display: flex;
+  }
 }
 
 .product-card-buy-count-button {

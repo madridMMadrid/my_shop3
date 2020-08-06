@@ -1,33 +1,33 @@
 <template>
   <div class="l-container">
-    <h1>{{ currentProduct.name }}</h1>
+    <h1>{{ getCurrentProduct.name }}</h1>
     <b-row class="my-1">
-      <b-col sm="8">
+      <b-col sm="7">
         <ProductSlider :productCartPosition="vertical" />
       </b-col>
-      <b-col sm="4">
+      <b-col sm="5">
         <div class>
-          <!-- <div class="product-image">
-            <img :src="currentProduct.image" alt />
-            <stars :rate="rated(currentProduct.stars)" :totalReviews="currentProduct.totalReviews" />
-          </div>-->
           <div class="product_functions">
-            <span class="product-price">{{ productSum == 0 ? currentProduct.price : productSum}}</span>
+            <span class="product-price">{{ productSum == 0 ? getCurrentProduct.price : productSum}}</span>
             <PlusMinusForProduct
               @More="More"
               @Less="Less"
-              :currentProduct="currentProduct"
-              :price="currentProduct.price"
-              :qty="currentProduct.qty"
+              :getCurrentProduct="getCurrentProduct"
+              :price="getCurrentProduct.price"
+              :qty="getCurrentProduct.qty"
             />
-
-            <btn
+            <button
+              class="product-card-buy-button button-global button-primary-green"
               btnColor="btn btn-large btn-sucess"
-              :cartIcon="true"
-              @click.native="addProductToCart(currentProduct)"
-            ></btn>
+              :class="{existToCart: existToCart(getCurrentProduct.id)}"
+              @click="addProductToCart(getCurrentProduct)"
+            >
+              <b-icon v-if="existToCart(getCurrentProduct.id)" icon="cart-dash"></b-icon>
+              <b-icon v-else icon="cart-plus"></b-icon>
+              <span>В КОРЗИНУ</span>
+            </button>
           </div>
-          <modal>{{ currentProduct.details }}</modal>
+          <modal>{{ getCurrentProduct.details }}</modal>
         </div>
       </b-col>
     </b-row>
@@ -66,9 +66,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters("products", {
-      currentProduct: "getCurrentProduct",
-    }),
+    ...mapGetters("products", ["getCurrentProduct", "getProductsInCart"]),
   },
 
   methods: {
@@ -85,7 +83,6 @@ export default {
     },
 
     More(data) {
-      console.log(data);
       this.productQty = data._qty;
       this.productSum = data._sum;
     },
@@ -93,44 +90,71 @@ export default {
       this.productQty = data._qty;
       this.productSum = data._sum;
     },
+    existToCart(id) {
+      let exist = this.getProductsInCart.some((o) => o.id === id);
+      return exist;
+    },
   },
 };
 </script>
 
-<style scoped>
-.product-box {
-  width: 800px;
-  height: 400px;
-  margin: 50px auto;
-  box-sizing: border-box;
-  padding: 1.5em;
-  background-color: #fff;
-  border-radius: 7px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+<style lang="scss" scoped>
+.existToCart {
+  background: #ff9e24 !important;
 }
-
-.product-image {
-  width: 300px;
-}
-
-.product-info {
-  width: 400px;
-  align-self: flex-start;
-}
-
-.product-title {
-  font-weight: normal;
-}
-
-.product-price {
-  font-size: 2em;
-  font-weight: bolder;
-}
-
-.product-box button {
-  width: 300px;
-  margin: 0.3em 0;
+.product {
+  &-box {
+    width: 800px;
+    height: 400px;
+    margin: 50px auto;
+    box-sizing: border-box;
+    padding: 1.5em;
+    background-color: #fff;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    & button {
+      width: 300px;
+      margin: 0.3em 0;
+    }
+  }
+  &-image {
+    width: 300px;
+  }
+  &-info {
+    width: 400px;
+    align-self: flex-start;
+  }
+  &-title {
+    font-weight: normal;
+  }
+  &-price {
+    font-size: 2em;
+    font-weight: bolder;
+    position: relative;
+    color: #ff9e24;
+    padding-right: 24px;
+    &:before {
+      content: "РУБ";
+      position: absolute;
+      top: 0;
+      height: 20px;
+      width: 20px;
+      font-size: 12px;
+      right: 0px;
+    }
+  }
+  &_functions {
+    display: flex;
+    & > * {
+      margin-right: 10px;
+    }
+  }
+  &-card-buy-button {
+    & span {
+      padding: 5px;
+    }
+  }
 }
 </style>

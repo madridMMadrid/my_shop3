@@ -129,7 +129,7 @@
               <label>Город</label>
               <input type="text" name="city" value="Москва" class="js_localsave" />
               <label>Улица, дом, квартира</label>
-              <input type="text" name="address_1" value class="js_localsave" />
+              <VueDadata class="js_localsave" :token="token" />
               <label>Почтовый индекс</label>
               <input type="text" name="postcode" value class="js_localsave" />
             </div>
@@ -224,6 +224,7 @@
 import { mapGetters, mapActions } from "vuex";
 
 import CheckoutProductSumm from "./CheckoutProductSumm";
+import VueDadata from "vue-dadata";
 
 export default {
   name: "Checkout",
@@ -232,6 +233,8 @@ export default {
       picked: "forUr",
       picked_delivery: "delivery",
       random: Math.floor(Math.random() * 100000),
+      token: "84adece4ab466da7fcb4aa269180fdc143037b0a",
+
     };
   },
   computed: {
@@ -239,6 +242,7 @@ export default {
   },
   components: {
     CheckoutProductSumm,
+    VueDadata,
   },
 
   methods: {
@@ -248,14 +252,30 @@ export default {
     },
     totalPrice() {
       return this.getProductsInCart.reduce(
-        (current, next) => current + next.price*next.qty,
+        (current, next) => current + next.price * next.qty,
         0
       );
     },
   },
 };
 </script>
-
+<style lang="scss">
+.vue-dadata {
+  float: left !important;
+  &__input {
+    border: 1px solid #d6d5cc !important;
+    border-radius: 3px !important;
+    height: 30px !important;
+    padding: 5px 10px !important;
+    font-size: 14px !important;
+    margin-bottom: 10px !important;
+    width: 250px !important;
+  }
+  &__suggestions {
+    border: 1px solid #888;
+  }
+}
+</style>
 <style lang="scss" scoped >
 .checkout-box {
   width: 100%;

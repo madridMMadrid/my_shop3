@@ -14,6 +14,7 @@
         "core-js": "^3.6.5",
         "register-service-worker": "^1.7.1",
         "vue": "^2.6.11",
+        "vue-dadata": "^1.4.10",
         "vue-masked-input": "^0.5.2",
         "vue-multiselect": "^2.1.6",
         "vue-pose": "^0.5.1",

@@ -89,7 +89,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .existToCart {
   background: #ff9e24 !important;
 }
@@ -114,6 +114,11 @@ export default {
   flex-direction: column;
   align-items: center;
   border-radius: 7px;
+  &-card {
+    &-image {
+      min-height: 300px;
+    }
+  }
 }
 
 .product-name {
