@@ -5,7 +5,7 @@
         <div class="footer-item">
           <div class="footer-title">Свяжитесь с нами</div>
           <div class="footer-group d-flex ai-c">
-            <a class="footer-phone" href="tel:+74951209759">+7 (495) 120-83-48</a>
+            <a class="footer-phone" href="tel:+74950000">+7 (495) 120-00-00</a>
           </div>
           <div class="footer-group d-flex ai-c">
             <div class="footer-text">Круглосуточно без выходных</div>
@@ -17,7 +17,7 @@
           >
             <div class="footer-text">
               г. Москва
-              <br />ул. Ленинская слобода, д. 26, стр. 2
+              <br />ул. Какой то адрес
             </div>
           </a>
           <div class="footer-group">
@@ -72,7 +72,7 @@
         </div>
         <div class="footer-item">
           <div class="footer-group">
-            <div class="footer-text">© 2013–2019 Компания «Prime Wood» - офисная мебель г. Москва.</div>
+            <div class="footer-text">© 2013–2019 г. Москва.</div>
           </div>
           <div class="footer-group">
             <div

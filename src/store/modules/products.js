@@ -132,7 +132,9 @@ export default {
 
         cartProducts: [],
         summ: 0,
-        currentProduct: {},
+        currentProduct: {
+            
+        },
         showModal: false,
         showPopupCart: false,
     },

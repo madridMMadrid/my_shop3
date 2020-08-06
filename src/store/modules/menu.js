@@ -8,7 +8,7 @@ export default {
             // },
             {
                 url: '/smartphones',
-                text: 'Мебуль для офиса'
+                text: 'Мебель для офиса'
             },
             {
                 url: '/notebooks',
