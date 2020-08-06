@@ -28,6 +28,9 @@
             </button>
           </div>
           <modal>{{ getCurrentProduct.details }}</modal>
+          <div class="product_options">
+            <Options />
+          </div>
         </div>
       </b-col>
     </b-row>
@@ -42,6 +45,7 @@ import modal from "./Modal";
 
 import ProductSlider from "../Product/ProductSlider";
 import PlusMinusForProduct from "./PlusMinusForProduct";
+import Options from './ProductOptionsForCart'
 
 export default {
   data() {
@@ -63,6 +67,7 @@ export default {
     modal,
     ProductSlider,
     PlusMinusForProduct,
+    Options
   },
 
   computed: {

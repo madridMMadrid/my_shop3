@@ -4,8 +4,8 @@
       <div class="product-card-buy-count-controls">
         <input class="product-card-buy-count-input" v-model="ProdUniqueQty" value="qty" />
         <div class="wrapper_iterator">
-          <div class="less" @click="lessCaunt()"></div>
           <div class="more" @click="moreCaunt()"></div>
+          <div class="less" @click="lessCaunt()"></div>
         </div>
       </div>
     </div>
@@ -84,13 +84,13 @@ export default {
         }
       }
       & .more {
-          border-radius: 0 0 5px 0;
+          border-radius: 0 5px 0 0;
         &:before {
           content: "+";
         }
       }
       & .less {
-          border-radius: 0 5px 0 0;
+          border-radius: 0 0 5px 0;
         &:before {
           content: "-";
         }
