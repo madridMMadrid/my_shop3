@@ -31,6 +31,30 @@
           <div class="product_options">
             <Options />
           </div>
+          <div class="time_delivery">Сроки доставки: 3-7 дней</div>
+          <div class="product__chars" style="overflow: hidden;width: 100%;">
+            <div class="product__chars-item">
+              <div class="product__chars-lbl">Форма стола</div>
+              <div class="product__chars-val">Прямой</div>
+            </div>
+
+            <div class="product__chars-item">
+              <div class="product__chars-lbl">Артикул</div>
+              <div class="product__chars-val">В.СП-2</div>
+            </div>
+            <div class="product__chars-item">
+              <div class="product__chars-lbl">Ширина</div>
+              <div class="product__chars-val">120 см</div>
+            </div>
+            <div class="product__chars-item">
+              <div class="product__chars-lbl">Глубина</div>
+              <div class="product__chars-val">65 см</div>
+            </div>
+            <div class="product__chars-item">
+              <div class="product__chars-lbl">Высота</div>
+              <div class="product__chars-val">75 см</div>
+            </div>
+          </div>
         </div>
       </b-col>
     </b-row>
@@ -45,7 +69,7 @@ import modal from "./Modal";
 
 import ProductSlider from "../Product/ProductSlider";
 import PlusMinusForProduct from "./PlusMinusForProduct";
-import Options from './ProductOptionsForCart'
+import Options from "./ProductOptionsForCart";
 
 export default {
   data() {
@@ -67,7 +91,7 @@ export default {
     modal,
     ProductSlider,
     PlusMinusForProduct,
-    Options
+    Options,
   },
 
   computed: {
@@ -104,6 +128,45 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.product__chars {
+  margin-top: 20px;
+}
+
+.product__chars-item {
+  display: flex;
+  font-size: 15px;
+  border-bottom: 2px dotted #d4d4d4;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.product__chars-item:last-child {
+  margin-bottom: 0;
+}
+
+.product__chars-lbl {
+  color: #a0a0a0;
+  padding-right: 4px;
+}
+
+.product__chars-lbl,
+.product__chars-val {
+  background-color: #fff;
+  margin-bottom: -5px;
+}
+
+.product__chars-val {
+  flex: none;
+  min-width: 120px;
+  padding-left: 4px;
+  max-width: 330px;
+}
+
+.time_delivery {
+  color: #00a75f;
+  font-size: 15px;
+  font-weight: 700;
+}
 .existToCart {
   background: #ff9e24 !important;
 }
