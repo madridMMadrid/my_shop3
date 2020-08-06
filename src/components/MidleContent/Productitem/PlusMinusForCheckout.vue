@@ -31,9 +31,7 @@ export default {
     moreCaunt() {
       this.summa += 1;
       this.totalSum += this.price;
-      this.$emit("backSumm", {
-        sum: this.summa,
-      });
+      this.$emit("backSumm", this.summa);
       this.$emit("totalCurrentSummMore", {
         total: this.totalSum,
       });
@@ -45,9 +43,7 @@ export default {
       }
       this.summa -= 1;
       this.totalSum -= this.price;
-      this.$emit("backSumm", {
-        sum: this.summa,
-      });
+      this.$emit("backSumm", this.summa);
       this.$emit("totalCurrentSummLess", {
         total: this.totalSum,
       });

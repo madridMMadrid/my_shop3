@@ -1,18 +1,26 @@
 <template>
   <div class="l-container">
+    <h1>{{ currentProduct.name }}</h1>
     <b-row class="my-1">
       <b-col sm="8">
         <ProductSlider :productCartPosition="vertical" />
       </b-col>
       <b-col sm="4">
-        <div class="">
+        <div class>
           <!-- <div class="product-image">
             <img :src="currentProduct.image" alt />
             <stars :rate="rated(currentProduct.stars)" :totalReviews="currentProduct.totalReviews" />
-          </div> -->
-          <div class="">
-            <h2 class="product-title">{{ currentProduct.name }}</h2>
-            <span class="product-price">Руб. {{ currentProduct.price }}, 00</span>
+          </div>-->
+          <div class="product_functions">
+            <span class="product-price">{{ productSum == 0 ? currentProduct.price : productSum}}</span>
+            <PlusMinusForProduct
+              @More="More"
+              @Less="Less"
+              :currentProduct="currentProduct"
+              :price="currentProduct.price"
+              :qty="currentProduct.qty"
+            />
+
             <btn
               btnColor="btn btn-large btn-sucess"
               :cartIcon="true"
@@ -33,6 +41,7 @@ import stars from "./Stars";
 import modal from "./Modal";
 
 import ProductSlider from "../Product/ProductSlider";
+import PlusMinusForProduct from "./PlusMinusForProduct";
 
 export default {
   data() {
@@ -40,28 +49,32 @@ export default {
       vertical: {
         vertical: false,
         bigImg: 12,
-        miniImg: 12
-      }
+        miniImg: 12,
+        totalCurrenSumm: 1,
+        summaUnique: 1,
+      },
+      productSum: 0,
+      productQty: 1,
     };
   },
   components: {
     btn,
     stars,
     modal,
-    ProductSlider
+    ProductSlider,
+    PlusMinusForProduct,
   },
 
   computed: {
     ...mapGetters("products", {
-      currentProduct: "getCurrentProduct"
-    })
+      currentProduct: "getCurrentProduct",
+    }),
   },
 
   methods: {
     ...mapActions("products", ["addProduct", "showOrHiddenModal"]),
     addProductToCart(product) {
-      let payload = { key1: this.summaUnique, key2: product };
-
+      let payload = { qty: this.productQty, prod: product };
       this.addProduct(payload);
     },
     rated(rate) {
@@ -69,8 +82,18 @@ export default {
     },
     openModal() {
       this.showOrHiddenModal();
-    }
-  }
+    },
+
+    More(data) {
+      console.log(data);
+      this.productQty = data._qty;
+      this.productSum = data._sum;
+    },
+    Less(data) {
+      this.productQty = data._qty;
+      this.productSum = data._sum;
+    },
+  },
 };
 </script>
 

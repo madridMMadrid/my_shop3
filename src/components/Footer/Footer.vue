@@ -48,7 +48,7 @@
               <a class="dropdown-list-item link-orange" href tabindex="0">Эконом</a>
             </div>
           </div>
-          <div class="footer-group dropdown-button" role="button" v-for="(value, i) in 6" :key="i">
+          <div class="footer-group dropdown-button" role="button" v-for="(value, i) in 3" :key="i">
             <div class="dropdown-button-title d-flex ai-c">
               <div class="footer-text">Мебель для персонала</div>
             </div>
@@ -56,7 +56,7 @@
         </div>
         <div class="footer-item">
           <div class="footer-title">Информация</div>
-          <div class="footer-group" v-for="(value, i) in 6" :key="i">
+          <div class="footer-group" v-for="(value, i) in 3" :key="i">
             <a class="footer-text link" href tabindex="0">О компании</a>
           </div>
           <div class="footer-title">Услуги</div>

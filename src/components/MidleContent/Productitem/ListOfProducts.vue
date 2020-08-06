@@ -49,7 +49,7 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import btn from "./Btn";
-import PlusMinus from "./PlusMubus";
+import PlusMinus from "./PlusMinus";
 
 export default {
   props: ["products"],
