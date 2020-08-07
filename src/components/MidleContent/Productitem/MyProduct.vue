@@ -1,7 +1,7 @@
 <template>
   <div class="l-container">
     <h1>{{ getCurrentProduct.name }}</h1>
-    <b-row class="my-1">
+    <b-row class="my-5">
       <b-col sm="7">
         <ProductSlider :productCartPosition="vertical" />
       </b-col>
@@ -58,6 +58,7 @@
         </div>
       </b-col>
     </b-row>
+    <Tabs />
   </div>
 </template>
 
@@ -70,6 +71,7 @@ import modal from "./Modal";
 import ProductSlider from "../Product/ProductSlider";
 import PlusMinusForProduct from "./PlusMinusForProduct";
 import Options from "./ProductOptionsForCart";
+import Tabs from './ProductForTabs'
 
 export default {
   data() {
@@ -92,6 +94,7 @@ export default {
     ProductSlider,
     PlusMinusForProduct,
     Options,
+    Tabs
   },
 
   computed: {

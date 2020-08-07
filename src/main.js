@@ -14,6 +14,9 @@ import 'vue-rate/dist/vue-rate.css'
 import VueDadata from 'vue-dadata'
 Vue.use(VueDadata)
 
+import VueLodash from 'vue-lodash'
+import lodash from 'lodash'
+Vue.use(VueLodash, { name: 'custom' , lodash: lodash })
 
 import ProductZoomer from 'vue-product-zoomer'
 Vue.use(ProductZoomer)
