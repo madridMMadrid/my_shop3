@@ -15,8 +15,8 @@
             <div class="gr_ttl"></div>
             <div class="gr_ttl">По почте</div>
             <div class="mail green_mail">
-              <a href="mailto:prime-w@mail.ru"></a>
-              <a href="mailto:info+626147@prime-wood.ru" target="_blank">info+626147@prime-wood.ru</a>
+              <a href="mailto:some-site@mail.ru"></a>
+              <a href="mailto:info+626147@some-site.ru" target="_blank">info+626147@some-site.ru</a>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@
         <figure class="logo">
           <picture>
             <source srcset="images/logo.png" media="min-width: 800px" />
-            <img src="../../assets/images/logo.png" alt="Prime Wood" title="Prime-wood" />
+            <img src="../../assets/images/logo.png" alt="Prime Wood" title="Some Site" />
           </picture>
         </figure>
       </router-link>
