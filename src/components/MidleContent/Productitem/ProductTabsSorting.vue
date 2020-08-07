@@ -3,8 +3,7 @@
     <div>
       <div class="container">
         <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-10">
+          <div class="col-sm-12">
             <h1>Список товаров</h1>
             <select v-model="selectCategory">
               <option value="0">Все категории</option>
@@ -31,78 +30,53 @@
             </select>
 
             <button @click="clear" class="primary small">Сбросить фильтры</button>
+            <div class="tab-content d-flex ai-c fw-w product-list">
+              <div class="product-card" v-for="product in filteredProducts" :product="product" :key="product.good_id">
+                <div class="product-card-title">Стол приставной</div>
+                <img class="product-card-image" src="@/assets/images/product-table_brown_c.jpg" />
+                <div class="product-card-scale">
+                  <div class="product-card-scale-size">90 см</div>
+                  <div class="product-card-scale-size">60 см</div>
+                  <div class="product-card-scale-size">90 см</div>
+                </div>
+                <div class="product-card-info">
+                  <div
+                    class="product-card-info-text green product-key"
+                  >Код товара {{ product.good }}</div>
+                  <div class="product-card-info-text green product-id">ID {{ product.good_id }}</div>
+                  <div class="product-card-info-text green product-id">Бренд {{ product.brand }}</div>
+                  <div class="product-card-info-text green product-id">Рейтинг {{ product.rating }}</div>
+                  <div class="product-card-info-text black">Срок доставки</div>
+                </div>
+                <div class="product-card-actions">
+                  <svg class="primary-icon product-card-icon" role="button">
+                    <use xlink:href="sprite-manual.svg#compare-icon" />
+                  </svg>
+                </div>
+                <div class="product-card-buy d-flex jc-sb">
+                  <div class="product-card-buy-price">
+                    <span class="product-card-buy-price-text">{{ product.price }}</span>
+                    <sup class="product-card-buy-price-currency">руб</sup>
+                  </div>
+                  <div class="product-card-buy-count d-flex ai-c">
+                    <input class="product-card-buy-count-input"  />
+                    <div class="product-card-buy-count-controls">
+                      <div class="more" @click="moreCaunt()">+</div>
+                      <div class="less" @click="lessCaunt()">-</div>
+                    </div>
+                  </div>
+                  <button class="product-card-buy-button button-global button-primary-yellow">
+                    <b-icon icon="cart-dash"></b-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
 
-            <table>
-              <thead>
-                <tr>
-                  <th>Id</th>
-                  <th>Название</th>
-                  <th>Бренд</th>
-                  <th>Цена</th>
-                  <th>Рейтинг</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="product in filteredProducts" :product="product" :key="product.good_id">
-                  <td>{{ product.good_id }}</td>
-                  <td>{{ product.good }}</td>
-                  <td>{{ product.brand }}</td>
-                  <td>{{ product.price }}</td>
-                  <td>{{ product.rating }}</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
-          <div class="col-sm-1"></div>
         </div>
-        <footer>
-          <p>
-            Разработка
-            <a href="https://webdevkin.ru" target="_blank">Webdevkin</a>
-          </p>
-        </footer>
       </div>
     </div>
   </div>
-  <!-- <div class="tab-content d-flex ai-c fw-w product-list">
-    <div class="product-card" v-for="(value, i) in 4" :key="i">
-      <div class="product-card-title">Стол приставной</div>
-      <img class="product-card-image" src="@/assets/images/product-table_brown_c.jpg" />
-      <div class="product-card-scale">
-        <div class="product-card-scale-size">90 см</div>
-        <div class="product-card-scale-size">60 см</div>
-        <div class="product-card-scale-size">90 см</div>
-      </div>
-      <div class="product-card-info">
-        <div class="product-card-info-text green product-key">Код товара</div>
-        <div class="product-card-info-text green product-id">ID</div>
-        <div class="product-card-info-text black">Срок доставки</div>
-      </div>
-      <div class="product-card-actions">
-        <svg class="primary-icon product-card-icon" role="button">
-          <use xlink:href="sprite-manual.svg#compare-icon" />
-        </svg>
-      </div>
-      <div class="product-card-buy d-flex jc-sb">
-        <div class="product-card-buy-price">
-          <span class="product-card-buy-price-text">3926</span>
-          <sup class="product-card-buy-price-currency">руб</sup>
-        </div>
-        <div class="product-card-buy-count d-flex ai-c">
-          <input class="product-card-buy-count-input" v-model="summa" value="summa" />
-          <div class="product-card-buy-count-controls">
-            <div class="more" @click="moreCaunt()">+</div>
-            <div class="less" @click="lessCaunt()">-</div>
-          </div>
-        </div>
-        <button
-          class="product-card-buy-button button-global button-primary-yellow"
-        >
-          <b-icon icon="cart-dash"></b-icon>
-        </button>
-      </div>
-    </div>
-  </div>-->
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
@@ -113,7 +87,7 @@ export default {
       products: [
         {
           good_id: "12",
-          good: "Видеокарта ASUS",
+          good: "Пуфик ASUS",
           category_id: "3",
           brand: "Asus",
           price: "2000",
@@ -122,7 +96,7 @@ export default {
         },
         {
           good_id: "13",
-          good: "Видеокарта GIGABYTE GT-740",
+          good: "Пуфик GIGABYTE GT-740",
           category_id: "3",
           brand: "Gigabyte",
           price: "6000",
@@ -131,7 +105,7 @@ export default {
         },
         {
           good_id: "10",
-          good: "Смартфон Lenovo A5000",
+          good: "Стулья Lenovo A5000",
           category_id: "2",
           brand: "Lenovo",
           price: "11000",
@@ -140,7 +114,7 @@ export default {
         },
         {
           good_id: "9",
-          good: "Смартфон Asus Zenfone Laser",
+          good: "Стулья Asus Zenfone Laser",
           category_id: "2",
           brand: "Asus",
           price: "12000",
@@ -149,7 +123,7 @@ export default {
         },
         {
           good_id: "14",
-          good: "Видеокарта GIGABYTE GTX-960",
+          good: "Пуфик GIGABYTE GTX-960",
           category_id: "3",
           brand: "Gigabyte",
           price: "14000",
@@ -158,7 +132,7 @@ export default {
         },
         {
           good_id: "4",
-          good: "Ноутбук Lenovo G5030",
+          good: "Стол Lenovo G5030",
           category_id: "1",
           brand: "Lenovo",
           price: "16000",
@@ -167,7 +141,7 @@ export default {
         },
         {
           good_id: "11",
-          good: "Смартфон Lenovo P90",
+          good: "Стулья Lenovo P90",
           category_id: "2",
           brand: "Lenovo",
           price: "16000",
@@ -176,7 +150,7 @@ export default {
         },
         {
           good_id: "3",
-          good: "Ноутбук Lenovo IdeaPad",
+          good: "Стол Lenovo IdeaPad",
           category_id: "1",
           brand: "Lenovo",
           price: "17000",
@@ -185,7 +159,7 @@ export default {
         },
         {
           good_id: "7",
-          good: "Смартфон Samsung Galaxy A5",
+          good: "Стулья Samsung Galaxy A5",
           category_id: "2",
           brand: "Samsung",
           price: "17000",
@@ -194,7 +168,7 @@ export default {
         },
         {
           good_id: "5",
-          good: "Ноутбук Acer Aspire",
+          good: "Стол Acer Aspire",
           category_id: "1",
           brand: "Acer",
           price: "21000",
@@ -203,7 +177,7 @@ export default {
         },
         {
           good_id: "6",
-          good: "Смартфон Samsung Galaxy A7",
+          good: "Стулья Samsung Galaxy A7",
           category_id: "2",
           brand: "Samsung",
           price: "30000",
@@ -212,7 +186,7 @@ export default {
         },
         {
           good_id: "8",
-          good: "Смартфон Apple iPhone SE",
+          good: "Стулья Apple iPhone SE",
           category_id: "2",
           brand: "Apple",
           price: "38000",
@@ -221,7 +195,7 @@ export default {
         },
         {
           good_id: "1",
-          good: "Ноутбук Apple MacBook Air",
+          good: "Стол Apple MacBook Air",
           category_id: "1",
           brand: "Apple",
           price: "60000",
@@ -230,7 +204,7 @@ export default {
         },
         {
           good_id: "2",
-          good: "Ноутбук Apple MacBook Pro",
+          good: "Стол Apple MacBook Pro",
           category_id: "1",
           brand: "Apple",
           price: "70000",
@@ -239,9 +213,9 @@ export default {
         },
       ],
       categories: [
-        { id: 1, category: "Ноутбуки" },
-        { id: 2, category: "Смартфоны" },
-        { id: 3, category: "Видеокарты" },
+        { id: 1, category: "Столы" },
+        { id: 2, category: "Стулья" },
+        { id: 3, category: "Пуфики" },
       ],
       brands: [
         {
@@ -279,7 +253,7 @@ export default {
       selectCategory: 0,
       selectBrand: 0,
       minPrice: 0,
-      maxPrice: 0,
+      maxPrice: 100000,
       selectSort: "good_id:asc",
     };
   },
@@ -366,6 +340,9 @@ export default {
 };
 </script>
 <style lang="scss" scaped>
+.product-card {
+    flex: 0 0 23%;
+}
 .product-card-buy {
   &-count {
     margin: 0;
